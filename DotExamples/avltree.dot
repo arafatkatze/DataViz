@@ -1,6 +1,16 @@
-
 digraph graphname{
+                bgcolor=grey99;
+                a[color=orange1, style=filled, fillcolor = orange1, fontcolor=white];
+                b[color=orange1, style=filled, fillcolor = orange1, fontcolor=white];
+                c[color=orange1, style=filled, fillcolor = orange1, fontcolor=white];
+                d[color=orange1, style=filled, fillcolor = orange1, fontcolor=white];
+                e[color=orange1, style=filled, fillcolor = orange1, fontcolor=white];
+                f[color=orange1, style=filled, fillcolor = orange1, fontcolor=white];
+                g[color=orange1, style=filled, fillcolor = orange1, fontcolor=white];
                 a -> b;
-                b -> c;
+                b -> e;
+                b -> d;
+                c -> f;
+                c -> g;
                 a -> c;
         }

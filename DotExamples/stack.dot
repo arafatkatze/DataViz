@@ -1,20 +1,19 @@
-digraph {
-    graph [pad="0.5", nodesep="0.5", ranksep="2", bgcolor=red];
-    node [shape=plain]
-    rankdir=LR;
-fillcolor=red;
-
-
-Foo [label=<
-<table border="0" cellborder="1" cellspacing="0">
-  <tr><td><i>Input Foo</i></td></tr>
-  <tr><td port="1">123</td></tr>
-  <tr><td port="2">two</td></tr>
-  <tr><td port="3">three</td></tr>
-  <tr><td port="4">four</td></tr>
-  <tr><td port="5">five</td></tr>
-  <tr><td port="6">six</td></tr>
-</table>>];
-
-
+digraph G {
+	bgcolor=grey99;
+	subgraph cluster_0 {
+		style=filled;
+		color=royalblue;
+    a0[fillcolor=lightpink,color=lightpink, style=filled, shape="square"];
+    a1[fillcolor=lightpink,color=lightpink, style=filled, shape="square"];
+    a2[fillcolor=lightpink,color=lightpink, style=filled, shape="square"];
+    3242[fillcolor=lightpink,color=lightpink, style=filled, shape="square"];
+		node [style=filled,color=white, shape="rect"];
+		a0->a1->a2->3242[color=royalblue];
+	}
+	top[color=orange];
+	push[color=lightpink];
+	pop[color=lightpink];
+  top->a0[color=indianred1];
+  a0->pop[color=indianred1];
+  push->a0[color=indianred1];
 }
