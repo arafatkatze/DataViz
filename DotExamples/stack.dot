@@ -1,13 +1,8 @@
-digraph G {
-	bgcolor=grey99;
-	subgraph cluster_0 {
-		style=filled;
-		color=royalblue;
-    a0[fillcolor=lightpink,color=lightpink, style=filled, shape="square"];
+digraph G {bgcolor=grey99;subgraph cluster_0 {style=filled;color=royalblue;node [style=filled,color=white, shape="rect"];
+    a0[fillcolor=lightpink,color=lightpink, style=filled, shape="square",label="train"];
     a1[fillcolor=lightpink,color=lightpink, style=filled, shape="square"];
     a2[fillcolor=lightpink,color=lightpink, style=filled, shape="square"];
     3242[fillcolor=lightpink,color=lightpink, style=filled, shape="square"];
-		node [style=filled,color=white, shape="rect"];
 		a0->a1->a2->3242[color=royalblue];
 	}
 	top[color=orange];

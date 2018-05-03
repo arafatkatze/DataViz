@@ -11,6 +11,11 @@ package arraystack
 
 import (
 	"fmt"
+	"io/ioutil"
+	"os"
+	"os/exec"
+	"reflect"
+	"strconv"
 	"strings"
 
 	"github.com/emirpasic/gods/lists/arraylist"
@@ -76,13 +81,51 @@ func (stack *Stack) Values() []interface{} {
 }
 
 // Visualizer returns all elements in the stack (LIFO order).
-func (stack *Stack) Visualizer() []interface{} {
+func (stack *Stack) Visualizer(fileName string) (ok bool) {
 	size := stack.list.Size()
+	if size == 0 {
+		return false
+	}
 	elements := make([]interface{}, size, size)
 	for i := 1; i <= size; i++ {
 		elements[size-i], _ = stack.list.Get(i - 1) // in reverse (LIFO)
 	}
-	return elements
+	dotFileString := "digraph G {bgcolor=grey99;subgraph cluster_0 {style=filled;color=royalblue;node [style=filled,color=white, shape=rect];"
+	for i := 1; i <= size; i++ {
+		dotFileString = dotFileString + strconv.Itoa(i)
+		dotFileString += "[fillcolor=lightpink,color=lightpink, style=filled, shape=square,label="
+		switch reflect.TypeOf(elements[i-1]).Kind() {
+		// Simple types
+		case reflect.Bool:
+			if elements[i-1].(bool) == true {
+				dotFileString += "True"
+			} else {
+				dotFileString += "False"
+			}
+		case reflect.String:
+			dotFileString += elements[i-1].(string)
+		case reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64, reflect.Int:
+			dotFileString = dotFileString + strconv.Itoa(elements[i-1].(int))
+		case reflect.Uint8, reflect.Uint16, reflect.Uint32, reflect.Uint64, reflect.Uint:
+			dotFileString = dotFileString + strconv.FormatUint(elements[i-1].(uint64), 10)
+		// If we've missed anything then just fmt.Sprint it
+		default:
+			return false
+		}
+		dotFileString += "];"
+	}
+	for i := 1; i < size; i++ {
+		dotFileString += (strconv.Itoa(i) + "->")
+	}
+	dotFileString += (strconv.Itoa(size) + "[color=royalblue];}top[color=orange];push[color=lightpink];pop[color=lightpink];top->1[color=indianred1];1->pop[color=indianred1];push->1[color=indianred1];}")
+	byteString := []byte(dotFileString)
+	tmpFile, _ := ioutil.TempFile("", "TemporaryDotFile")
+	tmpFile.Write(byteString)
+	dotPath, _ := exec.LookPath("dot")
+	dotCommandResult, _ := exec.Command(dotPath, "-Tpng", tmpFile.Name()).Output()
+	ioutil.WriteFile(fileName, dotCommandResult, os.FileMode(int(0777)))
+	fmt.Println(dotFileString)
+	return true
 }
 
 // String returns a string representation of container

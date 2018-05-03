@@ -1,18 +1,18 @@
 package main
 
 import (
-	"io/ioutil"
-	"os"
-	"os/exec"
+	"fmt"
+
+	st "github.com/Arafatk/dataviz/stacks/arraystack"
 )
 
 func main() {
-	ontent := []byte("digraph graphname{a -> b;b -> c;a -> c;}")
-	tmpfile, _ := ioutil.TempFile("", "example")
-	tmpfile.Write(ontent)
-	path, _ := exec.LookPath("dot")
-	cmd, _ := exec.Command(path, "-Tpng", tmpfile.Name()).Output()
-	mode := int(0777)
-	ioutil.WriteFile("outimg.png", cmd, os.FileMode(mode))
+
+	stack := st.New()
+	stack.Push(1)
+	stack.Push(2)
+	stack.Push(3)
+	stack.Push("value")
+	fmt.Println(stack.Visualizer("out.png"))
 
 }
