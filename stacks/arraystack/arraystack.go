@@ -11,9 +11,10 @@ package arraystack
 
 import (
 	"fmt"
+	"strings"
+
 	"github.com/emirpasic/gods/lists/arraylist"
 	"github.com/emirpasic/gods/stacks"
-	"strings"
 )
 
 func assertStackImplementation() {
@@ -66,6 +67,16 @@ func (stack *Stack) Clear() {
 
 // Values returns all elements in the stack (LIFO order).
 func (stack *Stack) Values() []interface{} {
+	size := stack.list.Size()
+	elements := make([]interface{}, size, size)
+	for i := 1; i <= size; i++ {
+		elements[size-i], _ = stack.list.Get(i - 1) // in reverse (LIFO)
+	}
+	return elements
+}
+
+// Visualizer returns all elements in the stack (LIFO order).
+func (stack *Stack) Visualizer() []interface{} {
 	size := stack.list.Size()
 	elements := make([]interface{}, size, size)
 	for i := 1; i <= size; i++ {

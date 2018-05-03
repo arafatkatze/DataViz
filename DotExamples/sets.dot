@@ -1,0 +1,9 @@
+digraph graphname{
+                a[color=red, style=filled, fillcolor = black, fontcolor=white];
+                a -> b;
+                b -> e;
+                b -> d;
+                c -> f;
+                c -> g;
+                a -> c;
+        }
