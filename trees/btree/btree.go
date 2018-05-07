@@ -138,6 +138,12 @@ func (tree *Tree) Values() []interface{} {
 	}
 	return values
 }
+func min(x, y int) int {
+	if x < y {
+		return x
+	}
+	return y
+}
 
 // Visualizer returns all values in the b-tree.
 func (tree *Tree) Visualizer() bool {
@@ -146,17 +152,21 @@ func (tree *Tree) Visualizer() bool {
 	nodeIndexCount := 0
 	subGraphNumber := 0
 	m := make(map[interface{}]int)
-
+	KeyNodeMap := make(map[interface{}]int)
 	for i := 0; it.Next(); i++ {
 		node := it.CurrentNode()
 		Entries := node.Entries
-		_, ok := m[node.Entries]
+		ok := false
+		for j := 0; j < len(node.Entries); j++ {
+			_, ok = m[node.Entries[j]]
+			if ok {
+				break
+			}
+			m[node.Entries[j]] = 1
+		}
 		if ok {
 			continue
-
 		}
-		m[node.Entries] = 1
-
 		dotString += "subgraph cluster_" + strconv.Itoa(subGraphNumber) + "{style=filled;color=plum;node [style=filled,color=white, shape=\"Msquare\"];"
 		subGraphNumber++
 		stringValues := []string{}
@@ -166,9 +176,35 @@ func (tree *Tree) Visualizer() bool {
 		for j := 0; j < nodeEntrySize; j++ {
 			stringValues = append(stringValues, fmt.Sprintf("%v", Entries[j].Key))
 			dotString += strconv.Itoa(nodeIndexCount) + "[label=\"" + stringValues[len(stringValues)-1] + "\"];"
+			KeyNodeMap[Entries[j].Key] = nodeIndexCount
 			nodeIndexCount++
 		}
 		dotString += "};"
+	}
+	it = tree.Iterator()
+	m = make(map[interface{}]int)
+	for i := 0; it.Next(); i++ {
+
+		node := it.CurrentNode()
+
+		ok := false
+		for j := 0; j < len(node.Entries); j++ {
+			_, ok = m[node.Entries[j]]
+			if ok {
+				break
+			}
+			m[node.Entries[j]] = 1
+		}
+		if ok {
+			continue
+		}
+
+		for j := 0; j < min(len(node.Children), len(node.Entries)); j++ {
+			dotString += strconv.Itoa(KeyNodeMap[node.Entries[j].Key]) + "->" + strconv.Itoa(KeyNodeMap[node.Children[j].Entries[0].Key]) + ";"
+		}
+		if len(node.Children) > len(node.Entries) {
+			dotString += strconv.Itoa(KeyNodeMap[node.Entries[len(node.Entries)-1].Key]) + "->" + strconv.Itoa(KeyNodeMap[node.Children[len(node.Children)-1].Entries[0].Key]) + ";"
+		}
 	}
 	dotString += "}"
 	fmt.Println(dotString)

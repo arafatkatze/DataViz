@@ -230,7 +230,7 @@ func (t *Tree) Visualizer() bool {
 	for i := 0; it.Next(); i++ {
 		stringValues = append(stringValues, fmt.Sprintf("%v", it.Key()))
 		stringValues = append(stringValues, fmt.Sprintf("%v", it.Value()))
-		dotString += (strconv.Itoa(KeyIntMap[it.Key()]) + "[color=steelblue1, style=filled, fillcolor = steelblue1, fontcolor=white,label=\"" + stringValues[len(stringValues)-2] + "->" + stringValues[len(stringValues)-1] + "\"];")
+		dotString += (strconv.Itoa(KeyIntMap[it.Key()]) + "[color=orange1, style=filled, fillcolor = orange1, fontcolor=white,label=\"" + stringValues[len(stringValues)-2] + "->" + stringValues[len(stringValues)-1] + "\"];")
 	}
 	dotString += "}"
 

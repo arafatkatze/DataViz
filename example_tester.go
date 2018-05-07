@@ -3,21 +3,18 @@ package main
 import (
 	"fmt"
 
-	btree "github.com/Arafatk/dataviz/trees/avltree"
+	btree "github.com/Arafatk/dataviz/trees/btree"
 )
 
 func main() {
-	tree := btree.NewWithIntComparator() // empty (keys are of type int)
-	tree.Put(7, "g")
-	tree.Put(9, "i")
-	tree.Put(10, "j")
-	tree.Put(6, "f")
+	tree := btree.NewWithIntComparator(3)
+	tree.Put(1, "a")
+	tree.Put(2, "b")
 	tree.Put(3, "c")
 	tree.Put(4, "d")
 	tree.Put(5, "e")
-	tree.Put(8, "h")
-	tree.Put(2, "b")
-	tree.Put(1, "a")
+	tree.Put(6, "f")
+	tree.Put(7, "g")
 
 	//fmt.Println(tree)
 	// BTree
