@@ -4,7 +4,7 @@ digraph G {
 		style=filled;
 		color=plum;
 		node [style=filled,color=white, shape="Msquare"];
-		a0;
+		a0[label="g->h"];
 		a1;
 		a2;
 		a3;

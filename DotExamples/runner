@@ -10,3 +10,5 @@ dot -Tpng queue.dot > queue.png
 dot -Tpng redblacktree.dot > redblacktree.png
 dot -Tpng sets.dot > sets.png
 dot -Tpng stack.dot > stack.png
+
+dot -Tpng Matplotlib.dot > Matplotlib.png

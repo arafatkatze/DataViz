@@ -1,0 +1,28 @@
+digraph graphname{
+                bgcolor=white;
+                "1. Object to be plotted are " -> "2.Narray, Ruby Array, Daru Dataframe etc"
+                "2.Narray, Ruby Array, Daru Dataframe etc" -> "3.Helper functions to transform the object data to a format that fit for plotting. ie. Data obtained after all transformations"
+                "3.Helper functions to transform the object data to a format that fit for plotting. ie. Data obtained after all transformations" -> "4.We pass transformed data to Standard draw functions that draw on a canvas using drawing libraries"
+                "4.We pass transformed data to Standard draw functions that draw on a canvas using drawing libraries" -> "5.Libraries that can be used"
+
+
+	subgraph cluster_0 {
+  label="Artist Layer";
+               "5.Libraries that can be used" ->  " GR Framework", "RMAgick"
+               " GR Framework", "RMAgick" ->  "6.figure canvas - An empty paper where we draw all kinds of plots";
+        }
+        "6.figure canvas - An empty paper where we draw all kinds of plots" -> "7.Once the plots are drawn on the figure canvas we need to show them in a customizable GUI"
+
+        subgraph cluster_1 {
+        label="Rendering GUI";
+                      "7.Once the plots are drawn on the figure canvas we need to show them in a customizable GUI" -> "8.Libraries that can be used "
+                     "8.Libraries that can be used " ->  "GTK", "QT"
+                     "7.Once the plots are drawn on the figure canvas we need to show them in a customizable GUI" -> "9.Possible plotting types"
+                      "9.Possible plotting types" -> "Static", "Animations"
+                      "7.Once the plots are drawn on the figure canvas we need to show them in a customizable GUI"  -> "10. Events API to handle GUI customization"
+
+              }
+
+              "10. Events API to handle GUI customization" ->   "4.We pass transformed data to Standard draw functions that draw on a canvas using drawing libraries"
+
+}

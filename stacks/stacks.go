@@ -1,6 +1,6 @@
-// Copyright (c) 2015, Emir Pasic. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+
+
+
 
 // Package stacks provides an abstract Stack interface.
 //
@@ -9,7 +9,7 @@
 // Reference: https://en.wikipedia.org/wiki/Stack_%28abstract_data_type%29
 package stacks
 
-import "github.com/emirpasic/gods/containers"
+import "github.com/Arafatk/dataviz/containers"
 
 // Stack interface that all stacks implement
 type Stack interface {
