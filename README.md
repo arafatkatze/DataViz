@@ -3,7 +3,7 @@
 # DataViz
 Build and visualize data structures in Golang. Inspired by the ideas from [memviz](https://github.com/bradleyjkemp/memviz) and [Gods](https://github.com/emirpasic/gods) this library
 helps user to play around with standard data structures while also giving them the tools to build their own data structures and visualization options....     
-[![Graphviz logo](https://upload.wikimedia.org/wikipedia/en/4/48/GraphvizLogo.png)]
+![Graphviz logo](https://upload.wikimedia.org/wikipedia/en/4/48/GraphvizLogo.png)
 
 ## Data Structures
 
@@ -60,6 +60,14 @@ Documentation is available at [godoc](https://godoc.org/github.com/Arafatk/datav
 ## Usage and Examples  
 We have a blog post explaining our vision and covering some basic usage of the `dataviz` library. [Check it out here](https://medium.com/@Arafat./introducing-dataviz-a-data-structure-visualization-library-for-golang-f6e60663bc9d).
 
+- **Binary Heap**      
+    ![Heap](https://cdn-images-1.medium.com/max/873/1*GAT5IoOx_2hnH6maI3AG_w.gif)
+- **Stack**      
+    ![Stack](https://cdn-images-1.medium.com/max/873/1*6EBSwJr_AEMLBegUDKSdXQ.gif)
+- **B Tree**       
+    ![B Tree](https://cdn-images-1.medium.com/max/873/1*rRgbnVvRUhA_721Fyqw_YA.gif)
+- **Red Black Tree**       
+    ![RBT](https://cdn-images-1.medium.com/max/873/1*Gn6rTEjD8J6hRHIgz3Y4ng.gif)
 
 ## Contributing
 We really encourage developers coming in, finding a bug or requesting a new feature. Want to tell us about the feature you just implemented, just raise a pull request and we'll be happy to go through it. Please read the CONTRIBUTING and CODE_OF_CONDUCT file.
