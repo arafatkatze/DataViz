@@ -62,6 +62,5 @@ func WriteDotStringToPng(fileName string, dotFileString string) (ok bool) {
 		return false
 	}
 	ioutil.WriteFile(fileName, dotCommandResult, os.FileMode(int(0777)))
-	fmt.Println(dotFileString)
 	return true
 }

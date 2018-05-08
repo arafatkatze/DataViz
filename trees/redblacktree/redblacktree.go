@@ -312,16 +312,16 @@ func (tree *Tree) Visualizer(fileName string) bool {
 		NodeIndex++
 		colorArray = append(colorArray, it.NodeColor())
 	}
-	NilNodes := NodeIndex // The nil leaf nodes of a node
+	NilNodes := NodeIndex // The nil leaf nodes of the tree
 	it = tree.Iterator()
 	for i := 0; it.Next(); i++ { // Making all node connections
-		if it.node.Left != nil {
+		if it.node.Left != nil { // Left Child
 			dotString += (strconv.Itoa(it.node.nodeIndex) + " -> " + strconv.Itoa(it.node.Left.nodeIndex) + ";")
 		} else {
 			dotString += (strconv.Itoa(it.node.nodeIndex) + " -> " + strconv.Itoa(NilNodes) + ";")
 			NilNodes++
 		}
-		if it.node.Right != nil {
+		if it.node.Right != nil { // Right Child
 			dotString += (strconv.Itoa(it.node.nodeIndex) + " -> " + strconv.Itoa(it.node.Right.nodeIndex) + ";")
 		} else {
 			dotString += (strconv.Itoa(it.node.nodeIndex) + " -> " + strconv.Itoa(NilNodes) + ";")
@@ -329,15 +329,16 @@ func (tree *Tree) Visualizer(fileName string) bool {
 		}
 	}
 	stringValues := []string{} // Putting all the elements of a stack to a string array.
-	for _, value := range tree.Values() {
-		stringValues = append(stringValues, fmt.Sprintf("%v", value))
-	}
+	values := tree.Values()
+	Keys := tree.Keys()
 
-	for i := 0; i < NodeIndex; i++ { // Labeling individual nodes with colors
+	for i := 0; i < NodeIndex; i++ { // Labeling individual nodes with colors and adding data labels
+		stringValues = append(stringValues, fmt.Sprintf("%v", Keys[i]))
+		stringValues = append(stringValues, fmt.Sprintf("%v", values[i]))
 		if colorArray[i] {
-			dotString += (strconv.Itoa(i) + "[color=black, style=filled, fillcolor = black, fontcolor=white,label=" + stringValues[i] + "];")
+			dotString += (strconv.Itoa(i) + "[color=black, style=filled, fillcolor = black, fontcolor=white,label=\"" + stringValues[len(stringValues)-2] + "->" + stringValues[len(stringValues)-1] + "\"];")
 		} else {
-			dotString += (strconv.Itoa(i) + "[color=red, style=filled, fillcolor = red, fontcolor=white,label=" + stringValues[i] + "];")
+			dotString += (strconv.Itoa(i) + "[color=red, style=filled, fillcolor = red, fontcolor=white,label=\"" + stringValues[len(stringValues)-2] + "->" + stringValues[len(stringValues)-1] + "\"];")
 
 		}
 	}
@@ -345,7 +346,7 @@ func (tree *Tree) Visualizer(fileName string) bool {
 	for i := NodeIndex; i < NilNodes; i++ { // Adding labels for nil nodes
 		dotString += (strconv.Itoa(i) + "[color=coral, style=\"rounded,filled\", shape=box, fillcolor = coral, fontcolor=white,label=Nil];")
 	}
-	dotString += "}"
+	dotString += "}" // Finishing the DotString
 	return utils.WriteDotStringToPng(fileName, dotString)
 }
 
