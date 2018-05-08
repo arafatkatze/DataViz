@@ -2,7 +2,7 @@ package doublylinkedlist
 
 import (
 	"fmt"
-	"github.com/Arafatk/dataviz/utils"
+	"github.com/arafatk/dataviz/utils"
 	"testing"
 )
 

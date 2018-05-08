@@ -10,9 +10,9 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/Arafatk/dataviz/lists/arraylist"
-	"github.com/Arafatk/dataviz/stacks"
-	utils "github.com/Arafatk/dataviz/utils"
+	"github.com/arafatk/dataviz/lists/arraylist"
+	"github.com/arafatk/dataviz/stacks"
+	utils "github.com/arafatk/dataviz/utils"
 )
 
 func assertStackImplementation() {

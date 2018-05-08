@@ -9,7 +9,7 @@
 // Serialization provides serializers (marshalers) and deserializers (unmarshalers).
 package containers
 
-import "github.com/Arafatk/dataviz/utils"
+import "github.com/arafatk/dataviz/utils"
 
 // Container is base interface that all data structures implement.
 type Container interface {

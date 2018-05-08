@@ -5,7 +5,7 @@
 // Reference: https://en.wikipedia.org/wiki/Tree_%28data_structure%29
 package trees
 
-import "github.com/Arafatk/dataviz/containers"
+import "github.com/arafatk/dataviz/containers"
 
 // Tree interface that all trees implement
 type Tree interface {

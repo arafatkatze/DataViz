@@ -3,7 +3,7 @@ package arraylist
 import (
 	"encoding/json"
 
-	"github.com/Arafatk/dataviz/containers"
+	"github.com/arafatk/dataviz/containers"
 )
 
 func assertSerializationImplementation() {

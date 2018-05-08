@@ -11,7 +11,7 @@
 // Reference: https://en.wikipedia.org/wiki/Associative_array
 package maps
 
-import "github.com/Arafatk/dataviz/containers"
+import "github.com/arafatk/dataviz/containers"
 
 // Map interface that all maps implement
 type Map interface {

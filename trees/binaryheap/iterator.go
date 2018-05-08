@@ -1,6 +1,6 @@
 package binaryheap
 
-import "github.com/Arafatk/dataviz/containers"
+import "github.com/arafatk/dataviz/containers"
 
 func assertIteratorImplementation() {
 	var _ containers.ReverseIteratorWithIndex = (*Iterator)(nil)

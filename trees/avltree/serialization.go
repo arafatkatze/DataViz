@@ -2,8 +2,8 @@ package avltree
 
 import (
 	"encoding/json"
-	"github.com/Arafatk/dataviz/containers"
-	"github.com/Arafatk/dataviz/utils"
+	"github.com/arafatk/dataviz/containers"
+	"github.com/arafatk/dataviz/utils"
 )
 
 func assertSerializationImplementation() {

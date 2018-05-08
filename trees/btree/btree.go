@@ -18,8 +18,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/Arafatk/dataviz/trees"
-	"github.com/Arafatk/dataviz/utils"
+	"github.com/arafatk/dataviz/trees"
+	"github.com/arafatk/dataviz/utils"
 )
 
 func assertTreeImplementation() {

@@ -7,8 +7,8 @@ package singlylinkedlist
 
 import (
 	"fmt"
-	"github.com/Arafatk/dataviz/lists"
-	"github.com/Arafatk/dataviz/utils"
+	"github.com/arafatk/dataviz/lists"
+	"github.com/arafatk/dataviz/utils"
 	"strings"
 )
 

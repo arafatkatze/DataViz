@@ -1,6 +1,6 @@
 package avltree
 
-import "github.com/Arafatk/dataviz/containers"
+import "github.com/arafatk/dataviz/containers"
 
 func assertIteratorImplementation() {
 	var _ containers.ReverseIteratorWithKey = (*Iterator)(nil)
