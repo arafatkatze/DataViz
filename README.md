@@ -6,38 +6,38 @@ helps user to play around with standard data structures while also giving them t
 
 ## Data Structures
 
-- [Containers](#containers)
-  - [Lists](#lists)
-    - [ArrayList](#arraylist)
-    - [SinglyLinkedList](#singlylinkedlist)
-    - [DoublyLinkedList](#doublylinkedlist)
-  - [Stacks](#stacks)
-    - [ArrayStack](#arraystack)
-  - [Maps](#maps)
-    - [TreeMap](#treemap)
-  - [Trees](#trees)
-    - [RedBlackTree](#redblacktree)
-    - [AVLTree](#avltree)
-    - [BTree](#btree)
-    - [BinaryHeap](#binaryheap)
-- [Functions](#functions)
-    - [Comparator](#comparator)
-    - [Iterator](#iterator)
-      - [IteratorWithIndex](#iteratorwithindex)
-      - [IteratorWithKey](#iteratorwithkey)
-      - [ReverseIteratorWithIndex](#reverseiteratorwithindex)
-      - [ReverseIteratorWithKey](#reverseiteratorwithkey)
-    - [Enumerable](#enumerable)
-      - [EnumerableWithIndex](#enumerablewithindex)
-      - [EnumerableWithKey](#enumerablewithkey)
-    - [Serialization](#serialization)
-      - [JSONSerializer](#jsonserializer)
-      - [JSONDeserializer](#jsondeserializer)
-    - [Sort](#sort)
-    - [Container](#container)
-    - [Visualizer](#Visualizer)
-    
-    
+- Containers
+  - Lists
+    - ArrayList
+    - SinglyLinkedList
+    - DoublyLinkedList
+  - Stacks
+    - ArrayStack
+  - Maps
+    - TreeMap
+  - Trees
+    - RedBlackTree
+    - AVLTree
+    - BTree
+    - BinaryHeap
+- Functions
+    - Comparator
+    - Iterator
+      - IteratorWithIndex
+      - IteratorWithKey
+      - ReverseIteratorWithIndex
+      - ReverseIteratorWithKey
+    - Enumerable
+      - EnumerableWithIndex
+      - EnumerableWithKey
+    - Serialization
+      - JSONSerializer
+      - JSONDeserializer
+    - Sort
+    - Container
+    - Visualizer
+
+
 ## Documentation
 Documentation is available at [godoc](https://godoc.org/github.com/Arafatk/dataviz).      
 
@@ -46,10 +46,10 @@ Documentation is available at [godoc](https://godoc.org/github.com/Arafatk/datav
     - build graphviz from [source](https://www.graphviz.org/download/)
     - linux users
        -  ```sudo apt-get update```
-       -  ```sudo apt install python-pydot python-pydot-ng graphviz``` 
+       -  ```sudo apt install python-pydot python-pydot-ng graphviz```
     - mac users ([Link](http://macappstore.org/graphviz-2/))
        -  install homebrew
-       -  ```brew cask install graphviz``` 
+       -  ```brew cask install graphviz```
 
 
 ## Installation     
