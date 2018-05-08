@@ -2,8 +2,8 @@ package btree
 
 import (
 	"encoding/json"
-	"github.com/arafatk/dataviz/containers"
-	"github.com/arafatk/dataviz/utils"
+	"github.com/Arafatk/Dataviz/containers"
+	"github.com/Arafatk/Dataviz/utils"
 )
 
 func assertSerializationImplementation() {

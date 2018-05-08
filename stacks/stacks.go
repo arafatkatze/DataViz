@@ -5,7 +5,7 @@
 // Reference: https://en.wikipedia.org/wiki/Stack_%28abstract_data_type%29
 package stacks
 
-import "github.com/arafatk/dataviz/containers"
+import "github.com/Arafatk/Dataviz/containers"
 
 // Stack interface that all stacks implement
 type Stack interface {

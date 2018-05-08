@@ -1,8 +1,8 @@
 package treemap
 
 import (
-	"github.com/arafatk/dataviz/containers"
-	rbt "github.com/arafatk/dataviz/trees/redblacktree"
+	"github.com/Arafatk/Dataviz/containers"
+	rbt "github.com/Arafatk/Dataviz/trees/redblacktree"
 )
 
 func assertEnumerableImplementation() {

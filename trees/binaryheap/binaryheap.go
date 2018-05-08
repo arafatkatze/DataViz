@@ -12,9 +12,9 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/arafatk/dataviz/lists/arraylist"
-	"github.com/arafatk/dataviz/trees"
-	"github.com/arafatk/dataviz/utils"
+	"github.com/Arafatk/Dataviz/lists/arraylist"
+	"github.com/Arafatk/Dataviz/trees"
+	"github.com/Arafatk/Dataviz/utils"
 )
 
 func assertTreeImplementation() {

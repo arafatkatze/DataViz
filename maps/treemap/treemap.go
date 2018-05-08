@@ -11,9 +11,9 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/arafatk/dataviz/maps"
-	rbt "github.com/arafatk/dataviz/trees/redblacktree"
-	"github.com/arafatk/dataviz/utils"
+	"github.com/Arafatk/Dataviz/maps"
+	rbt "github.com/Arafatk/Dataviz/trees/redblacktree"
+	"github.com/Arafatk/Dataviz/utils"
 )
 
 func assertMapImplementation() {

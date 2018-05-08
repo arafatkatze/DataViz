@@ -1,6 +1,6 @@
 package arraystack
 
-import "github.com/arafatk/dataviz/containers"
+import "github.com/Arafatk/Dataviz/containers"
 
 func assertSerializationImplementation() {
 	var _ containers.JSONSerializer = (*Stack)(nil)

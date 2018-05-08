@@ -11,8 +11,8 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/arafatk/dataviz/trees"
-	"github.com/arafatk/dataviz/utils"
+	"github.com/Arafatk/Dataviz/trees"
+	"github.com/Arafatk/Dataviz/utils"
 )
 
 func assertTreeImplementation() {

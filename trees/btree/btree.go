@@ -18,8 +18,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/arafatk/dataviz/trees"
-	"github.com/arafatk/dataviz/utils"
+	"github.com/Arafatk/Dataviz/trees"
+	"github.com/Arafatk/Dataviz/utils"
 )
 
 func assertTreeImplementation() {
@@ -170,7 +170,8 @@ func (tree *Tree) Visualizer(fileName string) bool {
 		nodeEntrySize := len(Entries)
 		for j := 0; j < nodeEntrySize; j++ {
 			stringValues = append(stringValues, fmt.Sprintf("%v", Entries[j].Key))
-			dotString += strconv.Itoa(nodeIndexCount) + "[label=\"" + stringValues[len(stringValues)-1] + "\"];"
+			stringValues = append(stringValues, fmt.Sprintf("%v", Entries[j].Value))
+			dotString += strconv.Itoa(nodeIndexCount) + "[label=\"" + stringValues[len(stringValues)-2] + "->" + stringValues[len(stringValues)-1] + "\"];"
 			KeyNodeMap[Entries[j].Key] = nodeIndexCount
 			nodeIndexCount++
 		}

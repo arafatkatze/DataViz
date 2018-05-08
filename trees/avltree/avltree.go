@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/arafatk/dataviz/utils"
+	"github.com/Arafatk/Dataviz/utils"
 	"github.com/emirpasic/gods/trees"
 )
 
