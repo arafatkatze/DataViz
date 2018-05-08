@@ -9,10 +9,11 @@ package treemap
 
 import (
 	"fmt"
+	"strings"
+
 	"github.com/Arafatk/dataviz/maps"
 	rbt "github.com/Arafatk/dataviz/trees/redblacktree"
 	"github.com/Arafatk/dataviz/utils"
-	"strings"
 )
 
 func assertMapImplementation() {
@@ -110,4 +111,10 @@ func (m *Map) String() string {
 	}
 	return strings.TrimRight(str, " ") + "]"
 
+}
+
+// Visualizer makes a visual image demonstrating the data structure
+func (m *Map) Visualizer(fileName string) bool {
+	tree := m.tree
+	return tree.Visualizer(fileName)
 }

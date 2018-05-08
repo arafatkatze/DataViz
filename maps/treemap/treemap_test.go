@@ -1,7 +1,3 @@
-
-
-
-
 package treemap
 
 import (

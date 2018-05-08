@@ -1,7 +1,3 @@
-
-
-
-
 // Package hashmap implements a map backed by a hash table.
 //
 // Elements are unordered in the map.
@@ -13,6 +9,7 @@ package hashmap
 
 import (
 	"fmt"
+
 	"github.com/Arafatk/dataviz/maps"
 )
 
@@ -89,4 +86,8 @@ func (m *Map) String() string {
 	str := "HashMap\n"
 	str += fmt.Sprintf("%v", m.m)
 	return str
+}
+
+// Visualizer makes a visual image demonstrating the data structure
+func (m *Map) Visualizer(fileName string) bool {
 }

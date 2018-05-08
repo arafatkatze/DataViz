@@ -1,7 +1,3 @@
-
-
-
-
 package hashmap
 
 import (
