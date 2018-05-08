@@ -1,7 +1,3 @@
-
-
-
-
 package doublylinkedlist
 
 import "github.com/Arafatk/dataviz/containers"

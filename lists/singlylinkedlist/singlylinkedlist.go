@@ -1,7 +1,3 @@
-
-
-
-
 // Package singlylinkedlist implements the singly-linked list.
 //
 // Structure is not thread safe.
@@ -155,7 +151,7 @@ func (list *List) Values() []interface{} {
 }
 
 //IndexOf returns index of provided element
-func (list *List) IndexOf(value interface{}) int{
+func (list *List) IndexOf(value interface{}) int {
 	if list.size == 0 {
 		return -1
 	}
@@ -166,6 +162,7 @@ func (list *List) IndexOf(value interface{}) int{
 	}
 	return -1
 }
+
 // Empty returns true if list does not contain any elements.
 func (list *List) Empty() bool {
 	return list.size == 0

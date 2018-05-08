@@ -1,14 +1,10 @@
-// Copyright (c) 2015, Emir Pasic. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
 package arraylist
 
 import (
 	"fmt"
 	"testing"
 
-	"github.com/emirpasic/gods/utils"
+	"github.com/Arafatk/dataviz/utils"
 )
 
 func TestListAdd(t *testing.T) {
@@ -30,26 +26,26 @@ func TestListIndexOf(t *testing.T) {
 	list := New()
 
 	expectedIndex := -1
-	if index  := list.IndexOf("a"); index != expectedIndex{
-		t.Errorf("Got %v expected %v",index,expectedIndex)
+	if index := list.IndexOf("a"); index != expectedIndex {
+		t.Errorf("Got %v expected %v", index, expectedIndex)
 	}
 
 	list.Add("a")
 	list.Add("b", "c")
 
 	expectedIndex = 0
-	if index  := list.IndexOf("a"); index != expectedIndex{
-		t.Errorf("Got %v expected %v",index,expectedIndex)
+	if index := list.IndexOf("a"); index != expectedIndex {
+		t.Errorf("Got %v expected %v", index, expectedIndex)
 	}
 
 	expectedIndex = 1
-	if index  := list.IndexOf("b"); index != expectedIndex{
-		t.Errorf("Got %v expected %v",index,expectedIndex)
+	if index := list.IndexOf("b"); index != expectedIndex {
+		t.Errorf("Got %v expected %v", index, expectedIndex)
 	}
 
 	expectedIndex = 2
-	if index  := list.IndexOf("c"); index != expectedIndex{
-		t.Errorf("Got %v expected %v",index,expectedIndex)
+	if index := list.IndexOf("c"); index != expectedIndex {
+		t.Errorf("Got %v expected %v", index, expectedIndex)
 	}
 }
 

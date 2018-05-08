@@ -1,7 +1,3 @@
-// Copyright (c) 2015, Emir Pasic. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
 // Package arraylist implements the array list.
 //
 // Structure is not thread safe.
@@ -11,13 +7,10 @@ package arraylist
 
 import (
 	"fmt"
-	"io/ioutil"
-	"os"
-	"os/exec"
 	"strings"
 
-	"github.com/emirpasic/gods/lists"
-	"github.com/emirpasic/gods/utils"
+	"github.com/Arafatk/dataviz/lists"
+	"github.com/Arafatk/dataviz/utils"
 )
 
 func assertListImplementation() {
@@ -204,8 +197,10 @@ func (list *List) growBy(n int) {
 	}
 }
 
-// Expand the array if necessary, i.e. capacity will be reached if we add n elements
-func (list *List) Visualizer() bool {
+// Visualizer makes a visual image demonstrating the list data structure
+// using dot language and Graphviz. It first producs a dot string corresponding
+// to the list and then runs graphviz to output the resulting image to a file.
+func (list *List) Visualizer(fileName string) (ok bool) {
 	values := []string{}
 	dotString := "digraph graphname{bgcolor=white;subgraph cluster_0 {style=filled;color=lightgrey;node [style=filled,color=white, shape=\"Msquare\"];"
 	for _, value := range list.elements[:list.size] {
@@ -213,22 +208,7 @@ func (list *List) Visualizer() bool {
 		dotString += values[len(values)-1] + ";"
 	}
 	dotString += "}}"
-	byteString := []byte(dotString) // Converting the string to byte slice to write to a file
-	tmpFile, _ := ioutil.TempFile("", "TemporaryDotFile")
-	tmpFile.Write(byteString)            // Writing the string to a temporary file
-	dotPath, err := exec.LookPath("dot") // Looking for dot command
-	if err != nil {
-		fmt.Println("Error: Running the Visualizer command. Please install Graphviz")
-		return false
-	}
-	dotCommandResult, err := exec.Command(dotPath, "-Tpng", tmpFile.Name()).Output() // Running the command
-	if err != nil {
-		fmt.Println("Error: Running the Visualizer command. Please install Graphviz")
-		return false
-	}
-	ioutil.WriteFile("out.png", dotCommandResult, os.FileMode(int(0777)))
-
-	return true
+	return utils.WriteDotStringToPng(fileName, dotString)
 }
 
 // Shrink the array if necessary, i.e. when size is shrinkFactor percent of current capacity
