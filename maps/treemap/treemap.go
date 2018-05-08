@@ -1,7 +1,3 @@
-
-
-
-
 // Package treemap implements a map backed by red-black tree.
 //
 // Elements are ordered by key in the map.

@@ -1,7 +1,3 @@
-
-
-
-
 // Package doublylinkedlist implements the doubly-linked list.
 //
 // Structure is not thread safe.
@@ -11,9 +7,13 @@ package doublylinkedlist
 
 import (
 	"fmt"
+	"io/ioutil"
+	"os"
+	"os/exec"
+	"strings"
+
 	"github.com/Arafatk/dataviz/lists"
 	"github.com/Arafatk/dataviz/utils"
-	"strings"
 )
 
 func assertListImplementation() {
@@ -185,6 +185,7 @@ func (list *List) IndexOf(value interface{}) int {
 	}
 	return -1
 }
+
 // Empty returns true if list does not contain any elements.
 func (list *List) Empty() bool {
 	return list.size == 0
@@ -300,6 +301,40 @@ func (list *List) String() string {
 	}
 	str += strings.Join(values, ", ")
 	return str
+}
+
+// Expand the array if necessary, i.e. capacity will be reached if we add n elements
+func (list *List) Visualizer() bool {
+	values := []string{}
+	dotString := "digraph graphname{bgcolor=white;subgraph cluster_0 {style=filled;color=lightgrey;node [style=filled,color=white, shape=\"Msquare\"];"
+
+	for element := list.first; element != nil; element = element.next {
+		values = append(values, fmt.Sprintf("%v", element.value))
+	}
+	for i := 0; i < len(values); i++ {
+		if i > 0 {
+			dotString += (values[i-1] + "->" + values[i] + ";")
+			dotString += values[i] + "->" + values[i-1] + ";"
+		}
+		dotString += values[i] + ";"
+	}
+	dotString += "}}"
+	byteString := []byte(dotString) // Converting the string to byte slice to write to a file
+	tmpFile, _ := ioutil.TempFile("", "TemporaryDotFile")
+	tmpFile.Write(byteString)            // Writing the string to a temporary file
+	dotPath, err := exec.LookPath("dot") // Looking for dot command
+	if err != nil {
+		fmt.Println("Error: Running the Visualizer command. Please install Graphviz")
+		return false
+	}
+	dotCommandResult, err := exec.Command(dotPath, "-Tpng", tmpFile.Name()).Output() // Running the command
+	if err != nil {
+		fmt.Println("Error: Running the Visualizer command. Please install Graphviz")
+		return false
+	}
+	ioutil.WriteFile("out.png", dotCommandResult, os.FileMode(int(0777)))
+
+	return true
 }
 
 // Check that the index is within bounds of the list

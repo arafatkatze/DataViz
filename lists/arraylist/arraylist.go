@@ -11,9 +11,13 @@ package arraylist
 
 import (
 	"fmt"
+	"io/ioutil"
+	"os"
+	"os/exec"
+	"strings"
+
 	"github.com/emirpasic/gods/lists"
 	"github.com/emirpasic/gods/utils"
-	"strings"
 )
 
 func assertListImplementation() {
@@ -99,17 +103,18 @@ func (list *List) Values() []interface{} {
 }
 
 //IndexOf returns index of provided element
-func (list *List) IndexOf(value interface{}) int{
+func (list *List) IndexOf(value interface{}) int {
 	if list.size == 0 {
 		return -1
 	}
-		for index, element := range list.elements {
-			if element == value {
-				return index
-			}
+	for index, element := range list.elements {
+		if element == value {
+			return index
 		}
-		return -1
+	}
+	return -1
 }
+
 // Empty returns true if list does not contain any elements.
 func (list *List) Empty() bool {
 	return list.size == 0
@@ -197,6 +202,33 @@ func (list *List) growBy(n int) {
 		newCapacity := int(growthFactor * float32(currentCapacity+n))
 		list.resize(newCapacity)
 	}
+}
+
+// Expand the array if necessary, i.e. capacity will be reached if we add n elements
+func (list *List) Visualizer() bool {
+	values := []string{}
+	dotString := "digraph graphname{bgcolor=white;subgraph cluster_0 {style=filled;color=lightgrey;node [style=filled,color=white, shape=\"Msquare\"];"
+	for _, value := range list.elements[:list.size] {
+		values = append(values, fmt.Sprintf("%v", value))
+		dotString += values[len(values)-1] + ";"
+	}
+	dotString += "}}"
+	byteString := []byte(dotString) // Converting the string to byte slice to write to a file
+	tmpFile, _ := ioutil.TempFile("", "TemporaryDotFile")
+	tmpFile.Write(byteString)            // Writing the string to a temporary file
+	dotPath, err := exec.LookPath("dot") // Looking for dot command
+	if err != nil {
+		fmt.Println("Error: Running the Visualizer command. Please install Graphviz")
+		return false
+	}
+	dotCommandResult, err := exec.Command(dotPath, "-Tpng", tmpFile.Name()).Output() // Running the command
+	if err != nil {
+		fmt.Println("Error: Running the Visualizer command. Please install Graphviz")
+		return false
+	}
+	ioutil.WriteFile("out.png", dotCommandResult, os.FileMode(int(0777)))
+
+	return true
 }
 
 // Shrink the array if necessary, i.e. when size is shrinkFactor percent of current capacity
