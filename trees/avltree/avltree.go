@@ -7,9 +7,6 @@ package avltree
 
 import (
 	"fmt"
-	"io/ioutil"
-	"os"
-	"os/exec"
 	"strconv"
 
 	"github.com/Arafatk/dataviz/utils"
@@ -201,8 +198,10 @@ func (n *Node) String() string {
 	return fmt.Sprintf("%v", n.Key)
 }
 
-// Visualizer makes a visual image demonstrating the data structure
-func (t *Tree) Visualizer() bool {
+// Visualizer makes a visual image demonstrating the avl tree data structure
+// using dot language and Graphviz. It first producs a dot string corresponding
+// to the avl tree and then runs graphviz to output the resulting image to a file.
+func (t *Tree) Visualizer(fileName string) bool {
 	KeyIntMap := make(map[interface{}]int)
 	IntKeyMap := make(map[int]interface{})
 	stringValues := []string{}
@@ -233,23 +232,7 @@ func (t *Tree) Visualizer() bool {
 		dotString += (strconv.Itoa(KeyIntMap[it.Key()]) + "[color=orange1, style=filled, fillcolor = orange1, fontcolor=white,label=\"" + stringValues[len(stringValues)-2] + "->" + stringValues[len(stringValues)-1] + "\"];")
 	}
 	dotString += "}"
-
-	byteString := []byte(dotString) // Converting the string to byte slice to write to a file
-	tmpFile, _ := ioutil.TempFile("", "TemporaryDotFile")
-	tmpFile.Write(byteString)            // Writing the string to a temporary file
-	dotPath, err := exec.LookPath("dot") // Looking for dot command
-	if err != nil {
-		fmt.Println("Error: Running the Visualizer command. Please install Graphviz")
-		return false
-	}
-	dotCommandResult, err := exec.Command(dotPath, "-Tpng", tmpFile.Name()).Output() // Running the command
-	if err != nil {
-		fmt.Println("Error: Running the Visualizer command. Please install Graphviz")
-		return false
-	}
-	ioutil.WriteFile("out.png", dotCommandResult, os.FileMode(int(0777)))
-	return true
-
+	return utils.WriteDotStringToPng(fileName, dotString)
 }
 
 func visHelperMap(node *Node, KeyChildLeft *map[int]int, KeyChildRight *map[int]int, KeyIntMap map[interface{}]int) {

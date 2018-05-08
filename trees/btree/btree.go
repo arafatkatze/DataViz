@@ -15,9 +15,6 @@ package btree
 import (
 	"bytes"
 	"fmt"
-	"io/ioutil"
-	"os"
-	"os/exec"
 	"strconv"
 	"strings"
 
@@ -146,7 +143,7 @@ func min(x, y int) int {
 }
 
 // Visualizer returns all values in the b-tree.
-func (tree *Tree) Visualizer() bool {
+func (tree *Tree) Visualizer(fileName string) bool {
 	it := tree.Iterator()
 	dotString := "digraph G{bgcolor=oldlace;"
 	nodeIndexCount := 0
@@ -207,24 +204,9 @@ func (tree *Tree) Visualizer() bool {
 		}
 	}
 	dotString += "}"
-	fmt.Println(dotString)
 
-	byteString := []byte(dotString) // Converting the string to byte slice to write to a file
-	tmpFile, _ := ioutil.TempFile("", "TemporaryDotFile")
-	tmpFile.Write(byteString)            // Writing the string to a temporary file
-	dotPath, err := exec.LookPath("dot") // Looking for dot command
-	if err != nil {
-		fmt.Println("Error: Running the Visualizer command. Please install Graphviz")
-		return false
-	}
-	dotCommandResult, err := exec.Command(dotPath, "-Tpng", tmpFile.Name()).Output() // Running the command
-	if err != nil {
-		fmt.Println("Error: Running the Visualizer command. Please install Graphviz")
-		return false
-	}
-	ioutil.WriteFile("out.png", dotCommandResult, os.FileMode(int(0777)))
+	return utils.WriteDotStringToPng(fileName, dotString)
 
-	return true
 }
 
 // Clear removes all nodes from the tree.

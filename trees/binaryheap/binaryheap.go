@@ -9,9 +9,6 @@ package binaryheap
 
 import (
 	"fmt"
-	"io/ioutil"
-	"os"
-	"os/exec"
 	"strconv"
 	"strings"
 
@@ -142,7 +139,9 @@ func (heap *Heap) bubbleDownIndex(index int) {
 	}
 }
 
-// Visualizer makes a visual image demonstrating the data structure
+// Visualizer makes a visual image demonstrating the heap data structure
+// using dot language and Graphviz. It first producs a dot string corresponding
+// to the heap and then runs graphviz to output the resulting image to a file.
 func (heap *Heap) Visualizer(fileName string) bool {
 	size := heap.Size()
 	indexValueMap := make(map[int]interface{})
@@ -168,21 +167,7 @@ func (heap *Heap) Visualizer(fileName string) bool {
 	}
 	dotString += "}"
 
-	byteString := []byte(dotString) // Converting the string to byte slice to write to a file
-	tmpFile, _ := ioutil.TempFile("", "TemporaryDotFile")
-	tmpFile.Write(byteString)            // Writing the string to a temporary file
-	dotPath, err := exec.LookPath("dot") // Looking for dot command
-	if err != nil {
-		fmt.Println("Error: Running the Visualizer command. Please install Graphviz")
-		return false
-	}
-	dotCommandResult, err := exec.Command(dotPath, "-Tpng", tmpFile.Name()).Output() // Running the command
-	if err != nil {
-		fmt.Println("Error: Running the Visualizer command. Please install Graphviz")
-		return false
-	}
-	ioutil.WriteFile(fileName, dotCommandResult, os.FileMode(int(0777)))
-	return true
+	return utils.WriteDotStringToPng(fileName, dotString)
 }
 
 // Performs the "bubble up" operation. This is to place a newly inserted

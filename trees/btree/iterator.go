@@ -144,6 +144,7 @@ between:
 	return true
 }
 
+// CurrentNode returns the current node of the iterator
 func (iterator *Iterator) CurrentNode() *Node {
 	return iterator.node
 }

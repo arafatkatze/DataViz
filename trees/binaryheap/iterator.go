@@ -1,7 +1,3 @@
-
-
-
-
 package binaryheap
 
 import "github.com/Arafatk/dataviz/containers"
