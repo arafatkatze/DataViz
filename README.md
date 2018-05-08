@@ -5,6 +5,25 @@ Build and visualize data structures in Golang. Inspired by the ideas from [memvi
 helps user to play around with standard data structures while also giving them the tools to build their own data structures and visualization options....     
 ![Graphviz logo](https://upload.wikimedia.org/wikipedia/en/4/48/GraphvizLogo.png)
 
+
+
+## Documentation
+Documentation is available at [godoc](https://godoc.org/github.com/Arafatk/dataviz).      
+
+## Requirements
+ - graphviz
+    - build graphviz from [source](https://www.graphviz.org/download/)
+    - linux users
+       -  ```sudo apt-get update```
+       -  ```sudo apt install python-pydot python-pydot-ng graphviz```
+    - mac users ([Link](http://macappstore.org/graphviz-2/))
+       -  install homebrew
+       -  ```brew cask install graphviz```
+
+
+## Installation     
+```go get github.com/Arafatk/Dataviz```
+
 ## Data Structures
 
 - Containers
@@ -38,23 +57,6 @@ helps user to play around with standard data structures while also giving them t
     - Container
     - Visualizer
 
-
-## Documentation
-Documentation is available at [godoc](https://godoc.org/github.com/Arafatk/dataviz).      
-
-## Requirements
- - graphviz
-    - build graphviz from [source](https://www.graphviz.org/download/)
-    - linux users
-       -  ```sudo apt-get update```
-       -  ```sudo apt install python-pydot python-pydot-ng graphviz```
-    - mac users ([Link](http://macappstore.org/graphviz-2/))
-       -  install homebrew
-       -  ```brew cask install graphviz```
-
-
-## Installation     
-```go get github.com/Arafatk/Dataviz```
 
 
 ## Usage and Examples  
