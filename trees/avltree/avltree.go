@@ -240,14 +240,12 @@ func visHelperMap(node *Node, KeyChildLeft *map[int]int, KeyChildRight *map[int]
 		NodeIndex := KeyIntMap[node.Key]
 		ChildNodeIndex := KeyIntMap[node.Children[0].Key]
 		(*KeyChildLeft)[NodeIndex] = ChildNodeIndex
-		fmt.Println(node.Key, node.Children[0].Key, "left")
 		visHelperMap(node.Children[0], KeyChildLeft, KeyChildRight, KeyIntMap)
 	}
 	if node.Children[1] != nil {
 		NodeIndex := KeyIntMap[node.Key]
 		ChildNodeIndex := KeyIntMap[node.Children[1].Key]
 		(*KeyChildRight)[NodeIndex] = ChildNodeIndex
-		fmt.Println(node.Key, node.Children[1].Key)
 
 		visHelperMap(node.Children[1], KeyChildLeft, KeyChildRight, KeyIntMap)
 	}

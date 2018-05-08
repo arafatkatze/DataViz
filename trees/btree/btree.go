@@ -167,8 +167,6 @@ func (tree *Tree) Visualizer(fileName string) bool {
 		dotString += "subgraph cluster_" + strconv.Itoa(subGraphNumber) + "{style=filled;color=plum;node [style=filled,color=white, shape=\"Msquare\"];"
 		subGraphNumber++
 		stringValues := []string{}
-		children := node.Children
-		fmt.Println("these are enteries", Entries, "Children", children)
 		nodeEntrySize := len(Entries)
 		for j := 0; j < nodeEntrySize; j++ {
 			stringValues = append(stringValues, fmt.Sprintf("%v", Entries[j].Key))

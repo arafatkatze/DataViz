@@ -161,8 +161,6 @@ func (heap *Heap) Visualizer(fileName string) bool {
 				dotString += (strconv.Itoa(i) + "[color=steelblue1, style=filled, fillcolor = steelblue1, fontcolor=white,label=" + stringValues[len(stringValues)-1] + "];")
 
 			}
-		} else {
-			fmt.Println("Index does not exist at:", i)
 		}
 	}
 	dotString += "}"
