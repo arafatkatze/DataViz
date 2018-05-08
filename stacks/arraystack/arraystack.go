@@ -7,14 +7,12 @@ package arraystack
 
 import (
 	"fmt"
-	"io/ioutil"
-	"os"
-	"os/exec"
 	"strconv"
 	"strings"
 
 	"github.com/Arafatk/dataviz/lists/arraylist"
 	"github.com/Arafatk/dataviz/stacks"
+	utils "github.com/Arafatk/dataviz/utils"
 )
 
 func assertStackImplementation() {
@@ -75,7 +73,9 @@ func (stack *Stack) Values() []interface{} {
 	return elements
 }
 
-// Visualizer makes a visual image demonstrating the data structure
+// Visualizer makes a visual image demonstrating the Stack Data Structure
+// using dot language and Graphviz. It first producs a dot string corresponding
+// to the Stack and then runs graphviz to output the resulting image to a file
 func (stack *Stack) Visualizer(fileName string) (ok bool) {
 	size := stack.list.Size()
 	if size == 0 {
@@ -95,23 +95,7 @@ func (stack *Stack) Visualizer(fileName string) (ok bool) {
 	}
 	dotFileString += (strconv.Itoa(size) + "[color=royalblue];}top[color=orange];push[color=lightpink];pop[color=lightpink];top->1[color=indianred1];1->pop[color=indianred1];push->1[color=indianred1];}")
 	// Writing the dot file string completed
-
-	byteString := []byte(dotFileString) // Converting the string to byte slice to write to a file
-	tmpFile, _ := ioutil.TempFile("", "TemporaryDotFile")
-	tmpFile.Write(byteString)            // Writing the string to a temporary file
-	dotPath, err := exec.LookPath("dot") // Looking for dot command
-	if err != nil {
-		fmt.Println("Error: Running the Visualizer command. Please install Graphviz")
-		return false
-	}
-	dotCommandResult, err := exec.Command(dotPath, "-Tpng", tmpFile.Name()).Output() // Running the command
-	if err != nil {
-		fmt.Println("Error: Running the Visualizer command. Please install Graphviz")
-		return false
-	}
-	ioutil.WriteFile(fileName, dotCommandResult, os.FileMode(int(0777)))
-	fmt.Println(dotFileString)
-	return true
+	return utils.WriteDotStringToPng(fileName, dotFileString)
 }
 
 // String returns a string representation of container

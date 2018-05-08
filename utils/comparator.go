@@ -1,7 +1,3 @@
-
-
-
-
 package utils
 
 import "time"

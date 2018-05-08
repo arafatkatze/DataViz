@@ -1,7 +1,3 @@
-
-
-
-
 // Package utils provides common utility functions.
 //
 // Provided functionalities:
@@ -11,6 +7,9 @@ package utils
 
 import (
 	"fmt"
+	"io/ioutil"
+	"os"
+	"os/exec"
 	"strconv"
 )
 
@@ -44,4 +43,25 @@ func ToString(value interface{}) string {
 	default:
 		return fmt.Sprintf("%+v", value)
 	}
+}
+
+// WriteDotStringToPng takes a content of a dot file in a string and makes a graph using Graphviz
+// to ouput an image
+func WriteDotStringToPng(fileName string, dotFileString string) (ok bool) {
+	byteString := []byte(dotFileString) // Converting the string to byte slice to write to a file
+	tmpFile, _ := ioutil.TempFile("", "TemporaryDotFile")
+	tmpFile.Write(byteString)            // Writing the string to a temporary file
+	dotPath, err := exec.LookPath("dot") // Looking for dot command
+	if err != nil {
+		fmt.Println("Error: Running the Visualizer command. Please install Graphviz")
+		return false
+	}
+	dotCommandResult, err := exec.Command(dotPath, "-Tpng", tmpFile.Name()).Output() // Running the command
+	if err != nil {
+		fmt.Println("Error: Running the Visualizer command. Please install Graphviz")
+		return false
+	}
+	ioutil.WriteFile(fileName, dotCommandResult, os.FileMode(int(0777)))
+	fmt.Println(dotFileString)
+	return true
 }
