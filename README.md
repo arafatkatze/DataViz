@@ -2,7 +2,8 @@
 
 # DataViz
 Build and visualize data structures in Golang. Inspired by the ideas from [memviz](https://github.com/bradleyjkemp/memviz) and [Gods](https://github.com/emirpasic/gods) this library
-helps user to play around with standard data structures while also giving them the tools to build their own data structures and visualization options....
+helps user to play around with standard data structures while also giving them the tools to build their own data structures and visualization options....     
+[![Graphviz logo](https://upload.wikimedia.org/wikipedia/en/4/48/GraphvizLogo.png)]
 
 ## Data Structures
 
