@@ -145,7 +145,7 @@ func min(x, y int) int {
 // Visualizer returns all values in the b-tree.
 func (tree *Tree) Visualizer(fileName string) bool {
 	it := tree.Iterator()
-	dotString := "digraph G{bgcolor=oldlace;"
+	dotString := "digraph G{bgcolor=azure;"
 	nodeIndexCount := 0
 	subGraphNumber := 0
 	m := make(map[interface{}]int)
@@ -164,14 +164,14 @@ func (tree *Tree) Visualizer(fileName string) bool {
 		if ok {
 			continue
 		}
-		dotString += "subgraph cluster_" + strconv.Itoa(subGraphNumber) + "{style=filled;color=plum;node [style=filled,color=white, shape=\"Msquare\"];"
+		dotString += "subgraph cluster_" + strconv.Itoa(subGraphNumber) + "{fontcolor=plum;style=filled;color=plum;node [style=filled,color=white, shape=\"Msquare\"];"
 		subGraphNumber++
 		stringValues := []string{}
 		nodeEntrySize := len(Entries)
 		for j := 0; j < nodeEntrySize; j++ {
 			stringValues = append(stringValues, fmt.Sprintf("%v", Entries[j].Key))
 			stringValues = append(stringValues, fmt.Sprintf("%v", Entries[j].Value))
-			dotString += strconv.Itoa(nodeIndexCount) + "[label=\"" + stringValues[len(stringValues)-2] + "->" + stringValues[len(stringValues)-1] + "\"];"
+			dotString += strconv.Itoa(nodeIndexCount) + "[fontcolor=blueviolet;label=\"" + stringValues[len(stringValues)-2] + "->" + stringValues[len(stringValues)-1] + "\"];"
 			KeyNodeMap[Entries[j].Key] = nodeIndexCount
 			nodeIndexCount++
 		}
@@ -195,11 +195,15 @@ func (tree *Tree) Visualizer(fileName string) bool {
 			continue
 		}
 
-		for j := 0; j < min(len(node.Children), len(node.Entries)); j++ {
-			dotString += strconv.Itoa(KeyNodeMap[node.Entries[j].Key]) + "->" + strconv.Itoa(KeyNodeMap[node.Children[j].Entries[0].Key]) + ";"
-		}
 		if len(node.Children) > len(node.Entries) {
-			dotString += strconv.Itoa(KeyNodeMap[node.Entries[len(node.Entries)-1].Key]) + "->" + strconv.Itoa(KeyNodeMap[node.Children[len(node.Children)-1].Entries[0].Key]) + ";"
+			for j := 1; j < (len(node.Children)); j++ {
+				dotString += strconv.Itoa(KeyNodeMap[node.Entries[j-1].Key]) + "->" + strconv.Itoa(KeyNodeMap[node.Children[j].Entries[0].Key]) + ";"
+			}
+			dotString += strconv.Itoa(KeyNodeMap[node.Entries[0].Key]) + "->" + strconv.Itoa(KeyNodeMap[node.Children[0].Entries[0].Key]) + ";"
+		} else {
+			for j := 0; j < min(len(node.Children), len(node.Entries)); j++ {
+				dotString += strconv.Itoa(KeyNodeMap[node.Entries[j].Key]) + "->" + strconv.Itoa(KeyNodeMap[node.Children[j].Entries[0].Key]) + ";"
+			}
 		}
 	}
 	dotString += "}"
