@@ -14,7 +14,7 @@ import (
 
 	"github.com/Arafatk/Dataviz/lists/arraylist"
 	"github.com/Arafatk/Dataviz/trees"
-	"github.com/Arafatk/Dataviz/utils"
+	"github.com/pennz/dataviz/utils"
 )
 
 func assertTreeImplementation() {

@@ -49,6 +49,7 @@ func ToString(value interface{}) string {
 // to ouput an image
 func WriteDotStringToPng(fileName string, dotFileString string) (ok bool) {
 	byteString := []byte(dotFileString) // Converting the string to byte slice to write to a file
+	fmt.Println(dotFileString)
 	tmpFile, _ := ioutil.TempFile("", "TemporaryDotFile")
 	tmpFile.Write(byteString)            // Writing the string to a temporary file
 	dotPath, err := exec.LookPath("dot") // Looking for dot command
