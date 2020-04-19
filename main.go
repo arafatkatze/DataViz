@@ -17,7 +17,7 @@ func setupRouter() *gin.Engine {
 		c.String(200, "pong")
 	})
 
-	r.LoadHTMLGlob("GraphViz/**/*.html")
+	r.LoadHTMLGlob("GraphVizOnline/*.html")
 	r.GET("/", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "index.html", nil)
 	})
