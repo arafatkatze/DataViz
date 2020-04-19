@@ -1,0 +1,20 @@
+# https://devcenter.heroku.com/articles/heroku-yml-build-manifest
+ntlr_lifestyle/DataViz/s
+ntlr_lifestyle/DataViz
+ntlr_lifestyle/DataViz/s
+# Officially unsupported, but works.
+ntlr_lifestyle/DataViz/s
+ntlr_lifestyle/DataViz
+ntlr_lifestyle/DataViz/s
+build:
+  languages:
+ntlr_lifestyle/DataViz/s
+ntlr_lifestyle/DataViz
+ntlr_lifestyle/DataViz/s
+    - go
+
+run:
+  web: DataViz
+ntlr_lifestyle/DataViz/s
+ntlr_lifestyle/DataViz
+ntlr_lifestyle/DataViz/s
