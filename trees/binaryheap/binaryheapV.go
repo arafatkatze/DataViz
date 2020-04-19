@@ -20,35 +20,55 @@ func assertTreeImplementationV() {
 	var _ trees.Tree = (*HeapV)(nil)
 }
 
-// Heap holds elements in an array-list
+// HeapV holds elements in an array-list, and for visualizer
 type HeapV struct {
 	*Heap
+	stepper  utils.Stepper
+	enabledV bool
 }
 
-// NewWith instantiates a new empty heap tree with the custom comparator.
+// EnableV enable visualization related data
+func (heap *HeapV) EnableV() {
+	heap.enabledV = true
+}
+
+// SSteps why not direct use not possible?
+func (heap *HeapV) SSteps() (gs []string, err error) {
+	gs, err = heap.stepper.Steps()
+	return
+}
+
+// NewWithV instantiates a new empty heap tree with the custom comparator.
 func NewWithV(comparator utilsRaw.Comparator) *HeapV {
-	return &HeapV{NewWith(comparator)}
+	return &HeapV{NewWith(comparator), utils.NewVisualizerStepper(), false}
 }
 
-// NewWithIntComparator instantiates a new empty heap with the IntComparator, i.e. elements are of type int.
+// NewWithIntComparatorV instantiates a new empty heap with the IntComparator, i.e. elements are of type int.
 func NewWithIntComparatorV() *HeapV {
-	return &HeapV{NewWithIntComparator()}
+	return &HeapV{NewWithIntComparator(), utils.NewVisualizerStepper(), false}
 }
 
-// NewWithStringComparator instantiates a new empty heap with the StringComparator, i.e. elements are of type string.
+// NewWithStringComparatorV instantiates a new empty heap with the StringComparator, i.e. elements are of type string.
 func NewWithStringComparatorV() *HeapV {
-	return &HeapV{NewWithStringComparator()}
+	return &HeapV{NewWithStringComparator(), utils.NewVisualizerStepper(), false}
 }
 
 // Push adds a value onto the heap and bubbles it up accordingly.
 func (heap *HeapV) Push(values ...interface{}) {
 	heap.Heap.Push(values...)
+	if heap.enabledV {
+		heap.stepper.Record(heap.visualize())
+	}
 }
 
 // Pop removes top element on heap and returns it, or nil if heap is empty.
 // Second return parameter is true, unless the heap was empty and there was nothing to pop.
 func (heap *HeapV) Pop() (value interface{}, ok bool) {
-	return heap.Heap.Pop()
+	value, ok = heap.Heap.Pop()
+	if heap.enabledV {
+		heap.stepper.Record(heap.visualize())
+	}
+	return
 }
 
 // Check that the index is within bounds of the list
@@ -64,9 +84,7 @@ func listGet(list []interface{}, index int, size int) (interface{}, bool) {
 	return list[index], true
 }
 
-// Visualizer overwrite original one by use my util, just print the string for
-// debuggin
-func (heap *HeapV) Visualizer(fileName string) bool {
+func (heap *HeapV) visualize() string {
 	size := heap.Heap.Size()
 	indexValueMap := make(map[int]interface{})
 	dotString := "digraph graphname{bgcolor=white;"
@@ -92,5 +110,12 @@ func (heap *HeapV) Visualizer(fileName string) bool {
 	}
 	dotString += "}"
 
+	return dotString
+}
+
+// Visualizer overwrite original one by use my util, just print the string for
+// debuggin
+func (heap *HeapV) Visualizer(fileName string) bool {
+	dotString := heap.visualize()
 	return utils.WriteDotStringToPng(fileName, dotString)
 }

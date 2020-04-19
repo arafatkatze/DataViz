@@ -25,7 +25,9 @@ func setupRouter() *gin.Engine {
 }
 
 func main() {
-	heap := bheap.NewWithIntComparator()
+	heap := bheap.NewWithIntComparatorV()
+	heap.EnableV()
+
 	heap.Push(3)
 	heap.Push(19)
 	heap.Push(19)
@@ -33,7 +35,17 @@ func main() {
 	heap.Push(19)
 	heap.Push(19)
 	heap.Push(19)
-	heap.Visualizer("heap.png")
+	//var hv utils.Stepper
+	//hv = heap
+	gs, err := heap.SSteps()
+	if err != nil {
+		log.Println("graph genarion error")
+	} else {
+		for _, g := range gs {
+			log.Println(g)
+			log.Println()
+		}
+	}
 
 	r := setupRouter()
 	port := os.Getenv("PORT")

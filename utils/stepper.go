@@ -4,19 +4,26 @@ import "errors"
 
 // Stepper just generate the Graph at every step. The Graph list will be
 // returned.
-type StepCollector interface {
-}
-
 type Stepper interface {
 	Next() (string, error)
 	Prev() (string, error)
 	Steps() ([]string, error)
+	Record(string)
 }
 
 // VisualizerStepper stores all the graph steps
 type VisualizerStepper struct {
 	graphs  []string
 	current int
+}
+
+func NewVisualizerStepper() *VisualizerStepper {
+	gs := make([]string, 0)
+	return &VisualizerStepper{gs, 0}
+}
+
+func (vs *VisualizerStepper) Record(g string) {
+	vs.graphs = append(vs.graphs, g)
 }
 
 func (vs *VisualizerStepper) Prev() (string, error) {
