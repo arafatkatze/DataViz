@@ -2,7 +2,6 @@ package main
 
 import (
 	"log"
-	"net/http"
 	"os"
 
 	bheap "github.com/pennz/dataviz/trees/binaryheap"
@@ -16,11 +15,12 @@ func setupRouter() *gin.Engine {
 	r.GET("/ping", func(c *gin.Context) {
 		c.String(200, "pong")
 	})
+	r.Static("/Viz", "GraphVizOnline")
 
-	r.LoadHTMLGlob("GraphVizOnline/*.html")
-	r.GET("/", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "index.html", nil)
-	})
+	//r.LoadHTMLGlob("GraphVizOnline/*.html")
+	//r.GET("/", func(c *gin.Context) {
+	//	c.HTML(http.StatusOK, "index.html", nil)
+	//})
 	return r
 }
 
