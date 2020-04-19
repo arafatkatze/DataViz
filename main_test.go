@@ -16,14 +16,14 @@ func TestGetThings(t *testing.T) {
 		wantErr bool
 	}{
 		// TODO: Add test cases.
-		{"Init", 200, false},
+		{"Init", 301, false},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			router := setupRouter()
 
 			w := httptest.NewRecorder()
-			req, _ := http.NewRequest("GET", "/", nil)
+			req, _ := http.NewRequest("GET", "/Viz", nil)
 
 			router.ServeHTTP(w, req)
 			assert.Equal(t, tt.want, w.Code)
