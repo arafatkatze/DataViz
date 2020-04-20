@@ -1,1 +1,1 @@
-web: bin/DataViz
+web: bin/dataviz
