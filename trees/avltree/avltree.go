@@ -201,7 +201,7 @@ func (n *Node) String() string {
 // Visualizer makes a visual image demonstrating the avl tree data structure
 // using dot language and Graphviz. It first producs a dot string corresponding
 // to the avl tree and then runs graphviz to output the resulting image to a file.
-func (t *Tree) Visualizer(fileName string) bool {
+func (t *Tree) Visualize() string {
 	KeyIntMap := make(map[interface{}]int)
 	IntKeyMap := make(map[int]interface{})
 	stringValues := []string{}
@@ -232,7 +232,7 @@ func (t *Tree) Visualizer(fileName string) bool {
 		dotString += (strconv.Itoa(KeyIntMap[it.Key()]) + "[color=orange1, style=filled, fillcolor = orange1, fontcolor=white,label=\"" + stringValues[len(stringValues)-2] + "->" + stringValues[len(stringValues)-1] + "\"];")
 	}
 	dotString += "}"
-	return utils.WriteDotStringToPng(fileName, dotString)
+	return dotString
 }
 
 func visHelperMap(node *Node, KeyChildLeft *map[int]int, KeyChildRight *map[int]int, KeyIntMap map[interface{}]int) {
@@ -497,4 +497,11 @@ func output(node *Node, prefix string, isTail bool, str *string) {
 		}
 		output(node.Children[0], newPrefix, true, str)
 	}
+}
+
+// Visualizer overwrite original one by use my util, just print the string for
+// debuggin
+func (heap *Tree) Visualizer(fileName string) bool {
+	dotString := heap.Visualize()
+	return utils.WriteDotStringToPng(fileName, dotString)
 }

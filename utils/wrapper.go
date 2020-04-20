@@ -15,8 +15,8 @@ type Visualizer interface {
 }
 
 type AlgVisualWrapper struct {
-	funcs_to_wrap []string
-	stepper       *VisualizerStepper
+	funcs_to_wrap []string           // what needs to record
+	stepper       *VisualizerStepper // store graphs
 	enabledV      bool
 }
 

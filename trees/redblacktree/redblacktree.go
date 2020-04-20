@@ -302,7 +302,7 @@ func output(node *Node, prefix string, isTail bool, str *string) {
 // Visualizer makes a visual image demonstrating the Red Black Tree data structure
 // using dot language and Graphviz. It first producs a dot string corresponding
 // to the Red Black Tree and then runs graphviz to output the resulting image to a file.
-func (tree *Tree) Visualizer(fileName string) bool {
+func (tree *Tree) Visualize() string {
 	dotString := "digraph graphname{" // Initializing dot string
 	var colorArray []color            // Array containing colors of all nodes
 	it := tree.Iterator()
@@ -347,7 +347,7 @@ func (tree *Tree) Visualizer(fileName string) bool {
 		dotString += (strconv.Itoa(i) + "[color=coral, style=\"rounded,filled\", shape=box, fillcolor = coral, fontcolor=white,label=Nil];")
 	}
 	dotString += "}" // Finishing the DotString
-	return utils.WriteDotStringToPng(fileName, dotString)
+	return dotString
 }
 
 func (tree *Tree) lookup(key interface{}) *Node {
@@ -567,9 +567,9 @@ func (tree *Tree) deleteCase6(node *Node) {
 	}
 }
 
-func nodeColor(node *Node) color {
-	if node == nil {
-		return black
-	}
-	return node.color
+// Visualizer overwrite original one by use my util, just print the string for
+// debuggin
+func (heap *Tree) Visualizer(fileName string) bool {
+	dotString := heap.Visualize()
+	return utils.WriteDotStringToPng(fileName, dotString)
 }

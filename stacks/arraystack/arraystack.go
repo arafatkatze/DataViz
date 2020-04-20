@@ -12,7 +12,7 @@ import (
 
 	"github.com/Arafatk/Dataviz/lists/arraylist"
 	"github.com/Arafatk/Dataviz/stacks"
-	utils "github.com/Arafatk/Dataviz/utils"
+	"github.com/Arafatk/Dataviz/utils"
 )
 
 func assertStackImplementation() {
@@ -76,10 +76,10 @@ func (stack *Stack) Values() []interface{} {
 // Visualizer makes a visual image demonstrating the Stack Data Structure
 // using dot language and Graphviz. It first producs a dot string corresponding
 // to the Stack and then runs graphviz to output the resulting image to a file
-func (stack *Stack) Visualizer(fileName string) (ok bool) {
+func (stack *Stack) Visualize() string {
 	size := stack.list.Size()
 	if size == 0 {
-		return false // return false if the size is zero
+		return ""
 	}
 	stringValues := []string{} // Putting all the elements of a stack to a string array.
 	for _, value := range stack.list.Values() {
@@ -95,7 +95,7 @@ func (stack *Stack) Visualizer(fileName string) (ok bool) {
 	}
 	dotFileString += (strconv.Itoa(size) + "[color=royalblue];}top[color=orange];push[color=lightpink];pop[color=lightpink];top->1[color=indianred1];1->pop[color=indianred1];push->1[color=indianred1];}")
 	// Writing the dot file string completed
-	return utils.WriteDotStringToPng(fileName, dotFileString)
+	return dotFileString
 }
 
 // String returns a string representation of container
@@ -112,4 +112,11 @@ func (stack *Stack) String() string {
 // Check that the index is within bounds of the list
 func (stack *Stack) withinRange(index int) bool {
 	return index >= 0 && index < stack.list.Size()
+}
+
+// Visualizer overwrite original one by use my util, just print the string for
+// debuggin
+func (heap *Stack) Visualizer(fileName string) bool {
+	dotString := heap.Visualize()
+	return utils.WriteDotStringToPng(fileName, dotString)
 }

@@ -112,9 +112,9 @@ func (m *Map) String() string {
 	return strings.TrimRight(str, " ") + "]"
 }
 
-// Visualizer makes a visual image demonstrating the treemap data structure
-// using dot language and Graphviz. It first producs a dot string corresponding
-// to the treemap and then runs graphviz to output the resulting image to a file.
-func (m *Map) Visualizer(fileName string) bool {
-	return m.tree.Visualizer(fileName)
+// Visualizer overwrite original one by use my util, just print the string for
+// debuggin
+func (heap *Map) Visualizer(fileName string) bool {
+	dotString := heap.visualize()
+	return utils.WriteDotStringToPng(fileName, dotString)
 }

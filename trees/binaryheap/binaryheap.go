@@ -142,7 +142,7 @@ func (heap *Heap) bubbleDownIndex(index int) {
 // Visualizer makes a visual image demonstrating the heap data structure
 // using dot language and Graphviz. It first producs a dot string corresponding
 // to the heap and then runs graphviz to output the resulting image to a file.
-func (heap *Heap) Visualizer(fileName string) bool {
+func (heap *Heap) Visualize() string {
 	size := heap.Size()
 	indexValueMap := make(map[int]interface{})
 	dotString := "digraph graphname{bgcolor=white;"
@@ -165,7 +165,7 @@ func (heap *Heap) Visualizer(fileName string) bool {
 	}
 	dotString += "}"
 
-	return utils.WriteDotStringToPng(fileName, dotString)
+	return dotString
 }
 
 // Performs the "bubble up" operation. This is to place a newly inserted
@@ -187,4 +187,11 @@ func (heap *Heap) bubbleUp() {
 // Check that the index is within bounds of the list
 func (heap *Heap) withinRange(index int) bool {
 	return index >= 0 && index < heap.list.Size()
+}
+
+// Visualizer overwrite original one by use my util, just print the string for
+// debuggin
+func (heap *Heap) Visualizer(fileName string) bool {
+	dotString := heap.Visualize()
+	return utils.WriteDotStringToPng(fileName, dotString)
 }
