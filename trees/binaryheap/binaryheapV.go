@@ -13,7 +13,7 @@ import (
 
 	"github.com/Arafatk/Dataviz/trees"
 	utilsRaw "github.com/Arafatk/Dataviz/utils"
-	"github.com/pennz/dataviz/utils"
+	"github.com/pennz/DataViz/utils"
 )
 
 func assertTreeImplementationV() {
