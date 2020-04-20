@@ -1,4 +1,4 @@
-package utils
+package viz
 
 type Wrapper interface {
 	Wrap(interface{}) interface{}

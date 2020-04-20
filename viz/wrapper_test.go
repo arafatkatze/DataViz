@@ -1,4 +1,4 @@
-package utils
+package viz
 
 import (
 	"reflect"
@@ -45,6 +45,7 @@ func TestAlgVisualWrapper_Wrap(t *testing.T) {
 				nil,
 				false},
 				args: args{binaryheap.Heap{}}
+			}
 			want: nil,
 		},
 	}
