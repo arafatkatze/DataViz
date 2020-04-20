@@ -3,6 +3,7 @@ package utils
 import (
 	"reflect"
 	"testing"
+	 "github.com/pennz/DataViz/trees/binaryheap"
 )
 
 func TestNewAlgVisualWrapper(t *testing.T) {
@@ -38,7 +39,14 @@ func TestAlgVisualWrapper_Wrap(t *testing.T) {
 		args   args
 		want   interface{}
 	}{
-		// TODO: Add test cases.
+		{name: "Test disableV",
+			fields: fields{
+				[]string{"Push", "Pop"},
+				nil,
+				false},
+				args: args{binaryheap.Heap{}}
+			want: nil,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
