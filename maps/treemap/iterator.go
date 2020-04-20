@@ -2,7 +2,7 @@ package treemap
 
 import (
 	"github.com/Arafatk/Dataviz/containers"
-	rbt "github.com/Arafatk/Dataviz/trees/redblacktree"
+	rbt "github.com/pennz/DataViz/trees/redblacktree"
 )
 
 func assertIteratorImplementation() {
