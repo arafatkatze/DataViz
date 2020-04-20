@@ -5,3 +5,8 @@ Then we just insert one step to the process, i.e., first code is send to us, we 
 then the client will show the steps. It is easier for understanding.
 better if the client can save the history and get the data step forward and backward. -> we can just add button for this. 
 For server it just send back the data. The client can do the thing. No need to keep the long time connection?
+
+
+Or we can use reflection, reflector, wrap a data structure, and then we inject the code that
+is related to graph generation.
+Then the data is collected. And we are good to go.
