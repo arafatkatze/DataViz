@@ -6,7 +6,6 @@ github.com/Arafatk/Dataviz/lists/arraylist
 github.com/Arafatk/Dataviz/maps
 github.com/Arafatk/Dataviz/stacks
 github.com/Arafatk/Dataviz/trees
-github.com/Arafatk/Dataviz/trees/redblacktree
 github.com/Arafatk/Dataviz/utils
 # github.com/davecgh/go-spew v1.1.1
 github.com/davecgh/go-spew/spew

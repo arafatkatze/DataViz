@@ -4,7 +4,7 @@ import (
 	"log"
 	"os"
 
-	bheap "github.com/pennz/DataViz/trees/binaryheap"
+	bheap "github.com/pennz/DataViz/viz/trees/binaryheap"
 
 	"github.com/gin-gonic/gin"
 )

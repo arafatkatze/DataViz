@@ -44,7 +44,7 @@ func TestAlgVisualWrapper_Wrap(t *testing.T) {
 			name: "Test disableV",
 			fields: fields{
 				[]string{"Push", "Pop"},
-				nil,
+				NewVisualizerStepper(),
 				false},
 			args: args{binaryheap.NewWithIntComparator()},
 			want: nil,
@@ -57,8 +57,11 @@ func TestAlgVisualWrapper_Wrap(t *testing.T) {
 				stepper:       tt.fields.stepper,
 				enabledV:      tt.fields.enabledV,
 			}
-			if got := avw.Wrap(tt.args.i); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("AlgVisualWrapper.Wrap() = %v, want %v", got, tt.want)
+			got := avw.Wrap(tt.args.i)
+			//b /Users/v/w/DataViz/viz/wrapper_test.go:60
+			//got.Push()
+			if avw.Visualize() == nil {
+				t.Errorf("AlgVisualWrapper.Wrap() = %v, NOT want %v", got, tt.want)
 			}
 		})
 	}
