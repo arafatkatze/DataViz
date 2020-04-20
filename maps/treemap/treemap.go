@@ -13,7 +13,7 @@ import (
 
 	"github.com/Arafatk/Dataviz/maps"
 	"github.com/Arafatk/Dataviz/utils"
-	rbt "github.com/pennz/Dataviz/trees/redblacktree"
+	rbt "github.com/pennz/DataViz/trees/redblacktree"
 )
 
 func assertMapImplementation() {
