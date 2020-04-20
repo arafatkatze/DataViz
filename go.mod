@@ -1,4 +1,4 @@
-module github.com/pennz/dataviz
+module github.com/pennz/DataViz
 
 go 1.14
 

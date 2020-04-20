@@ -12,8 +12,8 @@ import (
 	"strings"
 
 	"github.com/Arafatk/Dataviz/maps"
-	rbt "github.com/Arafatk/Dataviz/trees/redblacktree"
 	"github.com/Arafatk/Dataviz/utils"
+	rbt "github.com/pennz/Dataviz/trees/redblacktree"
 )
 
 func assertMapImplementation() {
@@ -114,7 +114,7 @@ func (m *Map) String() string {
 
 // Visualizer overwrite original one by use my util, just print the string for
 // debuggin
-func (heap *Map) Visualizer(fileName string) bool {
-	dotString := heap.Visualize()
+func (m *Map) Visualizer(fileName string) bool {
+	dotString := m.tree.Visualize()
 	return utils.WriteDotStringToPng(fileName, dotString)
 }
