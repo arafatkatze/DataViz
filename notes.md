@@ -10,3 +10,8 @@ For server it just send back the data. The client can do the thing. No need to k
 Or we can use reflection, reflector, wrap a data structure, and then we inject the code that
 is related to graph generation.
 Then the data is collected. And we are good to go.
+
+so we need a new interface, it collect information, print the result.
+It should produce hooked version data. Then the data can be used the same way. 
+but the data is collected.
+and a structure that implements it.
