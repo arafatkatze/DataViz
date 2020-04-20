@@ -3,7 +3,8 @@ package viz
 import (
 	"reflect"
 	"testing"
-	 "github.com/pennz/DataViz/trees/binaryheap"
+
+	"github.com/pennz/DataViz/trees/binaryheap"
 )
 
 func TestNewAlgVisualWrapper(t *testing.T) {
@@ -39,13 +40,13 @@ func TestAlgVisualWrapper_Wrap(t *testing.T) {
 		args   args
 		want   interface{}
 	}{
-		{name: "Test disableV",
+		{
+			name: "Test disableV",
 			fields: fields{
 				[]string{"Push", "Pop"},
 				nil,
 				false},
-				args: args{binaryheap.Heap{}}
-			}
+			args: args{binaryheap.NewWithIntComparator()},
 			want: nil,
 		},
 	}

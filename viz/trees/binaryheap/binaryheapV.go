@@ -11,9 +11,11 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/Arafatk/Dataviz/trees"
 	utilsRaw "github.com/Arafatk/Dataviz/utils"
+	"github.com/pennz/DataViz/trees"
+	"github.com/pennz/DataViz/trees/binaryheap"
 	"github.com/pennz/DataViz/utils"
+	"github.com/pennz/DataViz/viz"
 )
 
 func assertTreeImplementationV() {
@@ -22,8 +24,8 @@ func assertTreeImplementationV() {
 
 // HeapV holds elements in an array-list, and for visualizer
 type HeapV struct {
-	*Heap
-	stepper  utils.Stepper
+	*binaryheap.Heap
+	stepper  viz.Stepper
 	enabledV bool
 }
 
@@ -40,17 +42,17 @@ func (heap *HeapV) SSteps() (gs []string, err error) {
 
 // NewWithV instantiates a new empty heap tree with the custom comparator.
 func NewWithV(comparator utilsRaw.Comparator) *HeapV {
-	return &HeapV{NewWith(comparator), utils.NewVisualizerStepper(), false}
+	return &HeapV{binaryheap.NewWith(comparator), viz.NewVisualizerStepper(), false}
 }
 
 // NewWithIntComparatorV instantiates a new empty heap with the IntComparator, i.e. elements are of type int.
 func NewWithIntComparatorV() *HeapV {
-	return &HeapV{NewWithIntComparator(), utils.NewVisualizerStepper(), false}
+	return &HeapV{binaryheap.NewWithIntComparator(), viz.NewVisualizerStepper(), false}
 }
 
 // NewWithStringComparatorV instantiates a new empty heap with the StringComparator, i.e. elements are of type string.
 func NewWithStringComparatorV() *HeapV {
-	return &HeapV{NewWithStringComparator(), utils.NewVisualizerStepper(), false}
+	return &HeapV{binaryheap.NewWithStringComparator(), viz.NewVisualizerStepper(), false}
 }
 
 // Push adds a value onto the heap and bubbles it up accordingly.
