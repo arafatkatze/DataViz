@@ -200,7 +200,7 @@ func (list *List) growBy(n int) {
 // Visualizer makes a visual image demonstrating the list data structure
 // using dot language and Graphviz. It first producs a dot string corresponding
 // to the list and then runs graphviz to output the resulting image to a file.
-func (list *List) Visualize() {
+func (list *List) Visualize() string {
 	values := []string{}
 	dotString := "digraph graphname{bgcolor=white;subgraph cluster_0 {style=filled;color=lightgrey;node [style=filled,color=white, shape=\"Msquare\"];"
 	for _, value := range list.elements[:list.size] {

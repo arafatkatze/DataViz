@@ -115,6 +115,6 @@ func (m *Map) String() string {
 // Visualizer overwrite original one by use my util, just print the string for
 // debuggin
 func (heap *Map) Visualizer(fileName string) bool {
-	dotString := heap.visualize()
+	dotString := heap.Visualize()
 	return utils.WriteDotStringToPng(fileName, dotString)
 }

@@ -567,6 +567,13 @@ func (tree *Tree) deleteCase6(node *Node) {
 	}
 }
 
+func nodeColor(node *Node) color {
+	if node == nil {
+		return black
+	}
+	return node.color
+}
+
 // Visualizer overwrite original one by use my util, just print the string for
 // debuggin
 func (heap *Tree) Visualizer(fileName string) bool {
