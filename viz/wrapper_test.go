@@ -8,7 +8,7 @@ import (
 )
 
 func TestNewAlgVisualWrapper(t *testing.T) {
-	newA := &AlgVisualWrapper{make([]string, 0), NewVisualizerStepper(), true}
+	newA := &AlgVisualWrapper{make([]string, 0), nil, NewVisualizerStepper(), true}
 	tests := []struct {
 		name string
 		want *AlgVisualWrapper
@@ -32,7 +32,7 @@ func TestAlgVisualWrapper_Wrap(t *testing.T) {
 		enabledV      bool
 	}
 	type args struct {
-		i interface{}
+		p *reflect.Value
 	}
 	tests := []struct {
 		name   string
@@ -46,7 +46,7 @@ func TestAlgVisualWrapper_Wrap(t *testing.T) {
 				[]string{"Push", "Pop"},
 				NewVisualizerStepper(),
 				false},
-			args: args{binaryheap.NewWithIntComparator()},
+			args: args{p: binaryheap.NewWithIntComparator()},
 			want: nil,
 		},
 	}
@@ -57,9 +57,14 @@ func TestAlgVisualWrapper_Wrap(t *testing.T) {
 				stepper:       tt.fields.stepper,
 				enabledV:      tt.fields.enabledV,
 			}
-			got := avw.Wrap(tt.args.i)
+			got := avw.Wrap(tt.args.p) // already a pointer now...
 			//b /Users/v/w/DataViz/viz/wrapper_test.go:60
-			//got.Push()
+			avw.Call("Push", 3)
+			avw.Call("Pop", nil)
+			avw.Call("Pop", nil)
+			if got != nil {
+				t.Errorf("AlgVisualWrapper.Wrap() = %v, NOT want %v", got, tt.want)
+			}
 			if avw.Visualize() == nil {
 				t.Errorf("AlgVisualWrapper.Wrap() = %v, NOT want %v", got, tt.want)
 			}

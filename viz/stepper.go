@@ -30,7 +30,7 @@ func (vs *VisualizerStepper) Prev() (string, error) {
 	if vs.current <= 0 {
 		return "", errors.New("No Previous step")
 	}
-	vs.current -= 1
+	vs.current--
 	return vs.graphs[vs.current], nil
 }
 
@@ -38,7 +38,7 @@ func (vs *VisualizerStepper) Next() (string, error) {
 	if vs.current >= len(vs.graphs)-1 {
 		return "", errors.New("No next step")
 	}
-	vs.current += 1
+	vs.current++
 	return vs.graphs[vs.current], nil
 }
 
