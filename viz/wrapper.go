@@ -29,11 +29,17 @@ type AlgVisualWrapper struct {
 	enabledV      bool
 }
 
-// NewAlgVisualWrapper is for generating grapsh for our datastructure
-func NewAlgVisualWrapper() *AlgVisualWrapper {
+func hookTable() map[reflect.Type]([]string) {
 	toHook := make(map[reflect.Type]([]string))
 	bhp := binaryheap.NewWithIntComparator()
 	toHook[reflect.TypeOf(*bhp)] = []string{"Push", "Pop"} // not possible to https://stackoverflow.com/questions/51800637/struct-type-as-map-key
+	return toHook
+}
+
+// NewAlgVisualWrapper is for generating grapsh for our datastructure
+func NewAlgVisualWrapper() *AlgVisualWrapper {
+	toHook := hookTable()
+
 	return &AlgVisualWrapper{toHook, reflect.ValueOf(nil), NewVisualizerStepper(), true}
 }
 

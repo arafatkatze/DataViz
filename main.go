@@ -4,8 +4,6 @@ import (
 	"log"
 	"os"
 
-	bheap "github.com/pennz/DataViz/viz/trees/binaryheap"
-
 	"github.com/gin-gonic/gin"
 )
 
@@ -25,28 +23,6 @@ func setupRouter() *gin.Engine {
 }
 
 func main() {
-	heap := bheap.NewWithIntComparatorV()
-	heap.EnableV()
-
-	heap.Push(3)
-	heap.Push(19)
-	heap.Push(19)
-	heap.Push(19)
-	heap.Push(19)
-	heap.Push(19)
-	heap.Push(19)
-	//var hv utils.Stepper
-	//hv = heap
-	gs, err := heap.SSteps()
-	if err != nil {
-		log.Println("graph genarion error")
-	} else {
-		for _, g := range gs {
-			log.Println(g)
-			log.Println()
-		}
-	}
-
 	r := setupRouter()
 	port := os.Getenv("PORT")
 

@@ -1,7 +1,6 @@
 package viz
 
 import (
-	"log"
 	"reflect"
 	"testing"
 
@@ -27,7 +26,7 @@ func TestNewAlgVisualWrapper(t *testing.T) {
 	}
 }
 
-func TestAlgVisualWrapper_Wrap(t *testing.T) {
+func TestAlgVisualWrapper_Wrap_Viz(t *testing.T) {
 
 	bh := binaryheap.NewWithIntComparator()
 
@@ -43,10 +42,10 @@ func TestAlgVisualWrapper_Wrap(t *testing.T) {
 		want   interface{}
 	}{
 		{
-			name: "Test Wrap",
+			name: "Test Wrap and visualize",
 			fields: fields{
 				map[reflect.Type][]string{
-					reflect.TypeOf(bh): []string{"Push", "Pop"}},
+					reflect.TypeOf(*bh): []string{"Push", "Pop"}},
 				NewVisualizerStepper(),
 				true},
 			args: binaryheap.NewWithIntComparator(),
@@ -71,46 +70,13 @@ func TestAlgVisualWrapper_Wrap(t *testing.T) {
 			if got != nil {
 				t.Errorf("AlgVisualWrapper.Wrap() = %v, NOT want %v", got, tt.want)
 			}
-			log.Println(avw.Visualize())
+			//log.Println(avw.Visualize())
+			vs := avw.Visualize().([]string)
+			if len(vs) != 5 {
+				t.Errorf("AlgVisualWrapper.Visualize() = %v, len = %d, NOT want it", vs, len(vs))
+			}
 			if avw.Visualize() == nil {
 				t.Errorf("AlgVisualWrapper.Visualize() = <nil>, NOT want <nil>")
-			}
-		})
-	}
-}
-
-func TestAlgVisualWrapper_Visualize(t *testing.T) {
-	bh := binaryheap.NewWithIntComparator()
-
-	type fields struct {
-		funcs_to_wrap map[reflect.Type][]string
-		stepper       *VisualizerStepper
-		enabledV      bool
-	}
-	tests := []struct {
-		name   string
-		fields fields
-		want   interface{}
-	}{
-		{
-			name: "Test Visualize",
-			fields: fields{
-				map[reflect.Type][]string{
-					reflect.TypeOf(bh): []string{"Push", "Pop"}},
-				nil,
-				false},
-			want: nil,
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			avw := &AlgVisualWrapper{
-				funcs_to_wrap: tt.fields.funcs_to_wrap,
-				stepper:       tt.fields.stepper,
-				enabledV:      tt.fields.enabledV,
-			}
-			if got := avw.Visualize(); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("AlgVisualWrapper.Visualize() = %v, want %v", got, tt.want)
 			}
 		})
 	}
