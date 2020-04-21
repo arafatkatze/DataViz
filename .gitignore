@@ -1,3 +1,4 @@
 example_tester.go
 out*.png
 DataViz
+*.test

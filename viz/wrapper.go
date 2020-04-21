@@ -48,17 +48,26 @@ func invoke(any interface{}, name string, args ...interface{}) []reflect.Value {
 	return m.Call(inputs)
 }
 
-func (avw *AlgVisualWrapper) Call(fname string, args ...interface{}) []reflect.Value {
+func (avw *AlgVisualWrapper) Call(fname string, args ...interface{}) (out []reflect.Value) {
 	//t := avw.d.Type()
-	d := avw.d.Interface().(binaryheap.Heap)
+	di := avw.d.Interface()
 
-	log.Println("Just cast manually", (&d).Visualize())
-	out := invoke(&d, fname, args...)
+	switch t := di.(type) {
+	case binaryheap.Heap:
+		log.Println("Push Pop")
+		dp, _ := di.(binaryheap.Heap)
+		out = invoke(&dp, fname, args...)
+		vrv := invoke(&dp, "Visualize")[0].Interface().(string)
+		//log.Println(vrv)
+		avw.stepper.Record(vrv)
+	default:
+		log.Printf("Type %s not found\n", t)
+	}
+
+	//log.Println("Just cast manually", (&d).Visualize())
 	for _, f := range avw.funcs_to_wrap {
 		if f == fname {
-			vrv := invoke(&d, "Visualize")[0].Interface().(string)
-			log.Println(vrv)
-			avw.stepper.Record(vrv)
+			log.Println("f")
 		}
 	}
 	return out

@@ -2,6 +2,7 @@ package viz
 
 import (
 	"fmt"
+	"log"
 	"reflect"
 	"testing"
 
@@ -53,7 +54,7 @@ func TestAlgVisualWrapper_Wrap(t *testing.T) {
 			fields: fields{
 				[]string{"Push", "Pop"},
 				NewVisualizerStepper(),
-				false},
+				true},
 			args: binaryheap.NewWithIntComparator(),
 			want: nil,
 		},
@@ -70,11 +71,14 @@ func TestAlgVisualWrapper_Wrap(t *testing.T) {
 			avw.Call("Push", 3)
 			avw.Call("Pop")
 			avw.Call("Pop")
+			avw.Call("Push", 4)
+			avw.Call("Push", 5)
+			log.Printf("%v visualize\n", avw.Call("Visualize"))
 			if got != nil {
 				t.Errorf("AlgVisualWrapper.Wrap() = %v, NOT want %v", got, tt.want)
 			}
 			if avw.Visualize() == nil {
-				t.Errorf("AlgVisualWrapper.Wrap() = %v, NOT want %v", got, tt.want)
+				t.Errorf("AlgVisualWrapper.Visualize() = <nil>, NOT want <nil>")
 			}
 		})
 	}
