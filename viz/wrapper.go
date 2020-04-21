@@ -23,15 +23,18 @@ type Visualizer interface {
 }
 
 type AlgVisualWrapper struct {
-	funcs_to_wrap []string           // what needs to record
-	d             reflect.Value      // wrapped datastructure
-	stepper       *VisualizerStepper // store graphs
+	funcs_to_wrap map[reflect.Type][]string // what needs to record
+	d             reflect.Value             // wrapped datastructure
+	stepper       *VisualizerStepper        // store graphs
 	enabledV      bool
 }
 
 // NewAlgVisualWrapper is for generating grapsh for our datastructure
 func NewAlgVisualWrapper() *AlgVisualWrapper {
-	return &AlgVisualWrapper{make([]string, 0), reflect.ValueOf(nil), NewVisualizerStepper(), true}
+	toHook := make(map[reflect.Type]([]string))
+	bhp := binaryheap.NewWithIntComparator()
+	toHook[reflect.TypeOf(*bhp)] = []string{"Push", "Pop"} // not possible to https://stackoverflow.com/questions/51800637/struct-type-as-map-key
+	return &AlgVisualWrapper{toHook, reflect.ValueOf(nil), NewVisualizerStepper(), true}
 }
 
 // invoke is copied from https://stackoverflow.com/questions/8103617/call-a-struct-and-its-method-by-name-in-go
@@ -41,9 +44,9 @@ func invoke(any interface{}, name string, args ...interface{}) []reflect.Value {
 		inputs[i] = reflect.ValueOf(args[i])
 	}
 	v := reflect.ValueOf(any)
-	log.Println(v)
+	//log.Println(v)
 	m := v.MethodByName(name)
-	log.Println(m)
+	//log.Println(m)
 
 	return m.Call(inputs)
 }
@@ -53,23 +56,20 @@ func (avw *AlgVisualWrapper) Call(fname string, args ...interface{}) (out []refl
 	di := avw.d.Interface()
 
 	switch t := di.(type) {
-	case binaryheap.Heap:
-		log.Println("Push Pop")
+	case binaryheap.Heap: // 1. type switch , 2 different functions to hook
 		dp, _ := di.(binaryheap.Heap)
 		out = invoke(&dp, fname, args...)
-		vrv := invoke(&dp, "Visualize")[0].Interface().(string)
-		//log.Println(vrv)
-		avw.stepper.Record(vrv)
+
+		for _, f := range avw.funcs_to_wrap[avw.d.Type()] {
+			if f == fname {
+				vrv := invoke(&dp, "Visualize")[0].Interface().(string)
+				avw.stepper.Record(vrv)
+			}
+		}
 	default:
 		log.Printf("Type %s not found\n", t)
 	}
 
-	//log.Println("Just cast manually", (&d).Visualize())
-	for _, f := range avw.funcs_to_wrap {
-		if f == fname {
-			log.Println("f")
-		}
-	}
 	return out
 }
 

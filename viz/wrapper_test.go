@@ -1,7 +1,6 @@
 package viz
 
 import (
-	"fmt"
 	"log"
 	"reflect"
 	"testing"
@@ -10,7 +9,7 @@ import (
 )
 
 func TestNewAlgVisualWrapper(t *testing.T) {
-	newA := &AlgVisualWrapper{make([]string, 0), reflect.ValueOf(nil), NewVisualizerStepper(), true}
+	newA := &AlgVisualWrapper{make(map[reflect.Type][]string, 0), reflect.ValueOf(nil), NewVisualizerStepper(), true}
 
 	tests := []struct {
 		name string
@@ -21,8 +20,8 @@ func TestNewAlgVisualWrapper(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := NewAlgVisualWrapper(); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("NewAlgVisualWrapper() = %v, want %v", got, tt.want)
+			if got := NewAlgVisualWrapper(); reflect.DeepEqual(got, tt.want) {
+				t.Errorf("NewAlgVisualWrapper() = %v, NOT want %v", got, tt.want)
 			}
 		})
 	}
@@ -31,15 +30,9 @@ func TestNewAlgVisualWrapper(t *testing.T) {
 func TestAlgVisualWrapper_Wrap(t *testing.T) {
 
 	bh := binaryheap.NewWithIntComparator()
-	invoke(bh, "Push", 3)
-	fmt.Println(bh.Visualize())
-	invoke(bh, "Push", 4)
-	fmt.Println(bh.Visualize())
-	invoke(bh, "Push", 5)
-	fmt.Println(bh.Visualize())
 
 	type fields struct {
-		funcs_to_wrap []string
+		funcs_to_wrap map[reflect.Type][]string
 		stepper       *VisualizerStepper
 		enabledV      bool
 	}
@@ -50,9 +43,10 @@ func TestAlgVisualWrapper_Wrap(t *testing.T) {
 		want   interface{}
 	}{
 		{
-			name: "Test disableV",
+			name: "Test Wrap",
 			fields: fields{
-				[]string{"Push", "Pop"},
+				map[reflect.Type][]string{
+					reflect.TypeOf(bh): []string{"Push", "Pop"}},
 				NewVisualizerStepper(),
 				true},
 			args: binaryheap.NewWithIntComparator(),
@@ -73,10 +67,11 @@ func TestAlgVisualWrapper_Wrap(t *testing.T) {
 			avw.Call("Pop")
 			avw.Call("Push", 4)
 			avw.Call("Push", 5)
-			log.Printf("%v visualize\n", avw.Call("Visualize"))
+			//log.Printf("%v visualize\n", avw.Call("Visualize"))
 			if got != nil {
 				t.Errorf("AlgVisualWrapper.Wrap() = %v, NOT want %v", got, tt.want)
 			}
+			log.Println(avw.Visualize())
 			if avw.Visualize() == nil {
 				t.Errorf("AlgVisualWrapper.Visualize() = <nil>, NOT want <nil>")
 			}
@@ -85,8 +80,10 @@ func TestAlgVisualWrapper_Wrap(t *testing.T) {
 }
 
 func TestAlgVisualWrapper_Visualize(t *testing.T) {
+	bh := binaryheap.NewWithIntComparator()
+
 	type fields struct {
-		funcs_to_wrap []string
+		funcs_to_wrap map[reflect.Type][]string
 		stepper       *VisualizerStepper
 		enabledV      bool
 	}
@@ -96,9 +93,10 @@ func TestAlgVisualWrapper_Visualize(t *testing.T) {
 		want   interface{}
 	}{
 		{
-			name: "Test disableV",
+			name: "Test Visualize",
 			fields: fields{
-				[]string{"Push", "Pop"},
+				map[reflect.Type][]string{
+					reflect.TypeOf(bh): []string{"Push", "Pop"}},
 				nil,
 				false},
 			want: nil,
