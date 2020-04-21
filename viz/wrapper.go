@@ -25,11 +25,14 @@ type AlgVisualWrapper struct {
 	enabledV      bool
 }
 
+// NewAlgVisualWrapper is for generating grapsh for our datastructure
 func NewAlgVisualWrapper() *AlgVisualWrapper {
 	return &AlgVisualWrapper{make([]string, 0), NewVisualizerStepper(), true}
 }
 
 // Wrap should learn from this https://gowalker.org/reflect#MakeFunc
+// So we need to creat type and its function in the runtime
+// Or we need to hack to hook functions to original function in runtime
 func (avw *AlgVisualWrapper) Wrap(i interface{}) interface{} {
 	v, ok := i.(Visualizer)
 	if !ok {

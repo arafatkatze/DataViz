@@ -15,3 +15,8 @@ so we need a new interface, it collect information, print the result.
 It should produce hooked version data. Then the data can be used the same way. 
 but the data is collected.
 and a structure that implements it.
+
+
+Only only swap for list
+
+For different type, data alter function is different
