@@ -39,9 +39,7 @@ type AlgVisualWrapper struct {
 
 func hookTable() map[reflect.Type]([]string) {
 	toHook := make(map[reflect.Type]([]string))
-	bhp := binaryheap.NewWithIntComparator()
-	toHook[reflect.TypeOf(*bhp)] = []string{"Push", "Pop"} // not possible to https://stackoverflow.com/questions/51800637/struct-type-as-map-key
-
+	// not possible to https://stackoverflow.com/questions/51800637/struct-type-as-map-key
 	arraylist := arraylist.New()
 	doublylinkedlist := doublylinkedlist.New()
 	singlylinkedlist := singlylinkedlist.New()
@@ -57,7 +55,7 @@ func hookTable() map[reflect.Type]([]string) {
 	// binaryheap := binaryheap.NewWithStringComparator()
 	// btree := btree.NewWith(order int, comparator utils.Comparator)
 	// btree := btree.NewWithIntComparator(order int)
-	btree := btree.NewWithIntComparator(1)
+	btree := btree.NewWithIntComparator(4)
 	// btree := btree.NewWithStringComparator(order int)
 	// redblacktree := redblacktree.NewWith(comparator utils.Comparator)
 	redblacktree := redblacktree.NewWithIntComparator()
