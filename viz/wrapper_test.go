@@ -1,6 +1,7 @@
 package viz
 
 import (
+	"fmt"
 	"reflect"
 	"testing"
 
@@ -8,7 +9,8 @@ import (
 )
 
 func TestNewAlgVisualWrapper(t *testing.T) {
-	newA := &AlgVisualWrapper{make([]string, 0), nil, NewVisualizerStepper(), true}
+	newA := &AlgVisualWrapper{make([]string, 0), reflect.ValueOf(nil), NewVisualizerStepper(), true}
+
 	tests := []struct {
 		name string
 		want *AlgVisualWrapper
@@ -26,6 +28,15 @@ func TestNewAlgVisualWrapper(t *testing.T) {
 }
 
 func TestAlgVisualWrapper_Wrap(t *testing.T) {
+
+	bh := binaryheap.NewWithIntComparator()
+	invoke(bh, "Push", 3)
+	fmt.Println(bh.Visualize())
+	invoke(bh, "Push", 4)
+	fmt.Println(bh.Visualize())
+	invoke(bh, "Push", 5)
+	fmt.Println(bh.Visualize())
+
 	type fields struct {
 		funcs_to_wrap []string
 		stepper       *VisualizerStepper
@@ -57,8 +68,8 @@ func TestAlgVisualWrapper_Wrap(t *testing.T) {
 			got := avw.Wrap(tt.args) // already a pointer now...
 			//b /Users/v/w/DataViz/viz/wrapper_test.go:60
 			avw.Call("Push", 3)
-			avw.Call("Pop", nil)
-			avw.Call("Pop", nil)
+			avw.Call("Pop")
+			avw.Call("Pop")
 			if got != nil {
 				t.Errorf("AlgVisualWrapper.Wrap() = %v, NOT want %v", got, tt.want)
 			}

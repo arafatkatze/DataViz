@@ -4,6 +4,8 @@ import (
 	"errors"
 	"log"
 	"reflect"
+
+	"github.com/pennz/DataViz/trees/binaryheap"
 )
 
 type Wrapper interface {
@@ -22,14 +24,14 @@ type Visualizer interface {
 
 type AlgVisualWrapper struct {
 	funcs_to_wrap []string           // what needs to record
-	d             *interface{}       // wrapped datastructure
+	d             reflect.Value      // wrapped datastructure
 	stepper       *VisualizerStepper // store graphs
 	enabledV      bool
 }
 
 // NewAlgVisualWrapper is for generating grapsh for our datastructure
 func NewAlgVisualWrapper() *AlgVisualWrapper {
-	return &AlgVisualWrapper{make([]string, 0), nil, NewVisualizerStepper(), true}
+	return &AlgVisualWrapper{make([]string, 0), reflect.ValueOf(nil), NewVisualizerStepper(), true}
 }
 
 // invoke is copied from https://stackoverflow.com/questions/8103617/call-a-struct-and-its-method-by-name-in-go
@@ -47,10 +49,14 @@ func invoke(any interface{}, name string, args ...interface{}) []reflect.Value {
 }
 
 func (avw *AlgVisualWrapper) Call(fname string, args ...interface{}) []reflect.Value {
-	out := invoke(avw.d, fname, args...)
+	//t := avw.d.Type()
+	d := avw.d.Interface().(binaryheap.Heap)
+
+	log.Println("Just cast manually", (&d).Visualize())
+	out := invoke(&d, fname, args...)
 	for _, f := range avw.funcs_to_wrap {
 		if f == fname {
-			vrv := invoke(avw.d, "Visualize", nil)[0].Interface().(string)
+			vrv := invoke(&d, "Visualize")[0].Interface().(string)
 			log.Println(vrv)
 			avw.stepper.Record(vrv)
 		}
@@ -62,12 +68,12 @@ func (avw *AlgVisualWrapper) Call(fname string, args ...interface{}) []reflect.V
 // So we need to creat type and its function in the runtime
 // Or we need to hack to hook functions to original function in runtime
 func (avw *AlgVisualWrapper) Wrap(i interface{}) error {
-	_, ok := (*i).(Visualizer) // i is an interface wrapped a pointer to struct
+	_, ok := i.(Visualizer) // i is an interface wrapped a pointer to struct
 	if !ok {
 		return errors.New("Visualization wrap error, cannot find proper interface")
 	}
 	p := reflect.ValueOf(i)
-	avw.d = p.Elem()
+	avw.d = p.Elem() // we know it is a pointer
 	return nil
 }
 
