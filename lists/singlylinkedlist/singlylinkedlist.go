@@ -7,9 +7,10 @@ package singlylinkedlist
 
 import (
 	"fmt"
+	"strings"
+
 	"github.com/Arafatk/Dataviz/lists"
 	"github.com/Arafatk/Dataviz/utils"
-	"strings"
 )
 
 func assertListImplementation() {
@@ -270,4 +271,30 @@ func (list *List) String() string {
 // Check that the index is within bounds of the list
 func (list *List) withinRange(index int) bool {
 	return index >= 0 && index < list.size
+}
+
+// Visualizer makes a visual image demonstrating the list data structure
+// using dot language and Graphviz. It first producs a dot string corresponding
+// to the list and then runs graphviz to output the resulting image to a file.
+func (list *List) Visualize() string {
+	values := []string{}
+	dotString := "digraph graphname{bgcolor=white;subgraph cluster_0 {style=filled;color=lightgrey;node [style=filled,color=white, shape=\"Msquare\"];"
+	for element := list.first; element != nil; element = element.next {
+		values = append(values, fmt.Sprintf("%v", element.value))
+	}
+	for i := 0; i < len(values); i++ {
+		if i > 0 {
+			dotString += (values[i-1] + "->" + values[i] + ";")
+		}
+		dotString += values[i] + ";"
+	}
+	dotString += "}}"
+	return dotString
+}
+
+// Visualizer overwrite original one by use my util, just print the string for
+// debuggin
+func (heap *List) Visualizer(fileName string) bool {
+	dotString := heap.Visualize()
+	return utils.WriteDotStringToPng(fileName, dotString)
 }

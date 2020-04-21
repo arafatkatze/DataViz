@@ -112,9 +112,13 @@ func (m *Map) String() string {
 	return strings.TrimRight(str, " ") + "]"
 }
 
+func (m *Map) Visualize() string {
+	return m.tree.Visualize()
+}
+
 // Visualizer overwrite original one by use my util, just print the string for
 // debuggin
 func (m *Map) Visualizer(fileName string) bool {
-	dotString := m.tree.Visualize()
+	dotString := m.Visualize()
 	return utils.WriteDotStringToPng(fileName, dotString)
 }
