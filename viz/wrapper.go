@@ -7,7 +7,7 @@ import (
 )
 
 type Wrapper interface {
-	Wrap(*interface{}) error
+	Wrap(interface{}) error
 }
 
 type VisualizerWrapper interface {
@@ -22,7 +22,7 @@ type Visualizer interface {
 
 type AlgVisualWrapper struct {
 	funcs_to_wrap []string           // what needs to record
-	d             *reflect.Value     // wrapped datastructure
+	d             *interface{}       // wrapped datastructure
 	stepper       *VisualizerStepper // store graphs
 	enabledV      bool
 }
@@ -61,12 +61,13 @@ func (avw *AlgVisualWrapper) Call(fname string, args ...interface{}) []reflect.V
 // Wrap should learn from this https://gowalker.org/reflect#MakeFunc
 // So we need to creat type and its function in the runtime
 // Or we need to hack to hook functions to original function in runtime
-func (avw *AlgVisualWrapper) Wrap(i *reflect.Value) error {
-	_, ok := (*i).Interface().(Visualizer)
+func (avw *AlgVisualWrapper) Wrap(i interface{}) error {
+	_, ok := (*i).(Visualizer) // i is an interface wrapped a pointer to struct
 	if !ok {
 		return errors.New("Visualization wrap error, cannot find proper interface")
 	}
-	avw.d = i
+	p := reflect.ValueOf(i)
+	avw.d = p.Elem()
 	return nil
 }
 

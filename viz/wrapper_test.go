@@ -31,13 +31,10 @@ func TestAlgVisualWrapper_Wrap(t *testing.T) {
 		stepper       *VisualizerStepper
 		enabledV      bool
 	}
-	type args struct {
-		p *reflect.Value
-	}
 	tests := []struct {
 		name   string
 		fields fields
-		args   args
+		args   *binaryheap.Heap
 		want   interface{}
 	}{
 		{
@@ -46,7 +43,7 @@ func TestAlgVisualWrapper_Wrap(t *testing.T) {
 				[]string{"Push", "Pop"},
 				NewVisualizerStepper(),
 				false},
-			args: args{p: binaryheap.NewWithIntComparator()},
+			args: binaryheap.NewWithIntComparator(),
 			want: nil,
 		},
 	}
@@ -57,7 +54,7 @@ func TestAlgVisualWrapper_Wrap(t *testing.T) {
 				stepper:       tt.fields.stepper,
 				enabledV:      tt.fields.enabledV,
 			}
-			got := avw.Wrap(tt.args.p) // already a pointer now...
+			got := avw.Wrap(tt.args) // already a pointer now...
 			//b /Users/v/w/DataViz/viz/wrapper_test.go:60
 			avw.Call("Push", 3)
 			avw.Call("Pop", nil)
