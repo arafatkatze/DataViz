@@ -1,0 +1,6345 @@
+[
+{
+  "mode": "decls",
+  "comment": {
+    "startLine": 0,
+    "startCol": 0,
+    "endLine": 0,
+    "endCol": 0
+  },
+  "decls": [
+    {
+      "keyword": "func",
+      "ident": "Empty",
+      "full": "func (container ContainerTest) Empty() bool",
+      "filename": "containers/containers_test.go",
+      "line": 16,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Size",
+      "full": "func (container ContainerTest) Size() int",
+      "filename": "containers/containers_test.go",
+      "line": 20,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Clear",
+      "full": "func (container ContainerTest) Clear()",
+      "filename": "containers/containers_test.go",
+      "line": 24,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Values",
+      "full": "func (container ContainerTest) Values() []interface{}",
+      "filename": "containers/containers_test.go",
+      "line": 28,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestGetSortedValuesInts",
+      "full": "func TestGetSortedValuesInts(t *testing.T)",
+      "filename": "containers/containers_test.go",
+      "line": 32,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestGetSortedValuesStrings",
+      "full": "func TestGetSortedValuesStrings(t *testing.T)",
+      "filename": "containers/containers_test.go",
+      "line": 43,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "GetSortedValues",
+      "full": "func GetSortedValues(container Container, comparator utils.Comparator) []interface{}",
+      "filename": "containers/containers.go",
+      "line": 24,
+      "col": 1
+    }
+  ]
+}
+,
+{
+  "mode": "decls",
+  "comment": {
+    "startLine": 0,
+    "startCol": 0,
+    "endLine": 0,
+    "endCol": 0
+  }
+}
+,
+{
+  "mode": "decls",
+  "comment": {
+    "startLine": 0,
+    "startCol": 0,
+    "endLine": 0,
+    "endCol": 0
+  },
+  "decls": [
+    {
+      "keyword": "func",
+      "ident": "assertEnumerableImplementation",
+      "full": "func assertEnumerableImplementation()",
+      "filename": "lists/arraylist/enumerable.go",
+      "line": 5,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Each",
+      "full": "func (list *List) Each(f func(index int, value interface{}))",
+      "filename": "lists/arraylist/enumerable.go",
+      "line": 10,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Map",
+      "full": "func (list *List) Map(f func(index int, value interface{}) interface{}) *List",
+      "filename": "lists/arraylist/enumerable.go",
+      "line": 19,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Select",
+      "full": "func (list *List) Select(f func(index int, value interface{}) bool) *List",
+      "filename": "lists/arraylist/enumerable.go",
+      "line": 29,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Any",
+      "full": "func (list *List) Any(f func(index int, value interface{}) bool) bool",
+      "filename": "lists/arraylist/enumerable.go",
+      "line": 42,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "All",
+      "full": "func (list *List) All(f func(index int, value interface{}) bool) bool",
+      "filename": "lists/arraylist/enumerable.go",
+      "line": 54,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Find",
+      "full": "func (list *List) Find(f func(index int, value interface{}) bool) (int, interface{})",
+      "filename": "lists/arraylist/enumerable.go",
+      "line": 67,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "assertListImplementation",
+      "full": "func assertListImplementation()",
+      "filename": "lists/arraylist/arraylist.go",
+      "line": 16,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "New",
+      "full": "func New() *List",
+      "filename": "lists/arraylist/arraylist.go",
+      "line": 32,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Add",
+      "full": "func (list *List) Add(values ...interface{})",
+      "filename": "lists/arraylist/arraylist.go",
+      "line": 37,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Get",
+      "full": "func (list *List) Get(index int) (interface{}, bool)",
+      "filename": "lists/arraylist/arraylist.go",
+      "line": 47,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Remove",
+      "full": "func (list *List) Remove(index int)",
+      "filename": "lists/arraylist/arraylist.go",
+      "line": 57,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Contains",
+      "full": "func (list *List) Contains(values ...interface{}) bool",
+      "filename": "lists/arraylist/arraylist.go",
+      "line": 74,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Values",
+      "full": "func (list *List) Values() []interface{}",
+      "filename": "lists/arraylist/arraylist.go",
+      "line": 92,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "IndexOf",
+      "full": "func (list *List) IndexOf(value interface{}) int",
+      "filename": "lists/arraylist/arraylist.go",
+      "line": 99,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Empty",
+      "full": "func (list *List) Empty() bool",
+      "filename": "lists/arraylist/arraylist.go",
+      "line": 112,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Size",
+      "full": "func (list *List) Size() int",
+      "filename": "lists/arraylist/arraylist.go",
+      "line": 117,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Clear",
+      "full": "func (list *List) Clear()",
+      "filename": "lists/arraylist/arraylist.go",
+      "line": 122,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Sort",
+      "full": "func (list *List) Sort(comparator utils.Comparator)",
+      "filename": "lists/arraylist/arraylist.go",
+      "line": 128,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Swap",
+      "full": "func (list *List) Swap(i, j int)",
+      "filename": "lists/arraylist/arraylist.go",
+      "line": 136,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Insert",
+      "full": "func (list *List) Insert(index int, values ...interface{})",
+      "filename": "lists/arraylist/arraylist.go",
+      "line": 145,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "String",
+      "full": "func (list *List) String() string",
+      "filename": "lists/arraylist/arraylist.go",
+      "line": 169,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "withinRange",
+      "full": "func (list *List) withinRange(index int) bool",
+      "filename": "lists/arraylist/arraylist.go",
+      "line": 180,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "resize",
+      "full": "func (list *List) resize(cap int)",
+      "filename": "lists/arraylist/arraylist.go",
+      "line": 184,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "growBy",
+      "full": "func (list *List) growBy(n int)",
+      "filename": "lists/arraylist/arraylist.go",
+      "line": 191,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Visualize",
+      "full": "func (list *List) Visualize() string",
+      "filename": "lists/arraylist/arraylist.go",
+      "line": 203,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "shrink",
+      "full": "func (list *List) shrink()",
+      "filename": "lists/arraylist/arraylist.go",
+      "line": 215,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Visualizer",
+      "full": "func (heap *List) Visualizer(fileName string) bool",
+      "filename": "lists/arraylist/arraylist.go",
+      "line": 228,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListAdd",
+      "full": "func TestListAdd(t *testing.T)",
+      "filename": "lists/arraylist/arraylist_test.go",
+      "line": 10,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListIndexOf",
+      "full": "func TestListIndexOf(t *testing.T)",
+      "filename": "lists/arraylist/arraylist_test.go",
+      "line": 25,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListRemove",
+      "full": "func TestListRemove(t *testing.T)",
+      "filename": "lists/arraylist/arraylist_test.go",
+      "line": 52,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListGet",
+      "full": "func TestListGet(t *testing.T)",
+      "filename": "lists/arraylist/arraylist_test.go",
+      "line": 71,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListSwap",
+      "full": "func TestListSwap(t *testing.T)",
+      "filename": "lists/arraylist/arraylist_test.go",
+      "line": 93,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListSort",
+      "full": "func TestListSort(t *testing.T)",
+      "filename": "lists/arraylist/arraylist_test.go",
+      "line": 103,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListClear",
+      "full": "func TestListClear(t *testing.T)",
+      "filename": "lists/arraylist/arraylist_test.go",
+      "line": 117,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListContains",
+      "full": "func TestListContains(t *testing.T)",
+      "filename": "lists/arraylist/arraylist_test.go",
+      "line": 129,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListValues",
+      "full": "func TestListValues(t *testing.T)",
+      "filename": "lists/arraylist/arraylist_test.go",
+      "line": 151,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListInsert",
+      "full": "func TestListInsert(t *testing.T)",
+      "filename": "lists/arraylist/arraylist_test.go",
+      "line": 160,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListEach",
+      "full": "func TestListEach(t *testing.T)",
+      "filename": "lists/arraylist/arraylist_test.go",
+      "line": 177,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListMap",
+      "full": "func TestListMap(t *testing.T)",
+      "filename": "lists/arraylist/arraylist_test.go",
+      "line": 200,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListSelect",
+      "full": "func TestListSelect(t *testing.T)",
+      "filename": "lists/arraylist/arraylist_test.go",
+      "line": 220,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListAny",
+      "full": "func TestListAny(t *testing.T)",
+      "filename": "lists/arraylist/arraylist_test.go",
+      "line": 237,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListAll",
+      "full": "func TestListAll(t *testing.T)",
+      "filename": "lists/arraylist/arraylist_test.go",
+      "line": 253,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListFind",
+      "full": "func TestListFind(t *testing.T)",
+      "filename": "lists/arraylist/arraylist_test.go",
+      "line": 269,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListChaining",
+      "full": "func TestListChaining(t *testing.T)",
+      "filename": "lists/arraylist/arraylist_test.go",
+      "line": 285,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListIteratorNextOnEmpty",
+      "full": "func TestListIteratorNextOnEmpty(t *testing.T)",
+      "filename": "lists/arraylist/arraylist_test.go",
+      "line": 304,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListIteratorNext",
+      "full": "func TestListIteratorNext(t *testing.T)",
+      "filename": "lists/arraylist/arraylist_test.go",
+      "line": 312,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListIteratorPrevOnEmpty",
+      "full": "func TestListIteratorPrevOnEmpty(t *testing.T)",
+      "filename": "lists/arraylist/arraylist_test.go",
+      "line": 343,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListIteratorPrev",
+      "full": "func TestListIteratorPrev(t *testing.T)",
+      "filename": "lists/arraylist/arraylist_test.go",
+      "line": 351,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListIteratorBegin",
+      "full": "func TestListIteratorBegin(t *testing.T)",
+      "filename": "lists/arraylist/arraylist_test.go",
+      "line": 384,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListIteratorEnd",
+      "full": "func TestListIteratorEnd(t *testing.T)",
+      "filename": "lists/arraylist/arraylist_test.go",
+      "line": 398,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListIteratorFirst",
+      "full": "func TestListIteratorFirst(t *testing.T)",
+      "filename": "lists/arraylist/arraylist_test.go",
+      "line": 423,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListIteratorLast",
+      "full": "func TestListIteratorLast(t *testing.T)",
+      "filename": "lists/arraylist/arraylist_test.go",
+      "line": 438,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListSerialization",
+      "full": "func TestListSerialization(t *testing.T)",
+      "filename": "lists/arraylist/arraylist_test.go",
+      "line": 453,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "benchmarkGet",
+      "full": "func benchmarkGet(b *testing.B, list *List, size int)",
+      "filename": "lists/arraylist/arraylist_test.go",
+      "line": 479,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "benchmarkAdd",
+      "full": "func benchmarkAdd(b *testing.B, list *List, size int)",
+      "filename": "lists/arraylist/arraylist_test.go",
+      "line": 487,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "benchmarkRemove",
+      "full": "func benchmarkRemove(b *testing.B, list *List, size int)",
+      "filename": "lists/arraylist/arraylist_test.go",
+      "line": 495,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkArrayListGet100",
+      "full": "func BenchmarkArrayListGet100(b *testing.B)",
+      "filename": "lists/arraylist/arraylist_test.go",
+      "line": 503,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkArrayListGet1000",
+      "full": "func BenchmarkArrayListGet1000(b *testing.B)",
+      "filename": "lists/arraylist/arraylist_test.go",
+      "line": 514,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkArrayListGet10000",
+      "full": "func BenchmarkArrayListGet10000(b *testing.B)",
+      "filename": "lists/arraylist/arraylist_test.go",
+      "line": 525,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkArrayListGet100000",
+      "full": "func BenchmarkArrayListGet100000(b *testing.B)",
+      "filename": "lists/arraylist/arraylist_test.go",
+      "line": 536,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkArrayListAdd100",
+      "full": "func BenchmarkArrayListAdd100(b *testing.B)",
+      "filename": "lists/arraylist/arraylist_test.go",
+      "line": 547,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkArrayListAdd1000",
+      "full": "func BenchmarkArrayListAdd1000(b *testing.B)",
+      "filename": "lists/arraylist/arraylist_test.go",
+      "line": 555,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkArrayListAdd10000",
+      "full": "func BenchmarkArrayListAdd10000(b *testing.B)",
+      "filename": "lists/arraylist/arraylist_test.go",
+      "line": 566,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkArrayListAdd100000",
+      "full": "func BenchmarkArrayListAdd100000(b *testing.B)",
+      "filename": "lists/arraylist/arraylist_test.go",
+      "line": 577,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkArrayListRemove100",
+      "full": "func BenchmarkArrayListRemove100(b *testing.B)",
+      "filename": "lists/arraylist/arraylist_test.go",
+      "line": 588,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkArrayListRemove1000",
+      "full": "func BenchmarkArrayListRemove1000(b *testing.B)",
+      "filename": "lists/arraylist/arraylist_test.go",
+      "line": 599,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkArrayListRemove10000",
+      "full": "func BenchmarkArrayListRemove10000(b *testing.B)",
+      "filename": "lists/arraylist/arraylist_test.go",
+      "line": 610,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkArrayListRemove100000",
+      "full": "func BenchmarkArrayListRemove100000(b *testing.B)",
+      "filename": "lists/arraylist/arraylist_test.go",
+      "line": 621,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "assertIteratorImplementation",
+      "full": "func assertIteratorImplementation()",
+      "filename": "lists/arraylist/iterator.go",
+      "line": 5,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Iterator",
+      "full": "func (list *List) Iterator() Iterator",
+      "filename": "lists/arraylist/iterator.go",
+      "line": 16,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Next",
+      "full": "func (iterator *Iterator) Next() bool",
+      "filename": "lists/arraylist/iterator.go",
+      "line": 24,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Prev",
+      "full": "func (iterator *Iterator) Prev() bool",
+      "filename": "lists/arraylist/iterator.go",
+      "line": 34,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Value",
+      "full": "func (iterator *Iterator) Value() interface{}",
+      "filename": "lists/arraylist/iterator.go",
+      "line": 43,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Index",
+      "full": "func (iterator *Iterator) Index() int",
+      "filename": "lists/arraylist/iterator.go",
+      "line": 49,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Begin",
+      "full": "func (iterator *Iterator) Begin()",
+      "filename": "lists/arraylist/iterator.go",
+      "line": 55,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "End",
+      "full": "func (iterator *Iterator) End()",
+      "filename": "lists/arraylist/iterator.go",
+      "line": 61,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "First",
+      "full": "func (iterator *Iterator) First() bool",
+      "filename": "lists/arraylist/iterator.go",
+      "line": 68,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Last",
+      "full": "func (iterator *Iterator) Last() bool",
+      "filename": "lists/arraylist/iterator.go",
+      "line": 76,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "assertSerializationImplementation",
+      "full": "func assertSerializationImplementation()",
+      "filename": "lists/arraylist/serialization.go",
+      "line": 9,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "ToJSON",
+      "full": "func (list *List) ToJSON() ([]byte, error)",
+      "filename": "lists/arraylist/serialization.go",
+      "line": 15,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "FromJSON",
+      "full": "func (list *List) FromJSON(data []byte) error",
+      "filename": "lists/arraylist/serialization.go",
+      "line": 20,
+      "col": 1
+    }
+  ]
+}
+,
+{
+  "mode": "decls",
+  "comment": {
+    "startLine": 0,
+    "startCol": 0,
+    "endLine": 0,
+    "endCol": 0
+  },
+  "decls": [
+    {
+      "keyword": "func",
+      "ident": "assertEnumerableImplementation",
+      "full": "func assertEnumerableImplementation()",
+      "filename": "lists/doublylinkedlist/enumerable.go",
+      "line": 5,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Each",
+      "full": "func (list *List) Each(f func(index int, value interface{}))",
+      "filename": "lists/doublylinkedlist/enumerable.go",
+      "line": 10,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Map",
+      "full": "func (list *List) Map(f func(index int, value interface{}) interface{}) *List",
+      "filename": "lists/doublylinkedlist/enumerable.go",
+      "line": 19,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Select",
+      "full": "func (list *List) Select(f func(index int, value interface{}) bool) *List",
+      "filename": "lists/doublylinkedlist/enumerable.go",
+      "line": 29,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Any",
+      "full": "func (list *List) Any(f func(index int, value interface{}) bool) bool",
+      "filename": "lists/doublylinkedlist/enumerable.go",
+      "line": 42,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "All",
+      "full": "func (list *List) All(f func(index int, value interface{}) bool) bool",
+      "filename": "lists/doublylinkedlist/enumerable.go",
+      "line": 54,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Find",
+      "full": "func (list *List) Find(f func(index int, value interface{}) bool) (index int, value interface{})",
+      "filename": "lists/doublylinkedlist/enumerable.go",
+      "line": 67,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "assertIteratorImplementation",
+      "full": "func assertIteratorImplementation()",
+      "filename": "lists/doublylinkedlist/iterator.go",
+      "line": 5,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Iterator",
+      "full": "func (list *List) Iterator() Iterator",
+      "filename": "lists/doublylinkedlist/iterator.go",
+      "line": 17,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Next",
+      "full": "func (iterator *Iterator) Next() bool",
+      "filename": "lists/doublylinkedlist/iterator.go",
+      "line": 25,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Prev",
+      "full": "func (iterator *Iterator) Prev() bool",
+      "filename": "lists/doublylinkedlist/iterator.go",
+      "line": 44,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Value",
+      "full": "func (iterator *Iterator) Value() interface{}",
+      "filename": "lists/doublylinkedlist/iterator.go",
+      "line": 62,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Index",
+      "full": "func (iterator *Iterator) Index() int",
+      "filename": "lists/doublylinkedlist/iterator.go",
+      "line": 68,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Begin",
+      "full": "func (iterator *Iterator) Begin()",
+      "filename": "lists/doublylinkedlist/iterator.go",
+      "line": 74,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "End",
+      "full": "func (iterator *Iterator) End()",
+      "filename": "lists/doublylinkedlist/iterator.go",
+      "line": 81,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "First",
+      "full": "func (iterator *Iterator) First() bool",
+      "filename": "lists/doublylinkedlist/iterator.go",
+      "line": 89,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Last",
+      "full": "func (iterator *Iterator) Last() bool",
+      "filename": "lists/doublylinkedlist/iterator.go",
+      "line": 97,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "assertSerializationImplementation",
+      "full": "func assertSerializationImplementation()",
+      "filename": "lists/doublylinkedlist/serialization.go",
+      "line": 8,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "ToJSON",
+      "full": "func (list *List) ToJSON() ([]byte, error)",
+      "filename": "lists/doublylinkedlist/serialization.go",
+      "line": 14,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "FromJSON",
+      "full": "func (list *List) FromJSON(data []byte) error",
+      "filename": "lists/doublylinkedlist/serialization.go",
+      "line": 19,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "assertListImplementation",
+      "full": "func assertListImplementation()",
+      "filename": "lists/doublylinkedlist/doublylinkedlist.go",
+      "line": 16,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "New",
+      "full": "func New() *List",
+      "filename": "lists/doublylinkedlist/doublylinkedlist.go",
+      "line": 34,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Add",
+      "full": "func (list *List) Add(values ...interface{})",
+      "filename": "lists/doublylinkedlist/doublylinkedlist.go",
+      "line": 39,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Append",
+      "full": "func (list *List) Append(values ...interface{})",
+      "filename": "lists/doublylinkedlist/doublylinkedlist.go",
+      "line": 54,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Prepend",
+      "full": "func (list *List) Prepend(values ...interface{})",
+      "filename": "lists/doublylinkedlist/doublylinkedlist.go",
+      "line": 59,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Get",
+      "full": "func (list *List) Get(index int) (interface{}, bool)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist.go",
+      "line": 76,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Remove",
+      "full": "func (list *List) Remove(index int)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist.go",
+      "line": 96,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Contains",
+      "full": "func (list *List) Contains(values ...interface{}) bool",
+      "filename": "lists/doublylinkedlist/doublylinkedlist.go",
+      "line": 141,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Values",
+      "full": "func (list *List) Values() []interface{}",
+      "filename": "lists/doublylinkedlist/doublylinkedlist.go",
+      "line": 165,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "IndexOf",
+      "full": "func (list *List) IndexOf(value interface{}) int",
+      "filename": "lists/doublylinkedlist/doublylinkedlist.go",
+      "line": 174,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Empty",
+      "full": "func (list *List) Empty() bool",
+      "filename": "lists/doublylinkedlist/doublylinkedlist.go",
+      "line": 187,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Size",
+      "full": "func (list *List) Size() int",
+      "filename": "lists/doublylinkedlist/doublylinkedlist.go",
+      "line": 192,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Clear",
+      "full": "func (list *List) Clear()",
+      "filename": "lists/doublylinkedlist/doublylinkedlist.go",
+      "line": 197,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Sort",
+      "full": "func (list *List) Sort(comparator utils.Comparator)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist.go",
+      "line": 204,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Swap",
+      "full": "func (list *List) Swap(i, j int)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist.go",
+      "line": 220,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Insert",
+      "full": "func (list *List) Insert(index int, values ...interface{})",
+      "filename": "lists/doublylinkedlist/doublylinkedlist.go",
+      "line": 238,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "String",
+      "full": "func (list *List) String() string",
+      "filename": "lists/doublylinkedlist/doublylinkedlist.go",
+      "line": 293,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Visualize",
+      "full": "func (list *List) Visualize() string",
+      "filename": "lists/doublylinkedlist/doublylinkedlist.go",
+      "line": 306,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "withinRange",
+      "full": "func (list *List) withinRange(index int) bool",
+      "filename": "lists/doublylinkedlist/doublylinkedlist.go",
+      "line": 324,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Visualizer",
+      "full": "func (heap *List) Visualizer(fileName string) bool",
+      "filename": "lists/doublylinkedlist/doublylinkedlist.go",
+      "line": 330,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListAdd",
+      "full": "func TestListAdd(t *testing.T)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist_test.go",
+      "line": 9,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListRemove",
+      "full": "func TestListRemove(t *testing.T)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist_test.go",
+      "line": 24,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListGet",
+      "full": "func TestListGet(t *testing.T)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist_test.go",
+      "line": 43,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListSwap",
+      "full": "func TestListSwap(t *testing.T)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist_test.go",
+      "line": 65,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListSort",
+      "full": "func TestListSort(t *testing.T)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist_test.go",
+      "line": 75,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListClear",
+      "full": "func TestListClear(t *testing.T)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist_test.go",
+      "line": 89,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListContains",
+      "full": "func TestListContains(t *testing.T)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist_test.go",
+      "line": 101,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListValues",
+      "full": "func TestListValues(t *testing.T)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist_test.go",
+      "line": 123,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListIndexOf",
+      "full": "func TestListIndexOf(t *testing.T)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist_test.go",
+      "line": 132,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListInsert",
+      "full": "func TestListInsert(t *testing.T)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist_test.go",
+      "line": 159,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListEach",
+      "full": "func TestListEach(t *testing.T)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist_test.go",
+      "line": 176,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListMap",
+      "full": "func TestListMap(t *testing.T)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist_test.go",
+      "line": 199,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListSelect",
+      "full": "func TestListSelect(t *testing.T)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist_test.go",
+      "line": 219,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListAny",
+      "full": "func TestListAny(t *testing.T)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist_test.go",
+      "line": 236,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListAll",
+      "full": "func TestListAll(t *testing.T)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist_test.go",
+      "line": 252,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListFind",
+      "full": "func TestListFind(t *testing.T)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist_test.go",
+      "line": 268,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListChaining",
+      "full": "func TestListChaining(t *testing.T)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist_test.go",
+      "line": 284,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListIteratorNextOnEmpty",
+      "full": "func TestListIteratorNextOnEmpty(t *testing.T)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist_test.go",
+      "line": 303,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListIteratorNext",
+      "full": "func TestListIteratorNext(t *testing.T)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist_test.go",
+      "line": 311,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListIteratorPrevOnEmpty",
+      "full": "func TestListIteratorPrevOnEmpty(t *testing.T)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist_test.go",
+      "line": 342,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListIteratorPrev",
+      "full": "func TestListIteratorPrev(t *testing.T)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist_test.go",
+      "line": 350,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListIteratorBegin",
+      "full": "func TestListIteratorBegin(t *testing.T)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist_test.go",
+      "line": 383,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListIteratorEnd",
+      "full": "func TestListIteratorEnd(t *testing.T)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist_test.go",
+      "line": 397,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListIteratorFirst",
+      "full": "func TestListIteratorFirst(t *testing.T)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist_test.go",
+      "line": 422,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListIteratorLast",
+      "full": "func TestListIteratorLast(t *testing.T)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist_test.go",
+      "line": 437,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListSerialization",
+      "full": "func TestListSerialization(t *testing.T)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist_test.go",
+      "line": 452,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "benchmarkGet",
+      "full": "func benchmarkGet(b *testing.B, list *List, size int)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist_test.go",
+      "line": 478,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "benchmarkAdd",
+      "full": "func benchmarkAdd(b *testing.B, list *List, size int)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist_test.go",
+      "line": 486,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "benchmarkRemove",
+      "full": "func benchmarkRemove(b *testing.B, list *List, size int)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist_test.go",
+      "line": 494,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkDoublyLinkedListGet100",
+      "full": "func BenchmarkDoublyLinkedListGet100(b *testing.B)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist_test.go",
+      "line": 502,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkDoublyLinkedListGet1000",
+      "full": "func BenchmarkDoublyLinkedListGet1000(b *testing.B)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist_test.go",
+      "line": 513,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkDoublyLinkedListGet10000",
+      "full": "func BenchmarkDoublyLinkedListGet10000(b *testing.B)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist_test.go",
+      "line": 524,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkDoublyLinkedListGet100000",
+      "full": "func BenchmarkDoublyLinkedListGet100000(b *testing.B)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist_test.go",
+      "line": 535,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkDoublyLinkedListAdd100",
+      "full": "func BenchmarkDoublyLinkedListAdd100(b *testing.B)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist_test.go",
+      "line": 546,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkDoublyLinkedListAdd1000",
+      "full": "func BenchmarkDoublyLinkedListAdd1000(b *testing.B)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist_test.go",
+      "line": 554,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkDoublyLinkedListAdd10000",
+      "full": "func BenchmarkDoublyLinkedListAdd10000(b *testing.B)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist_test.go",
+      "line": 565,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkDoublyLinkedListAdd100000",
+      "full": "func BenchmarkDoublyLinkedListAdd100000(b *testing.B)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist_test.go",
+      "line": 576,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkDoublyLinkedListRemove100",
+      "full": "func BenchmarkDoublyLinkedListRemove100(b *testing.B)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist_test.go",
+      "line": 587,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkDoublyLinkedListRemove1000",
+      "full": "func BenchmarkDoublyLinkedListRemove1000(b *testing.B)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist_test.go",
+      "line": 598,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkDoublyLinkedListRemove10000",
+      "full": "func BenchmarkDoublyLinkedListRemove10000(b *testing.B)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist_test.go",
+      "line": 609,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkDoublyLinkedListRemove100000",
+      "full": "func BenchmarkDoublyLinkedListRemove100000(b *testing.B)",
+      "filename": "lists/doublylinkedlist/doublylinkedlist_test.go",
+      "line": 620,
+      "col": 1
+    }
+  ]
+}
+,
+{
+  "mode": "decls",
+  "comment": {
+    "startLine": 0,
+    "startCol": 0,
+    "endLine": 0,
+    "endCol": 0
+  },
+  "decls": [
+    {
+      "keyword": "func",
+      "ident": "assertListImplementation",
+      "full": "func assertListImplementation()",
+      "filename": "lists/singlylinkedlist/singlylinkedlist.go",
+      "line": 15,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "New",
+      "full": "func New() *List",
+      "filename": "lists/singlylinkedlist/singlylinkedlist.go",
+      "line": 32,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Add",
+      "full": "func (list *List) Add(values ...interface{})",
+      "filename": "lists/singlylinkedlist/singlylinkedlist.go",
+      "line": 37,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Append",
+      "full": "func (list *List) Append(values ...interface{})",
+      "filename": "lists/singlylinkedlist/singlylinkedlist.go",
+      "line": 52,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Prepend",
+      "full": "func (list *List) Prepend(values ...interface{})",
+      "filename": "lists/singlylinkedlist/singlylinkedlist.go",
+      "line": 57,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Get",
+      "full": "func (list *List) Get(index int) (interface{}, bool)",
+      "filename": "lists/singlylinkedlist/singlylinkedlist.go",
+      "line": 71,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Remove",
+      "full": "func (list *List) Remove(index int)",
+      "filename": "lists/singlylinkedlist/singlylinkedlist.go",
+      "line": 85,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Contains",
+      "full": "func (list *List) Contains(values ...interface{}) bool",
+      "filename": "lists/singlylinkedlist/singlylinkedlist.go",
+      "line": 121,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Values",
+      "full": "func (list *List) Values() []interface{}",
+      "filename": "lists/singlylinkedlist/singlylinkedlist.go",
+      "line": 145,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "IndexOf",
+      "full": "func (list *List) IndexOf(value interface{}) int",
+      "filename": "lists/singlylinkedlist/singlylinkedlist.go",
+      "line": 154,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Empty",
+      "full": "func (list *List) Empty() bool",
+      "filename": "lists/singlylinkedlist/singlylinkedlist.go",
+      "line": 167,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Size",
+      "full": "func (list *List) Size() int",
+      "filename": "lists/singlylinkedlist/singlylinkedlist.go",
+      "line": 172,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Clear",
+      "full": "func (list *List) Clear()",
+      "filename": "lists/singlylinkedlist/singlylinkedlist.go",
+      "line": 177,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Sort",
+      "full": "func (list *List) Sort(comparator utils.Comparator)",
+      "filename": "lists/singlylinkedlist/singlylinkedlist.go",
+      "line": 184,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Swap",
+      "full": "func (list *List) Swap(i, j int)",
+      "filename": "lists/singlylinkedlist/singlylinkedlist.go",
+      "line": 200,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Insert",
+      "full": "func (list *List) Insert(index int, values ...interface{})",
+      "filename": "lists/singlylinkedlist/singlylinkedlist.go",
+      "line": 218,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "String",
+      "full": "func (list *List) String() string",
+      "filename": "lists/singlylinkedlist/singlylinkedlist.go",
+      "line": 260,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "withinRange",
+      "full": "func (list *List) withinRange(index int) bool",
+      "filename": "lists/singlylinkedlist/singlylinkedlist.go",
+      "line": 271,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "assertIteratorImplementation",
+      "full": "func assertIteratorImplementation()",
+      "filename": "lists/singlylinkedlist/iterator.go",
+      "line": 9,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Iterator",
+      "full": "func (list *List) Iterator() Iterator",
+      "filename": "lists/singlylinkedlist/iterator.go",
+      "line": 21,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Next",
+      "full": "func (iterator *Iterator) Next() bool",
+      "filename": "lists/singlylinkedlist/iterator.go",
+      "line": 29,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Value",
+      "full": "func (iterator *Iterator) Value() interface{}",
+      "filename": "lists/singlylinkedlist/iterator.go",
+      "line": 47,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Index",
+      "full": "func (iterator *Iterator) Index() int",
+      "filename": "lists/singlylinkedlist/iterator.go",
+      "line": 53,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Begin",
+      "full": "func (iterator *Iterator) Begin()",
+      "filename": "lists/singlylinkedlist/iterator.go",
+      "line": 59,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "First",
+      "full": "func (iterator *Iterator) First() bool",
+      "filename": "lists/singlylinkedlist/iterator.go",
+      "line": 67,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "assertSerializationImplementation",
+      "full": "func assertSerializationImplementation()",
+      "filename": "lists/singlylinkedlist/serialization.go",
+      "line": 12,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "ToJSON",
+      "full": "func (list *List) ToJSON() ([]byte, error)",
+      "filename": "lists/singlylinkedlist/serialization.go",
+      "line": 18,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "FromJSON",
+      "full": "func (list *List) FromJSON(data []byte) error",
+      "filename": "lists/singlylinkedlist/serialization.go",
+      "line": 23,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListAdd",
+      "full": "func TestListAdd(t *testing.T)",
+      "filename": "lists/singlylinkedlist/singlylinkedlist_test.go",
+      "line": 13,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListRemove",
+      "full": "func TestListRemove(t *testing.T)",
+      "filename": "lists/singlylinkedlist/singlylinkedlist_test.go",
+      "line": 28,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListGet",
+      "full": "func TestListGet(t *testing.T)",
+      "filename": "lists/singlylinkedlist/singlylinkedlist_test.go",
+      "line": 47,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListSwap",
+      "full": "func TestListSwap(t *testing.T)",
+      "filename": "lists/singlylinkedlist/singlylinkedlist_test.go",
+      "line": 69,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListSort",
+      "full": "func TestListSort(t *testing.T)",
+      "filename": "lists/singlylinkedlist/singlylinkedlist_test.go",
+      "line": 79,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListClear",
+      "full": "func TestListClear(t *testing.T)",
+      "filename": "lists/singlylinkedlist/singlylinkedlist_test.go",
+      "line": 93,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListContains",
+      "full": "func TestListContains(t *testing.T)",
+      "filename": "lists/singlylinkedlist/singlylinkedlist_test.go",
+      "line": 105,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListValues",
+      "full": "func TestListValues(t *testing.T)",
+      "filename": "lists/singlylinkedlist/singlylinkedlist_test.go",
+      "line": 127,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListIndexOf",
+      "full": "func TestListIndexOf(t *testing.T)",
+      "filename": "lists/singlylinkedlist/singlylinkedlist_test.go",
+      "line": 136,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListInsert",
+      "full": "func TestListInsert(t *testing.T)",
+      "filename": "lists/singlylinkedlist/singlylinkedlist_test.go",
+      "line": 163,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListEach",
+      "full": "func TestListEach(t *testing.T)",
+      "filename": "lists/singlylinkedlist/singlylinkedlist_test.go",
+      "line": 180,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListMap",
+      "full": "func TestListMap(t *testing.T)",
+      "filename": "lists/singlylinkedlist/singlylinkedlist_test.go",
+      "line": 203,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListSelect",
+      "full": "func TestListSelect(t *testing.T)",
+      "filename": "lists/singlylinkedlist/singlylinkedlist_test.go",
+      "line": 223,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListAny",
+      "full": "func TestListAny(t *testing.T)",
+      "filename": "lists/singlylinkedlist/singlylinkedlist_test.go",
+      "line": 240,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListAll",
+      "full": "func TestListAll(t *testing.T)",
+      "filename": "lists/singlylinkedlist/singlylinkedlist_test.go",
+      "line": 256,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListFind",
+      "full": "func TestListFind(t *testing.T)",
+      "filename": "lists/singlylinkedlist/singlylinkedlist_test.go",
+      "line": 272,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListChaining",
+      "full": "func TestListChaining(t *testing.T)",
+      "filename": "lists/singlylinkedlist/singlylinkedlist_test.go",
+      "line": 288,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListIteratorNextOnEmpty",
+      "full": "func TestListIteratorNextOnEmpty(t *testing.T)",
+      "filename": "lists/singlylinkedlist/singlylinkedlist_test.go",
+      "line": 307,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListIteratorNext",
+      "full": "func TestListIteratorNext(t *testing.T)",
+      "filename": "lists/singlylinkedlist/singlylinkedlist_test.go",
+      "line": 315,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListIteratorBegin",
+      "full": "func TestListIteratorBegin(t *testing.T)",
+      "filename": "lists/singlylinkedlist/singlylinkedlist_test.go",
+      "line": 346,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListIteratorFirst",
+      "full": "func TestListIteratorFirst(t *testing.T)",
+      "filename": "lists/singlylinkedlist/singlylinkedlist_test.go",
+      "line": 360,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListSerialization",
+      "full": "func TestListSerialization(t *testing.T)",
+      "filename": "lists/singlylinkedlist/singlylinkedlist_test.go",
+      "line": 375,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "benchmarkGet",
+      "full": "func benchmarkGet(b *testing.B, list *List, size int)",
+      "filename": "lists/singlylinkedlist/singlylinkedlist_test.go",
+      "line": 401,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "benchmarkAdd",
+      "full": "func benchmarkAdd(b *testing.B, list *List, size int)",
+      "filename": "lists/singlylinkedlist/singlylinkedlist_test.go",
+      "line": 409,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "benchmarkRemove",
+      "full": "func benchmarkRemove(b *testing.B, list *List, size int)",
+      "filename": "lists/singlylinkedlist/singlylinkedlist_test.go",
+      "line": 417,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkSinglyLinkedListGet100",
+      "full": "func BenchmarkSinglyLinkedListGet100(b *testing.B)",
+      "filename": "lists/singlylinkedlist/singlylinkedlist_test.go",
+      "line": 425,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkSinglyLinkedListGet1000",
+      "full": "func BenchmarkSinglyLinkedListGet1000(b *testing.B)",
+      "filename": "lists/singlylinkedlist/singlylinkedlist_test.go",
+      "line": 436,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkSinglyLinkedListGet10000",
+      "full": "func BenchmarkSinglyLinkedListGet10000(b *testing.B)",
+      "filename": "lists/singlylinkedlist/singlylinkedlist_test.go",
+      "line": 447,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkSinglyLinkedListGet100000",
+      "full": "func BenchmarkSinglyLinkedListGet100000(b *testing.B)",
+      "filename": "lists/singlylinkedlist/singlylinkedlist_test.go",
+      "line": 458,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkSinglyLinkedListAdd100",
+      "full": "func BenchmarkSinglyLinkedListAdd100(b *testing.B)",
+      "filename": "lists/singlylinkedlist/singlylinkedlist_test.go",
+      "line": 469,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkSinglyLinkedListAdd1000",
+      "full": "func BenchmarkSinglyLinkedListAdd1000(b *testing.B)",
+      "filename": "lists/singlylinkedlist/singlylinkedlist_test.go",
+      "line": 477,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkSinglyLinkedListAdd10000",
+      "full": "func BenchmarkSinglyLinkedListAdd10000(b *testing.B)",
+      "filename": "lists/singlylinkedlist/singlylinkedlist_test.go",
+      "line": 488,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkSinglyLinkedListAdd100000",
+      "full": "func BenchmarkSinglyLinkedListAdd100000(b *testing.B)",
+      "filename": "lists/singlylinkedlist/singlylinkedlist_test.go",
+      "line": 499,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkSinglyLinkedListRemove100",
+      "full": "func BenchmarkSinglyLinkedListRemove100(b *testing.B)",
+      "filename": "lists/singlylinkedlist/singlylinkedlist_test.go",
+      "line": 510,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkSinglyLinkedListRemove1000",
+      "full": "func BenchmarkSinglyLinkedListRemove1000(b *testing.B)",
+      "filename": "lists/singlylinkedlist/singlylinkedlist_test.go",
+      "line": 521,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkSinglyLinkedListRemove10000",
+      "full": "func BenchmarkSinglyLinkedListRemove10000(b *testing.B)",
+      "filename": "lists/singlylinkedlist/singlylinkedlist_test.go",
+      "line": 532,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkSinglyLinkedListRemove100000",
+      "full": "func BenchmarkSinglyLinkedListRemove100000(b *testing.B)",
+      "filename": "lists/singlylinkedlist/singlylinkedlist_test.go",
+      "line": 543,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "assertEnumerableImplementation",
+      "full": "func assertEnumerableImplementation()",
+      "filename": "lists/singlylinkedlist/enumerable.go",
+      "line": 9,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Each",
+      "full": "func (list *List) Each(f func(index int, value interface{}))",
+      "filename": "lists/singlylinkedlist/enumerable.go",
+      "line": 14,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Map",
+      "full": "func (list *List) Map(f func(index int, value interface{}) interface{}) *List",
+      "filename": "lists/singlylinkedlist/enumerable.go",
+      "line": 23,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Select",
+      "full": "func (list *List) Select(f func(index int, value interface{}) bool) *List",
+      "filename": "lists/singlylinkedlist/enumerable.go",
+      "line": 33,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Any",
+      "full": "func (list *List) Any(f func(index int, value interface{}) bool) bool",
+      "filename": "lists/singlylinkedlist/enumerable.go",
+      "line": 46,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "All",
+      "full": "func (list *List) All(f func(index int, value interface{}) bool) bool",
+      "filename": "lists/singlylinkedlist/enumerable.go",
+      "line": 58,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Find",
+      "full": "func (list *List) Find(f func(index int, value interface{}) bool) (index int, value interface{})",
+      "filename": "lists/singlylinkedlist/enumerable.go",
+      "line": 71,
+      "col": 1
+    }
+  ]
+}
+,
+{
+  "mode": "decls",
+  "comment": {
+    "startLine": 0,
+    "startCol": 0,
+    "endLine": 0,
+    "endCol": 0
+  }
+}
+,
+{
+  "mode": "decls",
+  "comment": {
+    "startLine": 0,
+    "startCol": 0,
+    "endLine": 0,
+    "endCol": 0
+  },
+  "decls": [
+    {
+      "keyword": "func",
+      "ident": "assertEnumerableImplementation",
+      "full": "func assertEnumerableImplementation()",
+      "filename": "maps/treemap/enumerable.go",
+      "line": 8,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Each",
+      "full": "func (m *Map) Each(f func(key interface{}, value interface{}))",
+      "filename": "maps/treemap/enumerable.go",
+      "line": 13,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Map",
+      "full": "func (m *Map) Map(f func(key1 interface{}, value1 interface{}) (interface{}, interface{})) *Map",
+      "filename": "maps/treemap/enumerable.go",
+      "line": 22,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Select",
+      "full": "func (m *Map) Select(f func(key interface{}, value interface{}) bool) *Map",
+      "filename": "maps/treemap/enumerable.go",
+      "line": 33,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Any",
+      "full": "func (m *Map) Any(f func(key interface{}, value interface{}) bool) bool",
+      "filename": "maps/treemap/enumerable.go",
+      "line": 46,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "All",
+      "full": "func (m *Map) All(f func(key interface{}, value interface{}) bool) bool",
+      "filename": "maps/treemap/enumerable.go",
+      "line": 58,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Find",
+      "full": "func (m *Map) Find(f func(key interface{}, value interface{}) bool) (interface{}, interface{})",
+      "filename": "maps/treemap/enumerable.go",
+      "line": 71,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestMapPut",
+      "full": "func TestMapPut(t *testing.T)",
+      "filename": "maps/treemap/treemap_test.go",
+      "line": 8,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestMapRemove",
+      "full": "func TestMapRemove(t *testing.T)",
+      "filename": "maps/treemap/treemap_test.go",
+      "line": 50,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "sameElements",
+      "full": "func sameElements(a []interface{}, b []interface{}) bool",
+      "filename": "maps/treemap/treemap_test.go",
+      "line": 117,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestMapEach",
+      "full": "func TestMapEach(t *testing.T)",
+      "filename": "maps/treemap/treemap_test.go",
+      "line": 136,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestMapMap",
+      "full": "func TestMapMap(t *testing.T)",
+      "filename": "maps/treemap/treemap_test.go",
+      "line": 166,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestMapSelect",
+      "full": "func TestMapSelect(t *testing.T)",
+      "filename": "maps/treemap/treemap_test.go",
+      "line": 188,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestMapAny",
+      "full": "func TestMapAny(t *testing.T)",
+      "filename": "maps/treemap/treemap_test.go",
+      "line": 207,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestMapAll",
+      "full": "func TestMapAll(t *testing.T)",
+      "filename": "maps/treemap/treemap_test.go",
+      "line": 226,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestMapFind",
+      "full": "func TestMapFind(t *testing.T)",
+      "filename": "maps/treemap/treemap_test.go",
+      "line": 245,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestMapChaining",
+      "full": "func TestMapChaining(t *testing.T)",
+      "filename": "maps/treemap/treemap_test.go",
+      "line": 264,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestMapIteratorNextOnEmpty",
+      "full": "func TestMapIteratorNextOnEmpty(t *testing.T)",
+      "filename": "maps/treemap/treemap_test.go",
+      "line": 288,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestMapIteratorPrevOnEmpty",
+      "full": "func TestMapIteratorPrevOnEmpty(t *testing.T)",
+      "filename": "maps/treemap/treemap_test.go",
+      "line": 297,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestMapIteratorNext",
+      "full": "func TestMapIteratorNext(t *testing.T)",
+      "filename": "maps/treemap/treemap_test.go",
+      "line": 306,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestMapIteratorPrev",
+      "full": "func TestMapIteratorPrev(t *testing.T)",
+      "filename": "maps/treemap/treemap_test.go",
+      "line": 343,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestMapIteratorBegin",
+      "full": "func TestMapIteratorBegin(t *testing.T)",
+      "filename": "maps/treemap/treemap_test.go",
+      "line": 382,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestMapTreeIteratorEnd",
+      "full": "func TestMapTreeIteratorEnd(t *testing.T)",
+      "filename": "maps/treemap/treemap_test.go",
+      "line": 398,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestMapIteratorFirst",
+      "full": "func TestMapIteratorFirst(t *testing.T)",
+      "filename": "maps/treemap/treemap_test.go",
+      "line": 411,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestMapIteratorLast",
+      "full": "func TestMapIteratorLast(t *testing.T)",
+      "filename": "maps/treemap/treemap_test.go",
+      "line": 425,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestMapSerialization",
+      "full": "func TestMapSerialization(t *testing.T)",
+      "filename": "maps/treemap/treemap_test.go",
+      "line": 439,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "benchmarkGet",
+      "full": "func benchmarkGet(b *testing.B, m *Map, size int)",
+      "filename": "maps/treemap/treemap_test.go",
+      "line": 470,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "benchmarkPut",
+      "full": "func benchmarkPut(b *testing.B, m *Map, size int)",
+      "filename": "maps/treemap/treemap_test.go",
+      "line": 478,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "benchmarkRemove",
+      "full": "func benchmarkRemove(b *testing.B, m *Map, size int)",
+      "filename": "maps/treemap/treemap_test.go",
+      "line": 486,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkTreeMapGet100",
+      "full": "func BenchmarkTreeMapGet100(b *testing.B)",
+      "filename": "maps/treemap/treemap_test.go",
+      "line": 494,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkTreeMapGet1000",
+      "full": "func BenchmarkTreeMapGet1000(b *testing.B)",
+      "filename": "maps/treemap/treemap_test.go",
+      "line": 505,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkTreeMapGet10000",
+      "full": "func BenchmarkTreeMapGet10000(b *testing.B)",
+      "filename": "maps/treemap/treemap_test.go",
+      "line": 516,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkTreeMapGet100000",
+      "full": "func BenchmarkTreeMapGet100000(b *testing.B)",
+      "filename": "maps/treemap/treemap_test.go",
+      "line": 527,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkTreeMapPut100",
+      "full": "func BenchmarkTreeMapPut100(b *testing.B)",
+      "filename": "maps/treemap/treemap_test.go",
+      "line": 538,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkTreeMapPut1000",
+      "full": "func BenchmarkTreeMapPut1000(b *testing.B)",
+      "filename": "maps/treemap/treemap_test.go",
+      "line": 546,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkTreeMapPut10000",
+      "full": "func BenchmarkTreeMapPut10000(b *testing.B)",
+      "filename": "maps/treemap/treemap_test.go",
+      "line": 557,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkTreeMapPut100000",
+      "full": "func BenchmarkTreeMapPut100000(b *testing.B)",
+      "filename": "maps/treemap/treemap_test.go",
+      "line": 568,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkTreeMapRemove100",
+      "full": "func BenchmarkTreeMapRemove100(b *testing.B)",
+      "filename": "maps/treemap/treemap_test.go",
+      "line": 579,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkTreeMapRemove1000",
+      "full": "func BenchmarkTreeMapRemove1000(b *testing.B)",
+      "filename": "maps/treemap/treemap_test.go",
+      "line": 590,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkTreeMapRemove10000",
+      "full": "func BenchmarkTreeMapRemove10000(b *testing.B)",
+      "filename": "maps/treemap/treemap_test.go",
+      "line": 601,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkTreeMapRemove100000",
+      "full": "func BenchmarkTreeMapRemove100000(b *testing.B)",
+      "filename": "maps/treemap/treemap_test.go",
+      "line": 612,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "assertMapImplementation",
+      "full": "func assertMapImplementation()",
+      "filename": "maps/treemap/treemap.go",
+      "line": 19,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "NewWith",
+      "full": "func NewWith(comparator utils.Comparator) *Map",
+      "filename": "maps/treemap/treemap.go",
+      "line": 29,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "NewWithIntComparator",
+      "full": "func NewWithIntComparator() *Map",
+      "filename": "maps/treemap/treemap.go",
+      "line": 34,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "NewWithStringComparator",
+      "full": "func NewWithStringComparator() *Map",
+      "filename": "maps/treemap/treemap.go",
+      "line": 39,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Put",
+      "full": "func (m *Map) Put(key interface{}, value interface{})",
+      "filename": "maps/treemap/treemap.go",
+      "line": 45,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Get",
+      "full": "func (m *Map) Get(key interface{}) (value interface{}, found bool)",
+      "filename": "maps/treemap/treemap.go",
+      "line": 52,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Remove",
+      "full": "func (m *Map) Remove(key interface{})",
+      "filename": "maps/treemap/treemap.go",
+      "line": 58,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Empty",
+      "full": "func (m *Map) Empty() bool",
+      "filename": "maps/treemap/treemap.go",
+      "line": 63,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Size",
+      "full": "func (m *Map) Size() int",
+      "filename": "maps/treemap/treemap.go",
+      "line": 68,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Keys",
+      "full": "func (m *Map) Keys() []interface{}",
+      "filename": "maps/treemap/treemap.go",
+      "line": 73,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Values",
+      "full": "func (m *Map) Values() []interface{}",
+      "filename": "maps/treemap/treemap.go",
+      "line": 78,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Clear",
+      "full": "func (m *Map) Clear()",
+      "filename": "maps/treemap/treemap.go",
+      "line": 83,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Min",
+      "full": "func (m *Map) Min() (key interface{}, value interface{})",
+      "filename": "maps/treemap/treemap.go",
+      "line": 89,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Max",
+      "full": "func (m *Map) Max() (key interface{}, value interface{})",
+      "filename": "maps/treemap/treemap.go",
+      "line": 98,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "String",
+      "full": "func (m *Map) String() string",
+      "filename": "maps/treemap/treemap.go",
+      "line": 106,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Visualizer",
+      "full": "func (m *Map) Visualizer(fileName string) bool",
+      "filename": "maps/treemap/treemap.go",
+      "line": 117,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "assertIteratorImplementation",
+      "full": "func assertIteratorImplementation()",
+      "filename": "maps/treemap/iterator.go",
+      "line": 8,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Iterator",
+      "full": "func (m *Map) Iterator() Iterator",
+      "filename": "maps/treemap/iterator.go",
+      "line": 18,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Next",
+      "full": "func (iterator *Iterator) Next() bool",
+      "filename": "maps/treemap/iterator.go",
+      "line": 26,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Prev",
+      "full": "func (iterator *Iterator) Prev() bool",
+      "filename": "maps/treemap/iterator.go",
+      "line": 33,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Value",
+      "full": "func (iterator *Iterator) Value() interface{}",
+      "filename": "maps/treemap/iterator.go",
+      "line": 39,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Key",
+      "full": "func (iterator *Iterator) Key() interface{}",
+      "filename": "maps/treemap/iterator.go",
+      "line": 45,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Begin",
+      "full": "func (iterator *Iterator) Begin()",
+      "filename": "maps/treemap/iterator.go",
+      "line": 51,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "End",
+      "full": "func (iterator *Iterator) End()",
+      "filename": "maps/treemap/iterator.go",
+      "line": 57,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "First",
+      "full": "func (iterator *Iterator) First() bool",
+      "filename": "maps/treemap/iterator.go",
+      "line": 64,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Last",
+      "full": "func (iterator *Iterator) Last() bool",
+      "filename": "maps/treemap/iterator.go",
+      "line": 71,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "assertSerializationImplementation",
+      "full": "func assertSerializationImplementation()",
+      "filename": "maps/treemap/serialization.go",
+      "line": 5,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "ToJSON",
+      "full": "func (m *Map) ToJSON() ([]byte, error)",
+      "filename": "maps/treemap/serialization.go",
+      "line": 11,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "FromJSON",
+      "full": "func (m *Map) FromJSON(data []byte) error",
+      "filename": "maps/treemap/serialization.go",
+      "line": 16,
+      "col": 1
+    }
+  ]
+}
+,
+{
+  "mode": "decls",
+  "comment": {
+    "startLine": 0,
+    "startCol": 0,
+    "endLine": 0,
+    "endCol": 0
+  }
+}
+,
+{
+  "mode": "decls",
+  "comment": {
+    "startLine": 0,
+    "startCol": 0,
+    "endLine": 0,
+    "endCol": 0
+  },
+  "decls": [
+    {
+      "keyword": "func",
+      "ident": "TestStackPush",
+      "full": "func TestStackPush(t *testing.T)",
+      "filename": "stacks/arraystack/arraystack_test.go",
+      "line": 8,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestStackPeek",
+      "full": "func TestStackPeek(t *testing.T)",
+      "filename": "stacks/arraystack/arraystack_test.go",
+      "line": 31,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestStackPop",
+      "full": "func TestStackPop(t *testing.T)",
+      "filename": "stacks/arraystack/arraystack_test.go",
+      "line": 44,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestStackIteratorOnEmpty",
+      "full": "func TestStackIteratorOnEmpty(t *testing.T)",
+      "filename": "stacks/arraystack/arraystack_test.go",
+      "line": 70,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestStackIteratorNext",
+      "full": "func TestStackIteratorNext(t *testing.T)",
+      "filename": "stacks/arraystack/arraystack_test.go",
+      "line": 78,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestStackIteratorPrev",
+      "full": "func TestStackIteratorPrev(t *testing.T)",
+      "filename": "stacks/arraystack/arraystack_test.go",
+      "line": 115,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestStackIteratorBegin",
+      "full": "func TestStackIteratorBegin(t *testing.T)",
+      "filename": "stacks/arraystack/arraystack_test.go",
+      "line": 154,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestStackIteratorEnd",
+      "full": "func TestStackIteratorEnd(t *testing.T)",
+      "filename": "stacks/arraystack/arraystack_test.go",
+      "line": 170,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestStackIteratorFirst",
+      "full": "func TestStackIteratorFirst(t *testing.T)",
+      "filename": "stacks/arraystack/arraystack_test.go",
+      "line": 197,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestStackIteratorLast",
+      "full": "func TestStackIteratorLast(t *testing.T)",
+      "filename": "stacks/arraystack/arraystack_test.go",
+      "line": 214,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestStackSerialization",
+      "full": "func TestStackSerialization(t *testing.T)",
+      "filename": "stacks/arraystack/arraystack_test.go",
+      "line": 231,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "benchmarkPush",
+      "full": "func benchmarkPush(b *testing.B, stack *Stack, size int)",
+      "filename": "stacks/arraystack/arraystack_test.go",
+      "line": 259,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "benchmarkPop",
+      "full": "func benchmarkPop(b *testing.B, stack *Stack, size int)",
+      "filename": "stacks/arraystack/arraystack_test.go",
+      "line": 267,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkArrayStackPop100",
+      "full": "func BenchmarkArrayStackPop100(b *testing.B)",
+      "filename": "stacks/arraystack/arraystack_test.go",
+      "line": 275,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkArrayStackPop1000",
+      "full": "func BenchmarkArrayStackPop1000(b *testing.B)",
+      "filename": "stacks/arraystack/arraystack_test.go",
+      "line": 286,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkArrayStackPop10000",
+      "full": "func BenchmarkArrayStackPop10000(b *testing.B)",
+      "filename": "stacks/arraystack/arraystack_test.go",
+      "line": 297,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkArrayStackPop100000",
+      "full": "func BenchmarkArrayStackPop100000(b *testing.B)",
+      "filename": "stacks/arraystack/arraystack_test.go",
+      "line": 308,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkArrayStackPush100",
+      "full": "func BenchmarkArrayStackPush100(b *testing.B)",
+      "filename": "stacks/arraystack/arraystack_test.go",
+      "line": 319,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkArrayStackPush1000",
+      "full": "func BenchmarkArrayStackPush1000(b *testing.B)",
+      "filename": "stacks/arraystack/arraystack_test.go",
+      "line": 327,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkArrayStackPush10000",
+      "full": "func BenchmarkArrayStackPush10000(b *testing.B)",
+      "filename": "stacks/arraystack/arraystack_test.go",
+      "line": 338,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkArrayStackPush100000",
+      "full": "func BenchmarkArrayStackPush100000(b *testing.B)",
+      "filename": "stacks/arraystack/arraystack_test.go",
+      "line": 349,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "assertIteratorImplementation",
+      "full": "func assertIteratorImplementation()",
+      "filename": "stacks/arraystack/iterator.go",
+      "line": 5,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Iterator",
+      "full": "func (stack *Stack) Iterator() Iterator",
+      "filename": "stacks/arraystack/iterator.go",
+      "line": 16,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Next",
+      "full": "func (iterator *Iterator) Next() bool",
+      "filename": "stacks/arraystack/iterator.go",
+      "line": 24,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Prev",
+      "full": "func (iterator *Iterator) Prev() bool",
+      "filename": "stacks/arraystack/iterator.go",
+      "line": 34,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Value",
+      "full": "func (iterator *Iterator) Value() interface{}",
+      "filename": "stacks/arraystack/iterator.go",
+      "line": 43,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Index",
+      "full": "func (iterator *Iterator) Index() int",
+      "filename": "stacks/arraystack/iterator.go",
+      "line": 50,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Begin",
+      "full": "func (iterator *Iterator) Begin()",
+      "filename": "stacks/arraystack/iterator.go",
+      "line": 56,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "End",
+      "full": "func (iterator *Iterator) End()",
+      "filename": "stacks/arraystack/iterator.go",
+      "line": 62,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "First",
+      "full": "func (iterator *Iterator) First() bool",
+      "filename": "stacks/arraystack/iterator.go",
+      "line": 69,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Last",
+      "full": "func (iterator *Iterator) Last() bool",
+      "filename": "stacks/arraystack/iterator.go",
+      "line": 77,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "assertStackImplementation",
+      "full": "func assertStackImplementation()",
+      "filename": "stacks/arraystack/arraystack.go",
+      "line": 18,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "New",
+      "full": "func New() *Stack",
+      "filename": "stacks/arraystack/arraystack.go",
+      "line": 28,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Push",
+      "full": "func (stack *Stack) Push(value interface{})",
+      "filename": "stacks/arraystack/arraystack.go",
+      "line": 33,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Pop",
+      "full": "func (stack *Stack) Pop() (value interface{}, ok bool)",
+      "filename": "stacks/arraystack/arraystack.go",
+      "line": 39,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Peek",
+      "full": "func (stack *Stack) Peek() (value interface{}, ok bool)",
+      "filename": "stacks/arraystack/arraystack.go",
+      "line": 47,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Empty",
+      "full": "func (stack *Stack) Empty() bool",
+      "filename": "stacks/arraystack/arraystack.go",
+      "line": 52,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Size",
+      "full": "func (stack *Stack) Size() int",
+      "filename": "stacks/arraystack/arraystack.go",
+      "line": 57,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Clear",
+      "full": "func (stack *Stack) Clear()",
+      "filename": "stacks/arraystack/arraystack.go",
+      "line": 62,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Values",
+      "full": "func (stack *Stack) Values() []interface{}",
+      "filename": "stacks/arraystack/arraystack.go",
+      "line": 67,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Visualize",
+      "full": "func (stack *Stack) Visualize() string",
+      "filename": "stacks/arraystack/arraystack.go",
+      "line": 79,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "String",
+      "full": "func (stack *Stack) String() string",
+      "filename": "stacks/arraystack/arraystack.go",
+      "line": 102,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "withinRange",
+      "full": "func (stack *Stack) withinRange(index int) bool",
+      "filename": "stacks/arraystack/arraystack.go",
+      "line": 113,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Visualizer",
+      "full": "func (heap *Stack) Visualizer(fileName string) bool",
+      "filename": "stacks/arraystack/arraystack.go",
+      "line": 119,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "assertSerializationImplementation",
+      "full": "func assertSerializationImplementation()",
+      "filename": "stacks/arraystack/serialization.go",
+      "line": 5,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "ToJSON",
+      "full": "func (stack *Stack) ToJSON() ([]byte, error)",
+      "filename": "stacks/arraystack/serialization.go",
+      "line": 11,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "FromJSON",
+      "full": "func (stack *Stack) FromJSON(data []byte) error",
+      "filename": "stacks/arraystack/serialization.go",
+      "line": 16,
+      "col": 1
+    }
+  ]
+}
+,
+{
+  "mode": "decls",
+  "comment": {
+    "startLine": 0,
+    "startCol": 0,
+    "endLine": 0,
+    "endCol": 0
+  }
+}
+,
+{
+  "mode": "decls",
+  "comment": {
+    "startLine": 0,
+    "startCol": 0,
+    "endLine": 0,
+    "endCol": 0
+  },
+  "decls": [
+    {
+      "keyword": "func",
+      "ident": "TestAVLTreePut",
+      "full": "func TestAVLTreePut(t *testing.T)",
+      "filename": "trees/avltree/avltree_test.go",
+      "line": 8,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestAVLTreeRemove",
+      "full": "func TestAVLTreeRemove(t *testing.T)",
+      "filename": "trees/avltree/avltree_test.go",
+      "line": 49,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestAVLTreeLeftAndRight",
+      "full": "func TestAVLTreeLeftAndRight(t *testing.T)",
+      "filename": "trees/avltree/avltree_test.go",
+      "line": 116,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestAVLTreeCeilingAndFloor",
+      "full": "func TestAVLTreeCeilingAndFloor(t *testing.T)",
+      "filename": "trees/avltree/avltree_test.go",
+      "line": 150,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestAVLTreeIteratorNextOnEmpty",
+      "full": "func TestAVLTreeIteratorNextOnEmpty(t *testing.T)",
+      "filename": "trees/avltree/avltree_test.go",
+      "line": 183,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestAVLTreeIteratorPrevOnEmpty",
+      "full": "func TestAVLTreeIteratorPrevOnEmpty(t *testing.T)",
+      "filename": "trees/avltree/avltree_test.go",
+      "line": 191,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestAVLTreeIterator1Next",
+      "full": "func TestAVLTreeIterator1Next(t *testing.T)",
+      "filename": "trees/avltree/avltree_test.go",
+      "line": 199,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestAVLTreeIterator1Prev",
+      "full": "func TestAVLTreeIterator1Prev(t *testing.T)",
+      "filename": "trees/avltree/avltree_test.go",
+      "line": 237,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestAVLTreeIterator2Next",
+      "full": "func TestAVLTreeIterator2Next(t *testing.T)",
+      "filename": "trees/avltree/avltree_test.go",
+      "line": 277,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestAVLTreeIterator2Prev",
+      "full": "func TestAVLTreeIterator2Prev(t *testing.T)",
+      "filename": "trees/avltree/avltree_test.go",
+      "line": 303,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestAVLTreeIterator3Next",
+      "full": "func TestAVLTreeIterator3Next(t *testing.T)",
+      "filename": "trees/avltree/avltree_test.go",
+      "line": 331,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestAVLTreeIterator3Prev",
+      "full": "func TestAVLTreeIterator3Prev(t *testing.T)",
+      "filename": "trees/avltree/avltree_test.go",
+      "line": 355,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestAVLTreeIterator4Next",
+      "full": "func TestAVLTreeIterator4Next(t *testing.T)",
+      "filename": "trees/avltree/avltree_test.go",
+      "line": 381,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestAVLTreeIterator4Prev",
+      "full": "func TestAVLTreeIterator4Prev(t *testing.T)",
+      "filename": "trees/avltree/avltree_test.go",
+      "line": 424,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestAVLTreeIteratorBegin",
+      "full": "func TestAVLTreeIteratorBegin(t *testing.T)",
+      "filename": "trees/avltree/avltree_test.go",
+      "line": 469,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestAVLTreeIteratorEnd",
+      "full": "func TestAVLTreeIteratorEnd(t *testing.T)",
+      "filename": "trees/avltree/avltree_test.go",
+      "line": 501,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestAVLTreeIteratorFirst",
+      "full": "func TestAVLTreeIteratorFirst(t *testing.T)",
+      "filename": "trees/avltree/avltree_test.go",
+      "line": 528,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestAVLTreeIteratorLast",
+      "full": "func TestAVLTreeIteratorLast(t *testing.T)",
+      "filename": "trees/avltree/avltree_test.go",
+      "line": 542,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestAVLTreeSerialization",
+      "full": "func TestAVLTreeSerialization(t *testing.T)",
+      "filename": "trees/avltree/avltree_test.go",
+      "line": 556,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "benchmarkGet",
+      "full": "func benchmarkGet(b *testing.B, tree *Tree, size int)",
+      "filename": "trees/avltree/avltree_test.go",
+      "line": 587,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "benchmarkPut",
+      "full": "func benchmarkPut(b *testing.B, tree *Tree, size int)",
+      "filename": "trees/avltree/avltree_test.go",
+      "line": 595,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "benchmarkRemove",
+      "full": "func benchmarkRemove(b *testing.B, tree *Tree, size int)",
+      "filename": "trees/avltree/avltree_test.go",
+      "line": 603,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkAVLTreeGet100",
+      "full": "func BenchmarkAVLTreeGet100(b *testing.B)",
+      "filename": "trees/avltree/avltree_test.go",
+      "line": 611,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkAVLTreeGet1000",
+      "full": "func BenchmarkAVLTreeGet1000(b *testing.B)",
+      "filename": "trees/avltree/avltree_test.go",
+      "line": 622,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkAVLTreeGet10000",
+      "full": "func BenchmarkAVLTreeGet10000(b *testing.B)",
+      "filename": "trees/avltree/avltree_test.go",
+      "line": 633,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkAVLTreeGet100000",
+      "full": "func BenchmarkAVLTreeGet100000(b *testing.B)",
+      "filename": "trees/avltree/avltree_test.go",
+      "line": 644,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkAVLTreePut100",
+      "full": "func BenchmarkAVLTreePut100(b *testing.B)",
+      "filename": "trees/avltree/avltree_test.go",
+      "line": 655,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkAVLTreePut1000",
+      "full": "func BenchmarkAVLTreePut1000(b *testing.B)",
+      "filename": "trees/avltree/avltree_test.go",
+      "line": 663,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkAVLTreePut10000",
+      "full": "func BenchmarkAVLTreePut10000(b *testing.B)",
+      "filename": "trees/avltree/avltree_test.go",
+      "line": 674,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkAVLTreePut100000",
+      "full": "func BenchmarkAVLTreePut100000(b *testing.B)",
+      "filename": "trees/avltree/avltree_test.go",
+      "line": 685,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkAVLTreeRemove100",
+      "full": "func BenchmarkAVLTreeRemove100(b *testing.B)",
+      "filename": "trees/avltree/avltree_test.go",
+      "line": 696,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkAVLTreeRemove1000",
+      "full": "func BenchmarkAVLTreeRemove1000(b *testing.B)",
+      "filename": "trees/avltree/avltree_test.go",
+      "line": 707,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkAVLTreeRemove10000",
+      "full": "func BenchmarkAVLTreeRemove10000(b *testing.B)",
+      "filename": "trees/avltree/avltree_test.go",
+      "line": 718,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkAVLTreeRemove100000",
+      "full": "func BenchmarkAVLTreeRemove100000(b *testing.B)",
+      "filename": "trees/avltree/avltree_test.go",
+      "line": 729,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "assertTreeImplementation",
+      "full": "func assertTreeImplementation()",
+      "filename": "trees/avltree/avltree.go",
+      "line": 16,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "NewWith",
+      "full": "func NewWith(comparator utils.Comparator) *Tree",
+      "filename": "trees/avltree/avltree.go",
+      "line": 37,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "NewWithIntComparator",
+      "full": "func NewWithIntComparator() *Tree",
+      "filename": "trees/avltree/avltree.go",
+      "line": 42,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "NewWithStringComparator",
+      "full": "func NewWithStringComparator() *Tree",
+      "filename": "trees/avltree/avltree.go",
+      "line": 47,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Put",
+      "full": "func (t *Tree) Put(key interface{}, value interface{})",
+      "filename": "trees/avltree/avltree.go",
+      "line": 53,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Get",
+      "full": "func (t *Tree) Get(key interface{}) (value interface{}, found bool)",
+      "filename": "trees/avltree/avltree.go",
+      "line": 60,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Remove",
+      "full": "func (t *Tree) Remove(key interface{})",
+      "filename": "trees/avltree/avltree.go",
+      "line": 78,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Empty",
+      "full": "func (t *Tree) Empty() bool",
+      "filename": "trees/avltree/avltree.go",
+      "line": 83,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Size",
+      "full": "func (t *Tree) Size() int",
+      "filename": "trees/avltree/avltree.go",
+      "line": 88,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Keys",
+      "full": "func (t *Tree) Keys() []interface{}",
+      "filename": "trees/avltree/avltree.go",
+      "line": 93,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Values",
+      "full": "func (t *Tree) Values() []interface{}",
+      "filename": "trees/avltree/avltree.go",
+      "line": 103,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Left",
+      "full": "func (t *Tree) Left() *Node",
+      "filename": "trees/avltree/avltree.go",
+      "line": 114,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Right",
+      "full": "func (t *Tree) Right() *Node",
+      "filename": "trees/avltree/avltree.go",
+      "line": 120,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Floor",
+      "full": "func (t *Tree) Floor(key interface{}) (floor *Node, found bool)",
+      "filename": "trees/avltree/avltree.go",
+      "line": 132,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Ceiling",
+      "full": "func (t *Tree) Ceiling(key interface{}) (floor *Node, found bool)",
+      "filename": "trees/avltree/avltree.go",
+      "line": 161,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Clear",
+      "full": "func (t *Tree) Clear()",
+      "filename": "trees/avltree/avltree.go",
+      "line": 183,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "String",
+      "full": "func (t *Tree) String() string",
+      "filename": "trees/avltree/avltree.go",
+      "line": 189,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "String",
+      "full": "func (n *Node) String() string",
+      "filename": "trees/avltree/avltree.go",
+      "line": 197,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Visualize",
+      "full": "func (t *Tree) Visualize() string",
+      "filename": "trees/avltree/avltree.go",
+      "line": 204,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "visHelperMap",
+      "full": "func visHelperMap(node *Node, KeyChildLeft *map[int]int, KeyChildRight *map[int]int, KeyIntMap map[interface{}]int)",
+      "filename": "trees/avltree/avltree.go",
+      "line": 238,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "put",
+      "full": "func (t *Tree) put(key interface{}, value interface{}, p *Node, qp **Node) bool",
+      "filename": "trees/avltree/avltree.go",
+      "line": 254,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "remove",
+      "full": "func (t *Tree) remove(key interface{}, qp **Node) bool",
+      "filename": "trees/avltree/avltree.go",
+      "line": 283,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "removeMin",
+      "full": "func removeMin(qp **Node, minKey *interface{}, minVal *interface{}) bool",
+      "filename": "trees/avltree/avltree.go",
+      "line": 319,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "putFix",
+      "full": "func putFix(c int8, t **Node) bool",
+      "filename": "trees/avltree/avltree.go",
+      "line": 337,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "removeFix",
+      "full": "func removeFix(c int8, t **Node) bool",
+      "filename": "trees/avltree/avltree.go",
+      "line": 358,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "singlerot",
+      "full": "func singlerot(c int8, s *Node) *Node",
+      "filename": "trees/avltree/avltree.go",
+      "line": 387,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "doublerot",
+      "full": "func doublerot(c int8, s *Node) *Node",
+      "filename": "trees/avltree/avltree.go",
+      "line": 394,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "rotate",
+      "full": "func rotate(c int8, s *Node) *Node",
+      "filename": "trees/avltree/avltree.go",
+      "line": 416,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "bottom",
+      "full": "func (t *Tree) bottom(d int) *Node",
+      "filename": "trees/avltree/avltree.go",
+      "line": 429,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Prev",
+      "full": "func (n *Node) Prev() *Node",
+      "filename": "trees/avltree/avltree.go",
+      "line": 443,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Next",
+      "full": "func (n *Node) Next() *Node",
+      "filename": "trees/avltree/avltree.go",
+      "line": 449,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "walk1",
+      "full": "func (n *Node) walk1(a int) *Node",
+      "filename": "trees/avltree/avltree.go",
+      "line": 453,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "output",
+      "full": "func output(node *Node, prefix string, isTail bool, str *string)",
+      "filename": "trees/avltree/avltree.go",
+      "line": 474,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Visualizer",
+      "full": "func (heap *Tree) Visualizer(fileName string) bool",
+      "filename": "trees/avltree/avltree.go",
+      "line": 504,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "assertIteratorImplementation",
+      "full": "func assertIteratorImplementation()",
+      "filename": "trees/avltree/iterator.go",
+      "line": 5,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Iterator",
+      "full": "func (tree *Tree) Iterator() containers.ReverseIteratorWithKey",
+      "filename": "trees/avltree/iterator.go",
+      "line": 24,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Next",
+      "full": "func (iterator *Iterator) Next() bool",
+      "filename": "trees/avltree/iterator.go",
+      "line": 32,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Prev",
+      "full": "func (iterator *Iterator) Prev() bool",
+      "filename": "trees/avltree/iterator.go",
+      "line": 52,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Value",
+      "full": "func (iterator *Iterator) Value() interface{}",
+      "filename": "trees/avltree/iterator.go",
+      "line": 70,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Key",
+      "full": "func (iterator *Iterator) Key() interface{}",
+      "filename": "trees/avltree/iterator.go",
+      "line": 79,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Node",
+      "full": "func (iterator *Iterator) Node() *Node",
+      "filename": "trees/avltree/iterator.go",
+      "line": 88,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Begin",
+      "full": "func (iterator *Iterator) Begin()",
+      "filename": "trees/avltree/iterator.go",
+      "line": 97,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "End",
+      "full": "func (iterator *Iterator) End()",
+      "filename": "trees/avltree/iterator.go",
+      "line": 104,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "First",
+      "full": "func (iterator *Iterator) First() bool",
+      "filename": "trees/avltree/iterator.go",
+      "line": 112,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Last",
+      "full": "func (iterator *Iterator) Last() bool",
+      "filename": "trees/avltree/iterator.go",
+      "line": 120,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "assertSerializationImplementation",
+      "full": "func assertSerializationImplementation()",
+      "filename": "trees/avltree/serialization.go",
+      "line": 9,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "ToJSON",
+      "full": "func (tree *Tree) ToJSON() ([]byte, error)",
+      "filename": "trees/avltree/serialization.go",
+      "line": 15,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "FromJSON",
+      "full": "func (tree *Tree) FromJSON(data []byte) error",
+      "filename": "trees/avltree/serialization.go",
+      "line": 25,
+      "col": 1
+    }
+  ]
+}
+,
+{
+  "mode": "decls",
+  "comment": {
+    "startLine": 0,
+    "startCol": 0,
+    "endLine": 0,
+    "endCol": 0
+  },
+  "decls": [
+    {
+      "keyword": "func",
+      "ident": "assertTreeImplementation",
+      "full": "func assertTreeImplementation()",
+      "filename": "trees/binaryheap/binaryheap.go",
+      "line": 20,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "NewWith",
+      "full": "func NewWith(comparator utils.Comparator) *Heap",
+      "filename": "trees/binaryheap/binaryheap.go",
+      "line": 31,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "NewWithIntComparator",
+      "full": "func NewWithIntComparator() *Heap",
+      "filename": "trees/binaryheap/binaryheap.go",
+      "line": 36,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "NewWithStringComparator",
+      "full": "func NewWithStringComparator() *Heap",
+      "filename": "trees/binaryheap/binaryheap.go",
+      "line": 41,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Push",
+      "full": "func (heap *Heap) Push(values ...interface{})",
+      "filename": "trees/binaryheap/binaryheap.go",
+      "line": 46,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Pop",
+      "full": "func (heap *Heap) Pop() (value interface{}, ok bool)",
+      "filename": "trees/binaryheap/binaryheap.go",
+      "line": 64,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Peek",
+      "full": "func (heap *Heap) Peek() (value interface{}, ok bool)",
+      "filename": "trees/binaryheap/binaryheap.go",
+      "line": 78,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Empty",
+      "full": "func (heap *Heap) Empty() bool",
+      "filename": "trees/binaryheap/binaryheap.go",
+      "line": 83,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Size",
+      "full": "func (heap *Heap) Size() int",
+      "filename": "trees/binaryheap/binaryheap.go",
+      "line": 88,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Clear",
+      "full": "func (heap *Heap) Clear()",
+      "filename": "trees/binaryheap/binaryheap.go",
+      "line": 93,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Values",
+      "full": "func (heap *Heap) Values() []interface{}",
+      "filename": "trees/binaryheap/binaryheap.go",
+      "line": 98,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "String",
+      "full": "func (heap *Heap) String() string",
+      "filename": "trees/binaryheap/binaryheap.go",
+      "line": 103,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "bubbleDown",
+      "full": "func (heap *Heap) bubbleDown()",
+      "filename": "trees/binaryheap/binaryheap.go",
+      "line": 115,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "bubbleDownIndex",
+      "full": "func (heap *Heap) bubbleDownIndex(index int)",
+      "filename": "trees/binaryheap/binaryheap.go",
+      "line": 121,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Visualize",
+      "full": "func (heap *Heap) Visualize() string",
+      "filename": "trees/binaryheap/binaryheap.go",
+      "line": 145,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "bubbleUp",
+      "full": "func (heap *Heap) bubbleUp()",
+      "filename": "trees/binaryheap/binaryheap.go",
+      "line": 174,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "withinRange",
+      "full": "func (heap *Heap) withinRange(index int) bool",
+      "filename": "trees/binaryheap/binaryheap.go",
+      "line": 188,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Visualizer",
+      "full": "func (heap *Heap) Visualizer(fileName string) bool",
+      "filename": "trees/binaryheap/binaryheap.go",
+      "line": 194,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "assertIteratorImplementation",
+      "full": "func assertIteratorImplementation()",
+      "filename": "trees/binaryheap/iterator.go",
+      "line": 5,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Iterator",
+      "full": "func (heap *Heap) Iterator() Iterator",
+      "filename": "trees/binaryheap/iterator.go",
+      "line": 16,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Next",
+      "full": "func (iterator *Iterator) Next() bool",
+      "filename": "trees/binaryheap/iterator.go",
+      "line": 24,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Prev",
+      "full": "func (iterator *Iterator) Prev() bool",
+      "filename": "trees/binaryheap/iterator.go",
+      "line": 34,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Value",
+      "full": "func (iterator *Iterator) Value() interface{}",
+      "filename": "trees/binaryheap/iterator.go",
+      "line": 43,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Index",
+      "full": "func (iterator *Iterator) Index() int",
+      "filename": "trees/binaryheap/iterator.go",
+      "line": 50,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Begin",
+      "full": "func (iterator *Iterator) Begin()",
+      "filename": "trees/binaryheap/iterator.go",
+      "line": 56,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "End",
+      "full": "func (iterator *Iterator) End()",
+      "filename": "trees/binaryheap/iterator.go",
+      "line": 62,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "First",
+      "full": "func (iterator *Iterator) First() bool",
+      "filename": "trees/binaryheap/iterator.go",
+      "line": 69,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Last",
+      "full": "func (iterator *Iterator) Last() bool",
+      "filename": "trees/binaryheap/iterator.go",
+      "line": 77,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "assertSerializationImplementation",
+      "full": "func assertSerializationImplementation()",
+      "filename": "trees/binaryheap/serialization.go",
+      "line": 5,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "ToJSON",
+      "full": "func (heap *Heap) ToJSON() ([]byte, error)",
+      "filename": "trees/binaryheap/serialization.go",
+      "line": 11,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "FromJSON",
+      "full": "func (heap *Heap) FromJSON(data []byte) error",
+      "filename": "trees/binaryheap/serialization.go",
+      "line": 16,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBinaryHeapPush",
+      "full": "func TestBinaryHeapPush(t *testing.T)",
+      "filename": "trees/binaryheap/binaryheap_test.go",
+      "line": 8,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBinaryHeapPushBulk",
+      "full": "func TestBinaryHeapPushBulk(t *testing.T)",
+      "filename": "trees/binaryheap/binaryheap_test.go",
+      "line": 33,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBinaryHeapPop",
+      "full": "func TestBinaryHeapPop(t *testing.T)",
+      "filename": "trees/binaryheap/binaryheap_test.go",
+      "line": 46,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBinaryHeapRandom",
+      "full": "func TestBinaryHeapRandom(t *testing.T)",
+      "filename": "trees/binaryheap/binaryheap_test.go",
+      "line": 78,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBinaryHeapIteratorOnEmpty",
+      "full": "func TestBinaryHeapIteratorOnEmpty(t *testing.T)",
+      "filename": "trees/binaryheap/binaryheap_test.go",
+      "line": 97,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBinaryHeapIteratorNext",
+      "full": "func TestBinaryHeapIteratorNext(t *testing.T)",
+      "filename": "trees/binaryheap/binaryheap_test.go",
+      "line": 105,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBinaryHeapIteratorPrev",
+      "full": "func TestBinaryHeapIteratorPrev(t *testing.T)",
+      "filename": "trees/binaryheap/binaryheap_test.go",
+      "line": 142,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBinaryHeapIteratorBegin",
+      "full": "func TestBinaryHeapIteratorBegin(t *testing.T)",
+      "filename": "trees/binaryheap/binaryheap_test.go",
+      "line": 181,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListIteratorEnd",
+      "full": "func TestListIteratorEnd(t *testing.T)",
+      "filename": "trees/binaryheap/binaryheap_test.go",
+      "line": 197,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestStackIteratorFirst",
+      "full": "func TestStackIteratorFirst(t *testing.T)",
+      "filename": "trees/binaryheap/binaryheap_test.go",
+      "line": 224,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBinaryHeapIteratorLast",
+      "full": "func TestBinaryHeapIteratorLast(t *testing.T)",
+      "filename": "trees/binaryheap/binaryheap_test.go",
+      "line": 241,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBinaryHeapSerialization",
+      "full": "func TestBinaryHeapSerialization(t *testing.T)",
+      "filename": "trees/binaryheap/binaryheap_test.go",
+      "line": 258,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "benchmarkPush",
+      "full": "func benchmarkPush(b *testing.B, heap *Heap, size int)",
+      "filename": "trees/binaryheap/binaryheap_test.go",
+      "line": 290,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "benchmarkPop",
+      "full": "func benchmarkPop(b *testing.B, heap *Heap, size int)",
+      "filename": "trees/binaryheap/binaryheap_test.go",
+      "line": 298,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkBinaryHeapPop100",
+      "full": "func BenchmarkBinaryHeapPop100(b *testing.B)",
+      "filename": "trees/binaryheap/binaryheap_test.go",
+      "line": 306,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkBinaryHeapPop1000",
+      "full": "func BenchmarkBinaryHeapPop1000(b *testing.B)",
+      "filename": "trees/binaryheap/binaryheap_test.go",
+      "line": 317,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkBinaryHeapPop10000",
+      "full": "func BenchmarkBinaryHeapPop10000(b *testing.B)",
+      "filename": "trees/binaryheap/binaryheap_test.go",
+      "line": 328,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkBinaryHeapPop100000",
+      "full": "func BenchmarkBinaryHeapPop100000(b *testing.B)",
+      "filename": "trees/binaryheap/binaryheap_test.go",
+      "line": 339,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkBinaryHeapPush100",
+      "full": "func BenchmarkBinaryHeapPush100(b *testing.B)",
+      "filename": "trees/binaryheap/binaryheap_test.go",
+      "line": 350,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkBinaryHeapPush1000",
+      "full": "func BenchmarkBinaryHeapPush1000(b *testing.B)",
+      "filename": "trees/binaryheap/binaryheap_test.go",
+      "line": 358,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkBinaryHeapPush10000",
+      "full": "func BenchmarkBinaryHeapPush10000(b *testing.B)",
+      "filename": "trees/binaryheap/binaryheap_test.go",
+      "line": 369,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkBinaryHeapPush100000",
+      "full": "func BenchmarkBinaryHeapPush100000(b *testing.B)",
+      "filename": "trees/binaryheap/binaryheap_test.go",
+      "line": 380,
+      "col": 1
+    }
+  ]
+}
+,
+{
+  "mode": "decls",
+  "comment": {
+    "startLine": 0,
+    "startCol": 0,
+    "endLine": 0,
+    "endCol": 0
+  },
+  "decls": [
+    {
+      "keyword": "func",
+      "ident": "assertTreeImplementation",
+      "full": "func assertTreeImplementation()",
+      "filename": "trees/btree/btree.go",
+      "line": 25,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "NewWith",
+      "full": "func NewWith(order int, comparator utils.Comparator) *Tree",
+      "filename": "trees/btree/btree.go",
+      "line": 54,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "NewWithIntComparator",
+      "full": "func NewWithIntComparator(order int) *Tree",
+      "filename": "trees/btree/btree.go",
+      "line": 62,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "NewWithStringComparator",
+      "full": "func NewWithStringComparator(order int) *Tree",
+      "filename": "trees/btree/btree.go",
+      "line": 67,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Put",
+      "full": "func (tree *Tree) Put(key interface{}, value interface{})",
+      "filename": "trees/btree/btree.go",
+      "line": 74,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Get",
+      "full": "func (tree *Tree) Get(key interface{}) (value interface{}, found bool)",
+      "filename": "trees/btree/btree.go",
+      "line": 91,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Remove",
+      "full": "func (tree *Tree) Remove(key interface{})",
+      "filename": "trees/btree/btree.go",
+      "line": 101,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Empty",
+      "full": "func (tree *Tree) Empty() bool",
+      "filename": "trees/btree/btree.go",
+      "line": 110,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Size",
+      "full": "func (tree *Tree) Size() int",
+      "filename": "trees/btree/btree.go",
+      "line": 115,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Keys",
+      "full": "func (tree *Tree) Keys() []interface{}",
+      "filename": "trees/btree/btree.go",
+      "line": 120,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Values",
+      "full": "func (tree *Tree) Values() []interface{}",
+      "filename": "trees/btree/btree.go",
+      "line": 130,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "min",
+      "full": "func min(x, y int) int",
+      "filename": "trees/btree/btree.go",
+      "line": 138,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Visualize",
+      "full": "func (tree *Tree) Visualize() string",
+      "filename": "trees/btree/btree.go",
+      "line": 146,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Clear",
+      "full": "func (tree *Tree) Clear()",
+      "filename": "trees/btree/btree.go",
+      "line": 215,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Height",
+      "full": "func (tree *Tree) Height() int",
+      "filename": "trees/btree/btree.go",
+      "line": 221,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Left",
+      "full": "func (tree *Tree) Left() *Node",
+      "filename": "trees/btree/btree.go",
+      "line": 226,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "LeftKey",
+      "full": "func (tree *Tree) LeftKey() interface{}",
+      "filename": "trees/btree/btree.go",
+      "line": 231,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "LeftValue",
+      "full": "func (tree *Tree) LeftValue() interface{}",
+      "filename": "trees/btree/btree.go",
+      "line": 239,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Right",
+      "full": "func (tree *Tree) Right() *Node",
+      "filename": "trees/btree/btree.go",
+      "line": 247,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "RightKey",
+      "full": "func (tree *Tree) RightKey() interface{}",
+      "filename": "trees/btree/btree.go",
+      "line": 252,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "RightValue",
+      "full": "func (tree *Tree) RightValue() interface{}",
+      "filename": "trees/btree/btree.go",
+      "line": 260,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "String",
+      "full": "func (tree *Tree) String() string",
+      "filename": "trees/btree/btree.go",
+      "line": 268,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "String",
+      "full": "func (entry *Entry) String() string",
+      "filename": "trees/btree/btree.go",
+      "line": 278,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "output",
+      "full": "func (tree *Tree) output(buffer *bytes.Buffer, node *Node, level int, isTail bool)",
+      "filename": "trees/btree/btree.go",
+      "line": 282,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "height",
+      "full": "func (node *Node) height() int",
+      "filename": "trees/btree/btree.go",
+      "line": 296,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "isLeaf",
+      "full": "func (tree *Tree) isLeaf(node *Node) bool",
+      "filename": "trees/btree/btree.go",
+      "line": 307,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "isFull",
+      "full": "func (tree *Tree) isFull(node *Node) bool",
+      "filename": "trees/btree/btree.go",
+      "line": 311,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "shouldSplit",
+      "full": "func (tree *Tree) shouldSplit(node *Node) bool",
+      "filename": "trees/btree/btree.go",
+      "line": 315,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "maxChildren",
+      "full": "func (tree *Tree) maxChildren() int",
+      "filename": "trees/btree/btree.go",
+      "line": 319,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "minChildren",
+      "full": "func (tree *Tree) minChildren() int",
+      "filename": "trees/btree/btree.go",
+      "line": 323,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "maxEntries",
+      "full": "func (tree *Tree) maxEntries() int",
+      "filename": "trees/btree/btree.go",
+      "line": 327,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "minEntries",
+      "full": "func (tree *Tree) minEntries() int",
+      "filename": "trees/btree/btree.go",
+      "line": 331,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "middle",
+      "full": "func (tree *Tree) middle() int",
+      "filename": "trees/btree/btree.go",
+      "line": 335,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "search",
+      "full": "func (tree *Tree) search(node *Node, key interface{}) (index int, found bool)",
+      "filename": "trees/btree/btree.go",
+      "line": 340,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "searchRecursively",
+      "full": "func (tree *Tree) searchRecursively(startNode *Node, key interface{}) (node *Node, index int, found bool)",
+      "filename": "trees/btree/btree.go",
+      "line": 359,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "insert",
+      "full": "func (tree *Tree) insert(node *Node, entry *Entry) inserted bool",
+      "filename": "trees/btree/btree.go",
+      "line": 376,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "insertIntoLeaf",
+      "full": "func (tree *Tree) insertIntoLeaf(node *Node, entry *Entry) inserted bool",
+      "filename": "trees/btree/btree.go",
+      "line": 383,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "insertIntoInternal",
+      "full": "func (tree *Tree) insertIntoInternal(node *Node, entry *Entry) inserted bool",
+      "filename": "trees/btree/btree.go",
+      "line": 397,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "split",
+      "full": "func (tree *Tree) split(node *Node)",
+      "filename": "trees/btree/btree.go",
+      "line": 406,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "splitNonRoot",
+      "full": "func (tree *Tree) splitNonRoot(node *Node)",
+      "filename": "trees/btree/btree.go",
+      "line": 419,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "splitRoot",
+      "full": "func (tree *Tree) splitRoot()",
+      "filename": "trees/btree/btree.go",
+      "line": 452,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "setParent",
+      "full": "func setParent(nodes []*Node, parent *Node)",
+      "filename": "trees/btree/btree.go",
+      "line": 477,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "left",
+      "full": "func (tree *Tree) left(node *Node) *Node",
+      "filename": "trees/btree/btree.go",
+      "line": 483,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "right",
+      "full": "func (tree *Tree) right(node *Node) *Node",
+      "filename": "trees/btree/btree.go",
+      "line": 496,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "leftSibling",
+      "full": "func (tree *Tree) leftSibling(node *Node, key interface{}) (*Node, int)",
+      "filename": "trees/btree/btree.go",
+      "line": 511,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "rightSibling",
+      "full": "func (tree *Tree) rightSibling(node *Node, key interface{}) (*Node, int)",
+      "filename": "trees/btree/btree.go",
+      "line": 524,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "delete",
+      "full": "func (tree *Tree) delete(node *Node, index int)",
+      "filename": "trees/btree/btree.go",
+      "line": 537,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "rebalance",
+      "full": "func (tree *Tree) rebalance(node *Node, deletedKey interface{})",
+      "filename": "trees/btree/btree.go",
+      "line": 560,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "prependChildren",
+      "full": "func (tree *Tree) prependChildren(fromNode *Node, toNode *Node)",
+      "filename": "trees/btree/btree.go",
+      "line": 629,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "appendChildren",
+      "full": "func (tree *Tree) appendChildren(fromNode *Node, toNode *Node)",
+      "filename": "trees/btree/btree.go",
+      "line": 635,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "deleteEntry",
+      "full": "func (tree *Tree) deleteEntry(node *Node, index int)",
+      "filename": "trees/btree/btree.go",
+      "line": 640,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "deleteChild",
+      "full": "func (tree *Tree) deleteChild(node *Node, index int)",
+      "filename": "trees/btree/btree.go",
+      "line": 646,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Visualizer",
+      "full": "func (heap *Tree) Visualizer(fileName string) bool",
+      "filename": "trees/btree/btree.go",
+      "line": 657,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBTreeGet1",
+      "full": "func TestBTreeGet1(t *testing.T)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 8,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBTreeGet2",
+      "full": "func TestBTreeGet2(t *testing.T)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 37,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBTreePut1",
+      "full": "func TestBTreePut1(t *testing.T)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 72,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBTreePut2",
+      "full": "func TestBTreePut2(t *testing.T)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 122,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBTreePut3",
+      "full": "func TestBTreePut3(t *testing.T)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 162,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBTreePut4",
+      "full": "func TestBTreePut4(t *testing.T)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 213,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBTreeRemove1",
+      "full": "func TestBTreeRemove1(t *testing.T)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 307,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBTreeRemove2",
+      "full": "func TestBTreeRemove2(t *testing.T)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 314,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBTreeRemove3",
+      "full": "func TestBTreeRemove3(t *testing.T)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 328,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBTreeRemove4",
+      "full": "func TestBTreeRemove4(t *testing.T)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 353,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBTreeRemove5",
+      "full": "func TestBTreeRemove5(t *testing.T)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 373,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBTreeRemove6",
+      "full": "func TestBTreeRemove6(t *testing.T)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 393,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBTreeRemove7",
+      "full": "func TestBTreeRemove7(t *testing.T)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 422,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBTreeRemove8",
+      "full": "func TestBTreeRemove8(t *testing.T)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 482,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBTreeRemove9",
+      "full": "func TestBTreeRemove9(t *testing.T)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 516,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBTreeHeight",
+      "full": "func TestBTreeHeight(t *testing.T)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 561,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBTreeLeftAndRight",
+      "full": "func TestBTreeLeftAndRight(t *testing.T)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 614,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBTreeIteratorValuesAndKeys",
+      "full": "func TestBTreeIteratorValuesAndKeys(t *testing.T)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 648,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBTreeIteratorNextOnEmpty",
+      "full": "func TestBTreeIteratorNextOnEmpty(t *testing.T)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 669,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBTreeIteratorPrevOnEmpty",
+      "full": "func TestBTreeIteratorPrevOnEmpty(t *testing.T)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 677,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBTreeIterator1Next",
+      "full": "func TestBTreeIterator1Next(t *testing.T)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 685,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBTreeIterator1Prev",
+      "full": "func TestBTreeIterator1Prev(t *testing.T)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 716,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBTreeIterator2Next",
+      "full": "func TestBTreeIterator2Next(t *testing.T)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 749,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBTreeIterator2Prev",
+      "full": "func TestBTreeIterator2Prev(t *testing.T)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 775,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBTreeIterator3Next",
+      "full": "func TestBTreeIterator3Next(t *testing.T)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 803,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBTreeIterator3Prev",
+      "full": "func TestBTreeIterator3Prev(t *testing.T)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 827,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBTreeIterator4Next",
+      "full": "func TestBTreeIterator4Next(t *testing.T)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 853,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBTreeIterator4Prev",
+      "full": "func TestBTreeIterator4Prev(t *testing.T)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 886,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBTreeIteratorBegin",
+      "full": "func TestBTreeIteratorBegin(t *testing.T)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 921,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBTreeIteratorEnd",
+      "full": "func TestBTreeIteratorEnd(t *testing.T)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 953,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBTreeIteratorFirst",
+      "full": "func TestBTreeIteratorFirst(t *testing.T)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 980,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBTreeIteratorLast",
+      "full": "func TestBTreeIteratorLast(t *testing.T)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 994,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBTree_search",
+      "full": "func TestBTree_search(t *testing.T)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 1008,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "assertValidTree",
+      "full": "func assertValidTree(t *testing.T, tree *Tree, expectedSize int)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 1050,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "assertValidTreeNode",
+      "full": "func assertValidTreeNode(t *testing.T, node *Node, expectedEntries int, expectedChildren int, keys []int, hasParent bool)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 1056,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBTreeSerialization",
+      "full": "func TestBTreeSerialization(t *testing.T)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 1073,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "benchmarkGet",
+      "full": "func benchmarkGet(b *testing.B, tree *Tree, size int)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 1104,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "benchmarkPut",
+      "full": "func benchmarkPut(b *testing.B, tree *Tree, size int)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 1112,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "benchmarkRemove",
+      "full": "func benchmarkRemove(b *testing.B, tree *Tree, size int)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 1120,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkBTreeGet100",
+      "full": "func BenchmarkBTreeGet100(b *testing.B)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 1128,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkBTreeGet1000",
+      "full": "func BenchmarkBTreeGet1000(b *testing.B)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 1139,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkBTreeGet10000",
+      "full": "func BenchmarkBTreeGet10000(b *testing.B)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 1150,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkBTreeGet100000",
+      "full": "func BenchmarkBTreeGet100000(b *testing.B)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 1161,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkBTreePut100",
+      "full": "func BenchmarkBTreePut100(b *testing.B)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 1172,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkBTreePut1000",
+      "full": "func BenchmarkBTreePut1000(b *testing.B)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 1180,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkBTreePut10000",
+      "full": "func BenchmarkBTreePut10000(b *testing.B)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 1191,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkBTreePut100000",
+      "full": "func BenchmarkBTreePut100000(b *testing.B)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 1202,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkBTreeRemove100",
+      "full": "func BenchmarkBTreeRemove100(b *testing.B)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 1213,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkBTreeRemove1000",
+      "full": "func BenchmarkBTreeRemove1000(b *testing.B)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 1224,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkBTreeRemove10000",
+      "full": "func BenchmarkBTreeRemove10000(b *testing.B)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 1235,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkBTreeRemove100000",
+      "full": "func BenchmarkBTreeRemove100000(b *testing.B)",
+      "filename": "trees/btree/btree_test.go",
+      "line": 1246,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "assertIteratorImplementation",
+      "full": "func assertIteratorImplementation()",
+      "filename": "trees/btree/iterator.go",
+      "line": 5,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Iterator",
+      "full": "func (tree *Tree) Iterator() Iterator",
+      "filename": "trees/btree/iterator.go",
+      "line": 24,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Next",
+      "full": "func (iterator *Iterator) Next() bool",
+      "filename": "trees/btree/iterator.go",
+      "line": 32,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Prev",
+      "full": "func (iterator *Iterator) Prev() bool",
+      "filename": "trees/btree/iterator.go",
+      "line": 91,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "CurrentNode",
+      "full": "func (iterator *Iterator) CurrentNode() *Node",
+      "filename": "trees/btree/iterator.go",
+      "line": 148,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Value",
+      "full": "func (iterator *Iterator) Value() interface{}",
+      "filename": "trees/btree/iterator.go",
+      "line": 154,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Key",
+      "full": "func (iterator *Iterator) Key() interface{}",
+      "filename": "trees/btree/iterator.go",
+      "line": 160,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Begin",
+      "full": "func (iterator *Iterator) Begin()",
+      "filename": "trees/btree/iterator.go",
+      "line": 166,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "End",
+      "full": "func (iterator *Iterator) End()",
+      "filename": "trees/btree/iterator.go",
+      "line": 174,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "First",
+      "full": "func (iterator *Iterator) First() bool",
+      "filename": "trees/btree/iterator.go",
+      "line": 183,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Last",
+      "full": "func (iterator *Iterator) Last() bool",
+      "filename": "trees/btree/iterator.go",
+      "line": 191,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "assertSerializationImplementation",
+      "full": "func assertSerializationImplementation()",
+      "filename": "trees/btree/serialization.go",
+      "line": 9,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "ToJSON",
+      "full": "func (tree *Tree) ToJSON() ([]byte, error)",
+      "filename": "trees/btree/serialization.go",
+      "line": 15,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "FromJSON",
+      "full": "func (tree *Tree) FromJSON(data []byte) error",
+      "filename": "trees/btree/serialization.go",
+      "line": 25,
+      "col": 1
+    }
+  ]
+}
+,
+{
+  "mode": "decls",
+  "comment": {
+    "startLine": 0,
+    "startCol": 0,
+    "endLine": 0,
+    "endCol": 0
+  },
+  "decls": [
+    {
+      "keyword": "func",
+      "ident": "assertTreeImplementation",
+      "full": "func assertTreeImplementation()",
+      "filename": "trees/redblacktree/redblacktree.go",
+      "line": 18,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "NewWith",
+      "full": "func NewWith(comparator utils.Comparator) *Tree",
+      "filename": "trees/redblacktree/redblacktree.go",
+      "line": 47,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "NewWithIntComparator",
+      "full": "func NewWithIntComparator() *Tree",
+      "filename": "trees/redblacktree/redblacktree.go",
+      "line": 52,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "NewWithStringComparator",
+      "full": "func NewWithStringComparator() *Tree",
+      "filename": "trees/redblacktree/redblacktree.go",
+      "line": 57,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Put",
+      "full": "func (tree *Tree) Put(key interface{}, value interface{})",
+      "filename": "trees/redblacktree/redblacktree.go",
+      "line": 63,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Get",
+      "full": "func (tree *Tree) Get(key interface{}) (value interface{}, found bool)",
+      "filename": "trees/redblacktree/redblacktree.go",
+      "line": 105,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Remove",
+      "full": "func (tree *Tree) Remove(key interface{})",
+      "filename": "trees/redblacktree/redblacktree.go",
+      "line": 115,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Empty",
+      "full": "func (tree *Tree) Empty() bool",
+      "filename": "trees/redblacktree/redblacktree.go",
+      "line": 146,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Size",
+      "full": "func (tree *Tree) Size() int",
+      "filename": "trees/redblacktree/redblacktree.go",
+      "line": 151,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Keys",
+      "full": "func (tree *Tree) Keys() []interface{}",
+      "filename": "trees/redblacktree/redblacktree.go",
+      "line": 156,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Values",
+      "full": "func (tree *Tree) Values() []interface{}",
+      "filename": "trees/redblacktree/redblacktree.go",
+      "line": 166,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Left",
+      "full": "func (tree *Tree) Left() *Node",
+      "filename": "trees/redblacktree/redblacktree.go",
+      "line": 176,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Right",
+      "full": "func (tree *Tree) Right() *Node",
+      "filename": "trees/redblacktree/redblacktree.go",
+      "line": 187,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Floor",
+      "full": "func (tree *Tree) Floor(key interface{}) (floor *Node, found bool)",
+      "filename": "trees/redblacktree/redblacktree.go",
+      "line": 205,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Ceiling",
+      "full": "func (tree *Tree) Ceiling(key interface{}) (ceiling *Node, found bool)",
+      "filename": "trees/redblacktree/redblacktree.go",
+      "line": 234,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Clear",
+      "full": "func (tree *Tree) Clear()",
+      "filename": "trees/redblacktree/redblacktree.go",
+      "line": 256,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "String",
+      "full": "func (tree *Tree) String() string",
+      "filename": "trees/redblacktree/redblacktree.go",
+      "line": 262,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "String",
+      "full": "func (node *Node) String() string",
+      "filename": "trees/redblacktree/redblacktree.go",
+      "line": 270,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "output",
+      "full": "func output(node *Node, prefix string, isTail bool, str *string)",
+      "filename": "trees/redblacktree/redblacktree.go",
+      "line": 274,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Visualize",
+      "full": "func (tree *Tree) Visualize() string",
+      "filename": "trees/redblacktree/redblacktree.go",
+      "line": 305,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "lookup",
+      "full": "func (tree *Tree) lookup(key interface{}) *Node",
+      "filename": "trees/redblacktree/redblacktree.go",
+      "line": 353,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "grandparent",
+      "full": "func (node *Node) grandparent() *Node",
+      "filename": "trees/redblacktree/redblacktree.go",
+      "line": 369,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "uncle",
+      "full": "func (node *Node) uncle() *Node",
+      "filename": "trees/redblacktree/redblacktree.go",
+      "line": 376,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "sibling",
+      "full": "func (node *Node) sibling() *Node",
+      "filename": "trees/redblacktree/redblacktree.go",
+      "line": 383,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "rotateLeft",
+      "full": "func (tree *Tree) rotateLeft(node *Node)",
+      "filename": "trees/redblacktree/redblacktree.go",
+      "line": 393,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "rotateRight",
+      "full": "func (tree *Tree) rotateRight(node *Node)",
+      "filename": "trees/redblacktree/redblacktree.go",
+      "line": 404,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "replaceNode",
+      "full": "func (tree *Tree) replaceNode(old *Node, new *Node)",
+      "filename": "trees/redblacktree/redblacktree.go",
+      "line": 415,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "insertCase1",
+      "full": "func (tree *Tree) insertCase1(node *Node)",
+      "filename": "trees/redblacktree/redblacktree.go",
+      "line": 430,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "insertCase2",
+      "full": "func (tree *Tree) insertCase2(node *Node)",
+      "filename": "trees/redblacktree/redblacktree.go",
+      "line": 438,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "insertCase3",
+      "full": "func (tree *Tree) insertCase3(node *Node)",
+      "filename": "trees/redblacktree/redblacktree.go",
+      "line": 445,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "insertCase4",
+      "full": "func (tree *Tree) insertCase4(node *Node)",
+      "filename": "trees/redblacktree/redblacktree.go",
+      "line": 457,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "insertCase5",
+      "full": "func (tree *Tree) insertCase5(node *Node)",
+      "filename": "trees/redblacktree/redblacktree.go",
+      "line": 469,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "maximumNode",
+      "full": "func (node *Node) maximumNode() *Node",
+      "filename": "trees/redblacktree/redblacktree.go",
+      "line": 480,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "deleteCase1",
+      "full": "func (tree *Tree) deleteCase1(node *Node)",
+      "filename": "trees/redblacktree/redblacktree.go",
+      "line": 490,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "deleteCase2",
+      "full": "func (tree *Tree) deleteCase2(node *Node)",
+      "filename": "trees/redblacktree/redblacktree.go",
+      "line": 497,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "deleteCase3",
+      "full": "func (tree *Tree) deleteCase3(node *Node)",
+      "filename": "trees/redblacktree/redblacktree.go",
+      "line": 511,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "deleteCase4",
+      "full": "func (tree *Tree) deleteCase4(node *Node)",
+      "filename": "trees/redblacktree/redblacktree.go",
+      "line": 524,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "deleteCase5",
+      "full": "func (tree *Tree) deleteCase5(node *Node)",
+      "filename": "trees/redblacktree/redblacktree.go",
+      "line": 537,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "deleteCase6",
+      "full": "func (tree *Tree) deleteCase6(node *Node)",
+      "filename": "trees/redblacktree/redblacktree.go",
+      "line": 557,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "nodeColor",
+      "full": "func nodeColor(node *Node) color",
+      "filename": "trees/redblacktree/redblacktree.go",
+      "line": 570,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Visualizer",
+      "full": "func (heap *Tree) Visualizer(fileName string) bool",
+      "filename": "trees/redblacktree/redblacktree.go",
+      "line": 579,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestRedBlackTreePut",
+      "full": "func TestRedBlackTreePut(t *testing.T)",
+      "filename": "trees/redblacktree/redblacktree_test.go",
+      "line": 8,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestRedBlackTreeRemove",
+      "full": "func TestRedBlackTreeRemove(t *testing.T)",
+      "filename": "trees/redblacktree/redblacktree_test.go",
+      "line": 49,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestRedBlackTreeLeftAndRight",
+      "full": "func TestRedBlackTreeLeftAndRight(t *testing.T)",
+      "filename": "trees/redblacktree/redblacktree_test.go",
+      "line": 116,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestRedBlackTreeCeilingAndFloor",
+      "full": "func TestRedBlackTreeCeilingAndFloor(t *testing.T)",
+      "filename": "trees/redblacktree/redblacktree_test.go",
+      "line": 150,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestRedBlackTreeIteratorNextOnEmpty",
+      "full": "func TestRedBlackTreeIteratorNextOnEmpty(t *testing.T)",
+      "filename": "trees/redblacktree/redblacktree_test.go",
+      "line": 183,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestRedBlackTreeIteratorPrevOnEmpty",
+      "full": "func TestRedBlackTreeIteratorPrevOnEmpty(t *testing.T)",
+      "filename": "trees/redblacktree/redblacktree_test.go",
+      "line": 191,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestRedBlackTreeIterator1Next",
+      "full": "func TestRedBlackTreeIterator1Next(t *testing.T)",
+      "filename": "trees/redblacktree/redblacktree_test.go",
+      "line": 199,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestRedBlackTreeIterator1Prev",
+      "full": "func TestRedBlackTreeIterator1Prev(t *testing.T)",
+      "filename": "trees/redblacktree/redblacktree_test.go",
+      "line": 237,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestRedBlackTreeIterator2Next",
+      "full": "func TestRedBlackTreeIterator2Next(t *testing.T)",
+      "filename": "trees/redblacktree/redblacktree_test.go",
+      "line": 277,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestRedBlackTreeIterator2Prev",
+      "full": "func TestRedBlackTreeIterator2Prev(t *testing.T)",
+      "filename": "trees/redblacktree/redblacktree_test.go",
+      "line": 303,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestRedBlackTreeIterator3Next",
+      "full": "func TestRedBlackTreeIterator3Next(t *testing.T)",
+      "filename": "trees/redblacktree/redblacktree_test.go",
+      "line": 331,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestRedBlackTreeIterator3Prev",
+      "full": "func TestRedBlackTreeIterator3Prev(t *testing.T)",
+      "filename": "trees/redblacktree/redblacktree_test.go",
+      "line": 355,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestRedBlackTreeIterator4Next",
+      "full": "func TestRedBlackTreeIterator4Next(t *testing.T)",
+      "filename": "trees/redblacktree/redblacktree_test.go",
+      "line": 381,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestRedBlackTreeIterator4Prev",
+      "full": "func TestRedBlackTreeIterator4Prev(t *testing.T)",
+      "filename": "trees/redblacktree/redblacktree_test.go",
+      "line": 424,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestRedBlackTreeIteratorBegin",
+      "full": "func TestRedBlackTreeIteratorBegin(t *testing.T)",
+      "filename": "trees/redblacktree/redblacktree_test.go",
+      "line": 469,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestRedBlackTreeIteratorEnd",
+      "full": "func TestRedBlackTreeIteratorEnd(t *testing.T)",
+      "filename": "trees/redblacktree/redblacktree_test.go",
+      "line": 501,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestRedBlackTreeIteratorFirst",
+      "full": "func TestRedBlackTreeIteratorFirst(t *testing.T)",
+      "filename": "trees/redblacktree/redblacktree_test.go",
+      "line": 528,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestRedBlackTreeIteratorLast",
+      "full": "func TestRedBlackTreeIteratorLast(t *testing.T)",
+      "filename": "trees/redblacktree/redblacktree_test.go",
+      "line": 542,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestRedBlackTreeSerialization",
+      "full": "func TestRedBlackTreeSerialization(t *testing.T)",
+      "filename": "trees/redblacktree/redblacktree_test.go",
+      "line": 556,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "benchmarkGet",
+      "full": "func benchmarkGet(b *testing.B, tree *Tree, size int)",
+      "filename": "trees/redblacktree/redblacktree_test.go",
+      "line": 587,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "benchmarkPut",
+      "full": "func benchmarkPut(b *testing.B, tree *Tree, size int)",
+      "filename": "trees/redblacktree/redblacktree_test.go",
+      "line": 595,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "benchmarkRemove",
+      "full": "func benchmarkRemove(b *testing.B, tree *Tree, size int)",
+      "filename": "trees/redblacktree/redblacktree_test.go",
+      "line": 603,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkRedBlackTreeGet100",
+      "full": "func BenchmarkRedBlackTreeGet100(b *testing.B)",
+      "filename": "trees/redblacktree/redblacktree_test.go",
+      "line": 611,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkRedBlackTreeGet1000",
+      "full": "func BenchmarkRedBlackTreeGet1000(b *testing.B)",
+      "filename": "trees/redblacktree/redblacktree_test.go",
+      "line": 622,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkRedBlackTreeGet10000",
+      "full": "func BenchmarkRedBlackTreeGet10000(b *testing.B)",
+      "filename": "trees/redblacktree/redblacktree_test.go",
+      "line": 633,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkRedBlackTreeGet100000",
+      "full": "func BenchmarkRedBlackTreeGet100000(b *testing.B)",
+      "filename": "trees/redblacktree/redblacktree_test.go",
+      "line": 644,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkRedBlackTreePut100",
+      "full": "func BenchmarkRedBlackTreePut100(b *testing.B)",
+      "filename": "trees/redblacktree/redblacktree_test.go",
+      "line": 655,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkRedBlackTreePut1000",
+      "full": "func BenchmarkRedBlackTreePut1000(b *testing.B)",
+      "filename": "trees/redblacktree/redblacktree_test.go",
+      "line": 663,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkRedBlackTreePut10000",
+      "full": "func BenchmarkRedBlackTreePut10000(b *testing.B)",
+      "filename": "trees/redblacktree/redblacktree_test.go",
+      "line": 674,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkRedBlackTreePut100000",
+      "full": "func BenchmarkRedBlackTreePut100000(b *testing.B)",
+      "filename": "trees/redblacktree/redblacktree_test.go",
+      "line": 685,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkRedBlackTreeRemove100",
+      "full": "func BenchmarkRedBlackTreeRemove100(b *testing.B)",
+      "filename": "trees/redblacktree/redblacktree_test.go",
+      "line": 696,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkRedBlackTreeRemove1000",
+      "full": "func BenchmarkRedBlackTreeRemove1000(b *testing.B)",
+      "filename": "trees/redblacktree/redblacktree_test.go",
+      "line": 707,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkRedBlackTreeRemove10000",
+      "full": "func BenchmarkRedBlackTreeRemove10000(b *testing.B)",
+      "filename": "trees/redblacktree/redblacktree_test.go",
+      "line": 718,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkRedBlackTreeRemove100000",
+      "full": "func BenchmarkRedBlackTreeRemove100000(b *testing.B)",
+      "filename": "trees/redblacktree/redblacktree_test.go",
+      "line": 729,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "assertIteratorImplementation",
+      "full": "func assertIteratorImplementation()",
+      "filename": "trees/redblacktree/iterator.go",
+      "line": 5,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Iterator",
+      "full": "func (tree *Tree) Iterator() Iterator",
+      "filename": "trees/redblacktree/iterator.go",
+      "line": 23,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Next",
+      "full": "func (iterator *Iterator) Next() bool",
+      "filename": "trees/redblacktree/iterator.go",
+      "line": 31,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Prev",
+      "full": "func (iterator *Iterator) Prev() bool",
+      "filename": "trees/redblacktree/iterator.go",
+      "line": 73,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Value",
+      "full": "func (iterator *Iterator) Value() interface{}",
+      "filename": "trees/redblacktree/iterator.go",
+      "line": 114,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Key",
+      "full": "func (iterator *Iterator) Key() interface{}",
+      "filename": "trees/redblacktree/iterator.go",
+      "line": 120,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "NodeColor",
+      "full": "func (iterator *Iterator) NodeColor() color",
+      "filename": "trees/redblacktree/iterator.go",
+      "line": 126,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Begin",
+      "full": "func (iterator *Iterator) Begin()",
+      "filename": "trees/redblacktree/iterator.go",
+      "line": 132,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "End",
+      "full": "func (iterator *Iterator) End()",
+      "filename": "trees/redblacktree/iterator.go",
+      "line": 139,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "First",
+      "full": "func (iterator *Iterator) First() bool",
+      "filename": "trees/redblacktree/iterator.go",
+      "line": 147,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Last",
+      "full": "func (iterator *Iterator) Last() bool",
+      "filename": "trees/redblacktree/iterator.go",
+      "line": 155,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "assertSerializationImplementation",
+      "full": "func assertSerializationImplementation()",
+      "filename": "trees/redblacktree/serialization.go",
+      "line": 9,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "ToJSON",
+      "full": "func (tree *Tree) ToJSON() ([]byte, error)",
+      "filename": "trees/redblacktree/serialization.go",
+      "line": 15,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "FromJSON",
+      "full": "func (tree *Tree) FromJSON(data []byte) error",
+      "filename": "trees/redblacktree/serialization.go",
+      "line": 25,
+      "col": 1
+    }
+  ]
+}
+,
+{
+  "mode": "decls",
+  "comment": {
+    "startLine": 0,
+    "startCol": 0,
+    "endLine": 0,
+    "endCol": 0
+  },
+  "decls": [
+    {
+      "keyword": "func",
+      "ident": "TestIntComparator",
+      "full": "func TestIntComparator(t *testing.T)",
+      "filename": "utils/comparator_test.go",
+      "line": 12,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestStringComparator",
+      "full": "func TestStringComparator(t *testing.T)",
+      "filename": "utils/comparator_test.go",
+      "line": 34,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestTimeComparator",
+      "full": "func TestTimeComparator(t *testing.T)",
+      "filename": "utils/comparator_test.go",
+      "line": 57,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestCustomComparator",
+      "full": "func TestCustomComparator(t *testing.T)",
+      "filename": "utils/comparator_test.go",
+      "line": 77,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "ToString",
+      "full": "func ToString(value interface{}) string",
+      "filename": "utils/utils.go",
+      "line": 17,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "WriteDotStringToPng",
+      "full": "func WriteDotStringToPng(fileName string, dotFileString string) ok bool",
+      "filename": "utils/utils.go",
+      "line": 50,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "StringComparator",
+      "full": "func StringComparator(a, b interface{}) int",
+      "filename": "utils/comparator.go",
+      "line": 15,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "IntComparator",
+      "full": "func IntComparator(a, b interface{}) int",
+      "filename": "utils/comparator.go",
+      "line": 39,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Int8Comparator",
+      "full": "func Int8Comparator(a, b interface{}) int",
+      "filename": "utils/comparator.go",
+      "line": 53,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Int16Comparator",
+      "full": "func Int16Comparator(a, b interface{}) int",
+      "filename": "utils/comparator.go",
+      "line": 67,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Int32Comparator",
+      "full": "func Int32Comparator(a, b interface{}) int",
+      "filename": "utils/comparator.go",
+      "line": 81,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Int64Comparator",
+      "full": "func Int64Comparator(a, b interface{}) int",
+      "filename": "utils/comparator.go",
+      "line": 95,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "UIntComparator",
+      "full": "func UIntComparator(a, b interface{}) int",
+      "filename": "utils/comparator.go",
+      "line": 109,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "UInt8Comparator",
+      "full": "func UInt8Comparator(a, b interface{}) int",
+      "filename": "utils/comparator.go",
+      "line": 123,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "UInt16Comparator",
+      "full": "func UInt16Comparator(a, b interface{}) int",
+      "filename": "utils/comparator.go",
+      "line": 137,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "UInt32Comparator",
+      "full": "func UInt32Comparator(a, b interface{}) int",
+      "filename": "utils/comparator.go",
+      "line": 151,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "UInt64Comparator",
+      "full": "func UInt64Comparator(a, b interface{}) int",
+      "filename": "utils/comparator.go",
+      "line": 165,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Float32Comparator",
+      "full": "func Float32Comparator(a, b interface{}) int",
+      "filename": "utils/comparator.go",
+      "line": 179,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Float64Comparator",
+      "full": "func Float64Comparator(a, b interface{}) int",
+      "filename": "utils/comparator.go",
+      "line": 193,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "ByteComparator",
+      "full": "func ByteComparator(a, b interface{}) int",
+      "filename": "utils/comparator.go",
+      "line": 207,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "RuneComparator",
+      "full": "func RuneComparator(a, b interface{}) int",
+      "filename": "utils/comparator.go",
+      "line": 221,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TimeComparator",
+      "full": "func TimeComparator(a, b interface{}) int",
+      "filename": "utils/comparator.go",
+      "line": 235,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestToStringInts",
+      "full": "func TestToStringInts(t *testing.T)",
+      "filename": "utils/utils_test.go",
+      "line": 12,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestToStringUInts",
+      "full": "func TestToStringUInts(t *testing.T)",
+      "filename": "utils/utils_test.go",
+      "line": 41,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestToStringFloats",
+      "full": "func TestToStringFloats(t *testing.T)",
+      "filename": "utils/utils_test.go",
+      "line": 70,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestToStringOther",
+      "full": "func TestToStringOther(t *testing.T)",
+      "filename": "utils/utils_test.go",
+      "line": 83,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Sort",
+      "full": "func Sort(values []interface{}, comparator Comparator)",
+      "filename": "utils/sort.go",
+      "line": 12,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Len",
+      "full": "func (s sortable) Len() int",
+      "filename": "utils/sort.go",
+      "line": 21,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Swap",
+      "full": "func (s sortable) Swap(i, j int)",
+      "filename": "utils/sort.go",
+      "line": 24,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Less",
+      "full": "func (s sortable) Less(i, j int) bool",
+      "filename": "utils/sort.go",
+      "line": 27,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestSortInts",
+      "full": "func TestSortInts(t *testing.T)",
+      "filename": "utils/sort_test.go",
+      "line": 12,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestSortStrings",
+      "full": "func TestSortStrings(t *testing.T)",
+      "filename": "utils/sort_test.go",
+      "line": 29,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestSortStructs",
+      "full": "func TestSortStructs(t *testing.T)",
+      "filename": "utils/sort_test.go",
+      "line": 46,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestSortRandom",
+      "full": "func TestSortRandom(t *testing.T)",
+      "filename": "utils/sort_test.go",
+      "line": 82,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkGoSortRandom",
+      "full": "func BenchmarkGoSortRandom(b *testing.B)",
+      "filename": "utils/sort_test.go",
+      "line": 95,
+      "col": 1
+    }
+  ]
+}
+,
+{
+  "mode": "decls",
+  "comment": {
+    "startLine": 0,
+    "startCol": 0,
+    "endLine": 0,
+    "endCol": 0
+  },
+  "decls": [
+    {
+      "keyword": "func",
+      "ident": "TestBinaryHeapVPushV",
+      "full": "func TestBinaryHeapVPushV(t *testing.T)",
+      "filename": "viz/trees/binaryheap/binaryheapV_test.go",
+      "line": 8,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBinaryHeapVPushBulkV",
+      "full": "func TestBinaryHeapVPushBulkV(t *testing.T)",
+      "filename": "viz/trees/binaryheap/binaryheapV_test.go",
+      "line": 33,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBinaryHeapVPopV",
+      "full": "func TestBinaryHeapVPopV(t *testing.T)",
+      "filename": "viz/trees/binaryheap/binaryheapV_test.go",
+      "line": 46,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBinaryHeapVRandomV",
+      "full": "func TestBinaryHeapVRandomV(t *testing.T)",
+      "filename": "viz/trees/binaryheap/binaryheapV_test.go",
+      "line": 78,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBinaryHeapVIteratorOnEmptyV",
+      "full": "func TestBinaryHeapVIteratorOnEmptyV(t *testing.T)",
+      "filename": "viz/trees/binaryheap/binaryheapV_test.go",
+      "line": 97,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBinaryHeapVIteratorNextV",
+      "full": "func TestBinaryHeapVIteratorNextV(t *testing.T)",
+      "filename": "viz/trees/binaryheap/binaryheapV_test.go",
+      "line": 105,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBinaryHeapVIteratorPrevV",
+      "full": "func TestBinaryHeapVIteratorPrevV(t *testing.T)",
+      "filename": "viz/trees/binaryheap/binaryheapV_test.go",
+      "line": 142,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBinaryHeapVIteratorBeginV",
+      "full": "func TestBinaryHeapVIteratorBeginV(t *testing.T)",
+      "filename": "viz/trees/binaryheap/binaryheapV_test.go",
+      "line": 181,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestListIteratorEndV",
+      "full": "func TestListIteratorEndV(t *testing.T)",
+      "filename": "viz/trees/binaryheap/binaryheapV_test.go",
+      "line": 197,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestStackIteratorFirstV",
+      "full": "func TestStackIteratorFirstV(t *testing.T)",
+      "filename": "viz/trees/binaryheap/binaryheapV_test.go",
+      "line": 224,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBinaryHeapVIteratorLastV",
+      "full": "func TestBinaryHeapVIteratorLastV(t *testing.T)",
+      "filename": "viz/trees/binaryheap/binaryheapV_test.go",
+      "line": 241,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "TestBinaryHeapVSerializationV",
+      "full": "func TestBinaryHeapVSerializationV(t *testing.T)",
+      "filename": "viz/trees/binaryheap/binaryheapV_test.go",
+      "line": 258,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "benchmarkPushV",
+      "full": "func benchmarkPushV(b *testing.B, heap *HeapV, size int)",
+      "filename": "viz/trees/binaryheap/binaryheapV_test.go",
+      "line": 290,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "benchmarkPopV",
+      "full": "func benchmarkPopV(b *testing.B, heap *HeapV, size int)",
+      "filename": "viz/trees/binaryheap/binaryheapV_test.go",
+      "line": 298,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkBinaryHeapPop100V",
+      "full": "func BenchmarkBinaryHeapPop100V(b *testing.B)",
+      "filename": "viz/trees/binaryheap/binaryheapV_test.go",
+      "line": 306,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkBinaryHeapPop1000V",
+      "full": "func BenchmarkBinaryHeapPop1000V(b *testing.B)",
+      "filename": "viz/trees/binaryheap/binaryheapV_test.go",
+      "line": 317,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkBinaryHeapPop10000V",
+      "full": "func BenchmarkBinaryHeapPop10000V(b *testing.B)",
+      "filename": "viz/trees/binaryheap/binaryheapV_test.go",
+      "line": 328,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkBinaryHeapPop100000V",
+      "full": "func BenchmarkBinaryHeapPop100000V(b *testing.B)",
+      "filename": "viz/trees/binaryheap/binaryheapV_test.go",
+      "line": 339,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkBinaryHeapPush100V",
+      "full": "func BenchmarkBinaryHeapPush100V(b *testing.B)",
+      "filename": "viz/trees/binaryheap/binaryheapV_test.go",
+      "line": 350,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkBinaryHeapPush1000V",
+      "full": "func BenchmarkBinaryHeapPush1000V(b *testing.B)",
+      "filename": "viz/trees/binaryheap/binaryheapV_test.go",
+      "line": 358,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkBinaryHeapPush10000V",
+      "full": "func BenchmarkBinaryHeapPush10000V(b *testing.B)",
+      "filename": "viz/trees/binaryheap/binaryheapV_test.go",
+      "line": 369,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "BenchmarkBinaryHeapPush100000V",
+      "full": "func BenchmarkBinaryHeapPush100000V(b *testing.B)",
+      "filename": "viz/trees/binaryheap/binaryheapV_test.go",
+      "line": 380,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "assertTreeImplementationV",
+      "full": "func assertTreeImplementationV()",
+      "filename": "viz/trees/binaryheap/binaryheapV.go",
+      "line": 21,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "EnableV",
+      "full": "func (heap *HeapV) EnableV()",
+      "filename": "viz/trees/binaryheap/binaryheapV.go",
+      "line": 33,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "SSteps",
+      "full": "func (heap *HeapV) SSteps() (gs []string, err error)",
+      "filename": "viz/trees/binaryheap/binaryheapV.go",
+      "line": 38,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "NewWithV",
+      "full": "func NewWithV(comparator utilsRaw.Comparator) *HeapV",
+      "filename": "viz/trees/binaryheap/binaryheapV.go",
+      "line": 44,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "NewWithIntComparatorV",
+      "full": "func NewWithIntComparatorV() *HeapV",
+      "filename": "viz/trees/binaryheap/binaryheapV.go",
+      "line": 49,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "NewWithStringComparatorV",
+      "full": "func NewWithStringComparatorV() *HeapV",
+      "filename": "viz/trees/binaryheap/binaryheapV.go",
+      "line": 54,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Push",
+      "full": "func (heap *HeapV) Push(values ...interface{})",
+      "filename": "viz/trees/binaryheap/binaryheapV.go",
+      "line": 59,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Pop",
+      "full": "func (heap *HeapV) Pop() (value interface{}, ok bool)",
+      "filename": "viz/trees/binaryheap/binaryheapV.go",
+      "line": 68,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "withinRange",
+      "full": "func (heap *HeapV) withinRange(index int) bool",
+      "filename": "viz/trees/binaryheap/binaryheapV.go",
+      "line": 77,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "listGet",
+      "full": "func listGet(list []interface{}, index int, size int) (interface{}, bool)",
+      "filename": "viz/trees/binaryheap/binaryheapV.go",
+      "line": 81,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "visualize",
+      "full": "func (heap *HeapV) visualize() string",
+      "filename": "viz/trees/binaryheap/binaryheapV.go",
+      "line": 89,
+      "col": 1
+    },
+    {
+      "keyword": "func",
+      "ident": "Visualizer",
+      "full": "func (heap *HeapV) Visualizer(fileName string) bool",
+      "filename": "viz/trees/binaryheap/binaryheapV.go",
+      "line": 120,
+      "col": 1
+    }
+  ]
+}
+]

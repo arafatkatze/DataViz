@@ -1,0 +1,1 @@
+jq '.[].decls | .[]? |"var "+ (.filename | split ("/")| .[-2] ) + " := "+ (.filename | split ("/")| .[-2] )+ "." + (.full | match ("New.*") | .string | split ("*") | .[-2])' < funcs_found.json

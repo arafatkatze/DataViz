@@ -1,0 +1,16 @@
+containers
+lists
+lists/arraylist
+lists/doublylinkedlist
+lists/singlylinkedlist
+maps
+maps/treemap
+stacks
+stacks/arraystack
+trees
+trees/avltree
+trees/binaryheap
+trees/btree
+trees/redblacktree
+utils
+viz/trees/binaryheap
