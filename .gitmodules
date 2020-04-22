@@ -1,3 +1,6 @@
 [submodule "GraphvizOnline"]
 	path = GraphvizOnline
 	url = git@github.com:pennz/GraphvizOnline.git
+[submodule "playground"]
+	path = playground
+	url = git@github.com:pennz/playground.git
