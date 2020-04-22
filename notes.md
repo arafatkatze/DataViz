@@ -20,7 +20,3 @@ and a structure that implements it.
 Only only swap for list
 
 For different type, data alter function is different
-
-
-So it is remote execution, the graph will be executed out then send back to the
-broswer. Check goplay ground.
