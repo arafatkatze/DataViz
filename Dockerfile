@@ -7,10 +7,10 @@ ARG GO_VERSION=go1.14.1
 FROM debian:buster AS go-faketime
 LABEL maintainer="golang-dev@googlegroups.com"
 
-ENV https_proxy=http://192.168.123.8:8080
-ENV http_proxy=http://192.168.123.8:8080
-ENV HTTP_PROXY=http://192.168.123.8:8080
-ENV HTTPS_PROXY=http://192.168.123.8:8080
+ENV https_proxy=http://192.168.123.8:1080
+ENV http_proxy=http://192.168.123.8:1080
+ENV HTTP_PROXY=http://192.168.123.8:1080
+ENV HTTPS_PROXY=http://192.168.123.8:1080
 ENV no_proxy="localhost,localdomain,127.0.0.1,etc"
 ENV NO_PROXY="localhost,localdomain,127.0.0.1,etc"
 
@@ -57,13 +57,6 @@ RUN go install
 ############################################################################
 # Final stage.
 FROM debian:buster
-
-ENV https_proxy=http://192.168.123.8:8080
-ENV http_proxy=http://192.168.123.8:8080
-ENV HTTP_PROXY=http://192.168.123.8:8080
-ENV HTTPS_PROXY=http://192.168.123.8:8080
-ENV no_proxy="localhost,localdomain,127.0.0.1,etc"
-ENV NO_PROXY="localhost,localdomain,127.0.0.1,etc"
 
 RUN apt-get update && apt-get install -y git ca-certificates --no-install-recommends
 
