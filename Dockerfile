@@ -7,6 +7,13 @@ ARG GO_VERSION=go1.14.1
 FROM debian:buster AS go-faketime
 LABEL maintainer="golang-dev@googlegroups.com"
 
+ENV https_proxy=http://192.168.123.8:1080
+ENV http_proxy=http://192.168.123.8:1080
+ENV HTTP_PROXY=http://192.168.123.8:1080
+ENV HTTPS_PROXY=http://192.168.123.8:1080
+ENV no_proxy="localhost,localdomain,127.0.0.1,etc"
+ENV NO_PROXY="localhost,localdomain,127.0.0.1,etc"
+
 ENV BUILD_DEPS 'curl git gcc patch libc6-dev ca-certificates'
 RUN apt-get update && apt-get install -y ${BUILD_DEPS} --no-install-recommends
 
@@ -89,6 +96,7 @@ COPY playground/examples /app/examples
 WORKDIR /app
 
 # Whether we allow third-party imports via proxy.golang.org:
+RUN unset http_proxy https_proxy no_proxy HTTP_PROXY HTTPS_PROXY NO_PROXY
 ENV ALLOW_PLAY_MODULE_DOWNLOADS true
 
 EXPOSE 8091:8080
