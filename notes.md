@@ -23,4 +23,4 @@ For different type, data alter function is different
 
 
 So it is remote execution, the graph will be executed out then send back to the
-broswer. Check go playground.
+broswer. Check goplay ground.
