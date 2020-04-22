@@ -83,13 +83,13 @@ RUN mkdir -p $GOPATH/src/code.google.com/p/go-tour && \
 RUN mkdir /app
 
 COPY --from=build-playground /go/bin/playground /app
-COPY playground/edit.html /app
-COPY playground/static /app/static
-COPY playground/examples /app/examples
+COPY edit.html /app
+COPY static /app/static
+COPY examples /app/examples
 WORKDIR /app
 
 # Whether we allow third-party imports via proxy.golang.org:
 ENV ALLOW_PLAY_MODULE_DOWNLOADS true
 
-EXPOSE 8091:8080
+EXPOSE 8080
 ENTRYPOINT ["/app/playground"]
