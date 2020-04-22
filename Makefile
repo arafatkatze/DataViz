@@ -12,7 +12,7 @@ docker:
 runlocal:
 	sudo docker network create sandnet || true
 	sudo docker kill play_dev || true
-	sudo docker run --rm --name=play_dev --network=sandnet -ti -p 127.0.0.1:8089:8080/tcp playground --backend-url="http://127.0.0.1:8080/run"
+	sudo docker run --name=play_dev --network=sandnet -ti -p 127.0.0.1:8089:8080/tcp playground --backend-url="http://sandbox_dev.sandnet/run"
 
 test_go:
 	# Run fast tests first: (and tests whether, say, things compile)
