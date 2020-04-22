@@ -38,13 +38,13 @@ RUN ../bin/go install --tags=faketime std
 
 FROM golang:1.14 as build-playground
 
-COPY playground/go.mod /go/src/playground/go.mod
-COPY playground/go.sum /go/src/playground/go.sum
+COPY go.mod /go/src/playground/go.mod
+COPY go.sum /go/src/playground/go.sum
 WORKDIR /go/src/playground
 RUN go mod download
 
 # Add and compile playground daemon
-COPY playground/. /go/src/playground/
+COPY . /go/src/playground/
 RUN go install
 
 ############################################################################
