@@ -30,11 +30,15 @@ func Find2ndGreatest(l []int) int {
 	for _, i := range l {
 		log.Println(i)
 		if i > max {
+			max = i
 			maxs[1-maxIdx] = maxs[maxIdx]
 			maxs[maxIdx] = i
-			maxIdx = 1 - maxIdx
+			//maxIdx = 1 - maxIdx // !!! error line
+			log.Println(maxIdx, maxs)
 		}
 	}
+	log.Println(max)
 	// ! for the last one
-	return maxs[maxIdx]
+	//return maxs[maxIdx]
+	return maxs[1-maxIdx]
 }

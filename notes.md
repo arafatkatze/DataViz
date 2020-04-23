@@ -20,3 +20,5 @@ and a structure that implements it.
 Only only swap for list
 
 For different type, data alter function is different
+
+We can just use go playground...
