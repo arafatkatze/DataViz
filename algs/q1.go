@@ -16,21 +16,25 @@ var q1 = ListQuestion{
 }
 
 func Find2ndGreatest(l []int) int {
+	maxIdx := 0
 	var max2, max int
+	var maxs [2]int
 	fmt.Println(l)
 	if len(l) > 0 {
 		max2, max = l[0], l[0]
+		max2 = 0
+		maxs[0], maxs[1] = max, max2
 	} else {
 		log.Fatal("list should len > 0")
 	}
 	for _, i := range l {
 		log.Println(i)
 		if i > max {
-			max = i
-		} else if i > max2 {
-			fmt.Println(i, ">", max2)
-			max2 = i
+			maxs[1-maxIdx] = maxs[maxIdx]
+			maxs[maxIdx] = i
+			maxIdx = 1 - maxIdx
 		}
 	}
-	return max2
+	// ! for the last one
+	return maxs[maxIdx]
 }
