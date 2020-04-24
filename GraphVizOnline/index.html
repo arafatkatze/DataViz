@@ -232,7 +232,7 @@ digraph G {
           shareEl = document.querySelector("#share"),
           shareURLEl = document.querySelector("#shareurl"),
           errorEl = document.querySelector("#error"),
-          fromHistory = false
+          fromHistory = false;
 
         function show_status(text, hide) {
           hide = hide || 0;
@@ -531,12 +531,12 @@ digraph G {
         };
         goEditor.setTheme("ace/theme/twilight");
         goEditor.getSession().setMode("ace/mode/golang");
-        goEditor.getSession().on("change", func () {
-            if (!fromHistory) {
-                updateSrc2Graph();
-            } else {
-                fromHistory = false;
-            }
+        goEditor.getSession().on("change", function () {
+          if (!fromHistory) {
+            updateSrc2Graph();
+          } else {
+            fromHistory = false;
+          }
         });
 
         editor.setTheme("ace/theme/twilight");
@@ -548,7 +548,7 @@ digraph G {
 
         window.onpopstate = function (event) {
           if (event.state != null && event.state.content != undefined) {
-            fromHistory = true
+            fromHistory = true;
             editor
               .getSession()
               .setValue(decodeURIComponent(event.state.content));
