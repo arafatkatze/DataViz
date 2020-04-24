@@ -1,8 +1,12 @@
+// Copyright (c) 2015, Emir Pasic. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
+
 package treemap
 
 import (
 	"github.com/emirpasic/gods/containers"
-	rbt "github.com/pennz/DataViz/trees/redblacktree"
+	rbt "github.com/emirpasic/gods/trees/redblacktree"
 )
 
 func assertIteratorImplementation() {

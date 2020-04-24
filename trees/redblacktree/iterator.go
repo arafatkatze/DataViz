@@ -1,3 +1,7 @@
+// Copyright (c) 2015, Emir Pasic. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
+
 package redblacktree
 
 import "github.com/emirpasic/gods/containers"
@@ -119,12 +123,6 @@ func (iterator *Iterator) Value() interface{} {
 // Does not modify the state of the iterator.
 func (iterator *Iterator) Key() interface{} {
 	return iterator.node.Key
-}
-
-// NodeColor returns the current element's node color
-// Does not modify the state of the iterator.
-func (iterator *Iterator) NodeColor() color {
-	return iterator.node.color
 }
 
 // Begin resets the iterator to its initial state (one-before-first)

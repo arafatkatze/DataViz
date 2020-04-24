@@ -1,3 +1,7 @@
+// Copyright (c) 2015, Emir Pasic. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
+
 // Package arraystack implements a stack backed by array list.
 //
 // Structure is not thread safe.
@@ -7,11 +11,9 @@ package arraystack
 
 import (
 	"fmt"
-	"strconv"
-	"strings"
-
 	"github.com/emirpasic/gods/lists/arraylist"
 	"github.com/emirpasic/gods/stacks"
+	"strings"
 )
 
 func assertStackImplementation() {

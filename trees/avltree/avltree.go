@@ -1,3 +1,7 @@
+// Copyright (c) 2017, Benjamin Scher Purcell. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
+
 // Package avltree implements an AVL balanced binary tree.
 //
 // Structure is not thread safe.
@@ -7,8 +11,6 @@ package avltree
 
 import (
 	"fmt"
-	"strconv"
-
 	"github.com/emirpasic/gods/trees"
 	"github.com/emirpasic/gods/utils"
 )

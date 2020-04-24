@@ -1,3 +1,7 @@
+// Copyright (c) 2015, Emir Pasic. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
+
 // Package binaryheap implements a binary heap backed by array list.
 //
 // Comparator defines this heap as either min or max heap.
@@ -9,12 +13,11 @@ package binaryheap
 
 import (
 	"fmt"
-	"strconv"
-	"strings"
-
 	"github.com/emirpasic/gods/lists/arraylist"
 	"github.com/emirpasic/gods/trees"
 	"github.com/emirpasic/gods/utils"
+	"strings"
+  "strconv"
 )
 
 func assertTreeImplementation() {

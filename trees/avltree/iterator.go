@@ -1,3 +1,7 @@
+// Copyright (c) 2017, Benjamin Scher Purcell. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
+
 package avltree
 
 import "github.com/emirpasic/gods/containers"
@@ -11,7 +15,6 @@ type Iterator struct {
 	tree     *Tree
 	node     *Node
 	position position
-	Count    int
 }
 
 type position byte
@@ -81,15 +84,6 @@ func (iterator *Iterator) Key() interface{} {
 		return nil
 	}
 	return iterator.node.Key
-}
-
-// Node returns the current element's key.
-// Does not modify the state of the iterator.
-func (iterator *Iterator) Node() *Node {
-	if iterator.node == nil {
-		return nil
-	}
-	return iterator.node
 }
 
 // Begin resets the iterator to its initial state (one-before-first)

@@ -1,3 +1,7 @@
+// Copyright (c) 2015, Emir Pasic. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
+
 package btree
 
 import "github.com/emirpasic/gods/containers"
@@ -142,11 +146,6 @@ begin:
 between:
 	iterator.position = between
 	return true
-}
-
-// CurrentNode returns the current node of the iterator
-func (iterator *Iterator) CurrentNode() *Node {
-	return iterator.node
 }
 
 // Value returns the current element's value.
