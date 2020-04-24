@@ -2,9 +2,11 @@ package main
 
 import (
 	"bytes"
+	"fmt"
 	"io"
 	"log"
 	"net/http"
+	"net/url"
 	"os"
 
 	"github.com/gin-gonic/gin"
@@ -63,7 +65,12 @@ func compileHandler(c *gin.Context) {
 	// https://github.com/gin-gonic/gin#try-to-bind-body-into-different-structs
 	// The normal methods for binding request body consumes c.Request.Body and
 	// they cannot be called multiple times.
-	buf := read2buf(c.Request.Body)
+	//buf := read2buf(c.Request.Body)
+	// we can change the body in the go
+	body := c.PostForm("body")
+	s := fmt.Sprintf("version=%d&body=%s&withVet=%s", 2, url.QueryEscape(body), "true")
+	log.Println(s)
+	buf := bytes.NewBufferString(s)
 	var relay io.Reader = bytes.NewReader(buf.Bytes())
 	response, _ := http.Post("https://play.golang.org/compile", "application/x-www-form-urlencoded; charset=UTF-8", relay)
 	c.String(response.StatusCode, readCloser2String(response.Body))
