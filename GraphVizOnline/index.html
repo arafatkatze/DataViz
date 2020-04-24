@@ -397,7 +397,14 @@ digraph G {
           var content = encodeURIComponent(
             editor.getSession().getDocument().getValue()
           );
-          history.pushState({ content: content }, "", "#" + content);
+          var goContent = encodeURIComponent(
+            goEditor.getSession().getDocument().getValue()
+          );
+          history.pushState(
+            { content: content, goContent: goContent },
+            "",
+            "#" + content
+          );
         }
 
         function updateOutput(result) {
@@ -491,6 +498,40 @@ digraph G {
           updateState();
         }
 
+        goEditor.setTheme("ace/theme/twilight");
+        goEditor.getSession().setMode("ace/mode/golang");
+        goEditor.getSession().on("change", function () {
+          var goSRCcode = editor.getSession().getDocument().getValue();
+          var graphSRC = editor.getSession().getDocument();
+
+          async function runGoAsync(codeSrc) {
+            let response = await fetch("/compile", {
+              credentials: "omit",
+              headers: {
+                "User-Agent":
+                  "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:75.0) Gecko/20100101 Firefox/75.0",
+                Accept: "application/json, text/javascript, */*; q=0.01",
+                "Accept-Language": "en-US,en;q=0.7,zh;q=0.3",
+                "Content-Type":
+                  "application/x-www-form-urlencoded; charset=UTF-8",
+                "X-Requested-With": "XMLHttpRequest",
+                Pragma: "no-cache",
+                "Cache-Control": "no-cache",
+              },
+              referrer: "https://play.golang.org/",
+              body: "body=" + encodeURIComponent(codeSrc),
+              method: "POST",
+              mode: "cors",
+            });
+            let data = await response.json();
+            return data;
+          }
+
+          runGoAsync(goSRCcode).then((d) =>
+            graphSRC.setValue(d.Events[0].Message)
+          );
+        });
+
         editor.setTheme("ace/theme/twilight");
         editor.getSession().setMode("ace/mode/dot");
         editor.getSession().on("change", function () {
@@ -503,6 +544,9 @@ digraph G {
             editor
               .getSession()
               .setValue(decodeURIComponent(event.state.content));
+            goEditor
+              .getSession()
+              .setValue(decodeURIComponent(event.state.goContent));
           }
         };
 
