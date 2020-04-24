@@ -233,6 +233,28 @@ digraph G {
           shareURLEl = document.querySelector("#shareurl"),
           errorEl = document.querySelector("#error"),
           fromHistory = false;
+        editor.commands.addCommand({
+          name: "showKeyboardShortcuts",
+          bindKey: { win: "Ctrl-Alt-h", mac: "Command-Alt-h" },
+          exec: function (editor) {
+            ace.config.loadModule("ace/ext/keybinding_menu", function (module) {
+              module.init(editor);
+              editor.showKeyboardShortcuts();
+            });
+          },
+        });
+        editor.execCommand("showKeyboardShortcuts");
+        goEditor.commands.addCommand({
+          name: "showKeyboardShortcuts",
+          bindKey: { win: "Ctrl-Alt-h", mac: "Command-Alt-h" },
+          exec: function (editor) {
+            ace.config.loadModule("ace/ext/keybinding_menu", function (module) {
+              module.init(editor);
+              editor.showKeyboardShortcuts();
+            });
+          },
+        });
+        goEditor.execCommand("showKeyboardShortcuts");
 
         function show_status(text, hide) {
           hide = hide || 0;
@@ -533,7 +555,7 @@ digraph G {
         goEditor.getSession().setMode("ace/mode/golang");
         goEditor.getSession().on("change", function () {
           if (!fromHistory) {
-            updateSrc2Graph();
+            updateSrc2Graph(); // just let user click button and update graph
           } else {
             fromHistory = false;
           }
