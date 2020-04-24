@@ -15,7 +15,7 @@
         position: absolute;
         top: 0;
         bottom: 0;
-        right: 30%;
+        right: 70%;
         left: 0;
       }
       #editor {
@@ -23,7 +23,7 @@
         position: absolute;
         top: 0;
         bottom: 0;
-        right: 60%;
+        right: 40%;
         left: 30%;
       }
 
@@ -40,7 +40,7 @@
       #options {
         margin: 0;
         position: fixed;
-        left: 50%;
+        left: 60%;
         width: 100%;
       }
 
@@ -231,7 +231,8 @@ digraph G {
           rawEl = document.querySelector("#raw input"),
           shareEl = document.querySelector("#share"),
           shareURLEl = document.querySelector("#shareurl"),
-          errorEl = document.querySelector("#error");
+          errorEl = document.querySelector("#error"),
+          fromHistory = false
 
         function show_status(text, hide) {
           hide = hide || 0;
@@ -530,7 +531,13 @@ digraph G {
         };
         goEditor.setTheme("ace/theme/twilight");
         goEditor.getSession().setMode("ace/mode/golang");
-        goEditor.getSession().on("change", updateSrc2Graph);
+        goEditor.getSession().on("change", func () {
+            if (!fromHistory) {
+                updateSrc2Graph();
+            } else {
+                fromHistory = false;
+            }
+        });
 
         editor.setTheme("ace/theme/twilight");
         editor.getSession().setMode("ace/mode/dot");
@@ -541,6 +548,7 @@ digraph G {
 
         window.onpopstate = function (event) {
           if (event.state != null && event.state.content != undefined) {
+            fromHistory = true
             editor
               .getSession()
               .setValue(decodeURIComponent(event.state.content));
