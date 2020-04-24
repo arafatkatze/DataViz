@@ -243,7 +243,15 @@ digraph G {
             });
           },
         });
-        editor.execCommand("showKeyboardShortcuts");
+        //editor.execCommand("showKeyboardShortcuts");
+        goEditor.commands.addCommand({
+          name: "compileCode2Graph",
+          bindKey: { win: "Ctrl-Shift-c", mac: "Ctrl-Shift-c" },
+          exec: function () {
+            console.log("keyboard detacted");
+            updateSrc2Graph();
+          },
+        });
         goEditor.commands.addCommand({
           name: "showKeyboardShortcuts",
           bindKey: { win: "Ctrl-Alt-h", mac: "Command-Alt-h" },
@@ -553,13 +561,13 @@ digraph G {
         };
         goEditor.setTheme("ace/theme/twilight");
         goEditor.getSession().setMode("ace/mode/golang");
-        goEditor.getSession().on("change", function () {
-          if (!fromHistory) {
-            updateSrc2Graph(); // just let user click button and update graph
-          } else {
-            fromHistory = false;
-          }
-        });
+        //goEditor.getSession().on("change", function () {
+        //  if (!fromHistory) {
+        //    updateSrc2Graph(); // just let user click button and update graph
+        //  } else {
+        //    fromHistory = false;
+        //  }
+        //});
 
         editor.setTheme("ace/theme/twilight");
         editor.getSession().setMode("ace/mode/dot");
