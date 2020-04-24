@@ -45,6 +45,6 @@ func readCloser2String(rc io.ReadCloser) string {
 
 func compileHandler(c *gin.Context) {
 	//log.Printf("%v\n", readCloser2String(c.Request.Body))
-	response, _ := http.Post("https://golangcode.com/compile", "application/x-www-form-urlencoded; charset=UTF-8", c.Request.Body)
+	response, _ := http.Post("https://play.golang.org/compile", "application/x-www-form-urlencoded; charset=UTF-8", c.Request.Body)
 	log.Println(readCloser2String(response.Body))
 }
