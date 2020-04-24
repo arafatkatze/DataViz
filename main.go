@@ -14,6 +14,7 @@ func setupRouter() *gin.Engine {
 		c.String(200, "pong")
 	})
 	r.Static("/Viz", "GraphVizOnline")
+	r.POST("/compile", compileHandler)
 
 	//r.LoadHTMLGlob("GraphVizOnline/*.html")
 	//r.GET("/", func(c *gin.Context) {
@@ -30,4 +31,8 @@ func main() {
 		log.Fatal("$PORT must be set")
 	}
 	r.Run(":" + port)
+}
+
+func compileHandler(c *gin.Context) {
+	log.Println(c)
 }
