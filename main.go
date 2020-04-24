@@ -18,7 +18,7 @@ func setupRouter() *gin.Engine {
 	})
 	r.Static("/Viz", "GraphVizOnline")
 	r.POST("/compile", compileHandler)
-	r.POST("/compile_debug", compileHandler_deubg)
+	r.POST("/compile_debug", compileHandler_debug)
 
 	//r.LoadHTMLGlob("GraphVizOnline/*.html")
 	//r.GET("/", func(c *gin.Context) {
