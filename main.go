@@ -72,6 +72,12 @@ func compileHandler(c *gin.Context) {
 	log.Println(s)
 	buf := bytes.NewBufferString(s)
 	var relay io.Reader = bytes.NewReader(buf.Bytes())
-	response, _ := http.Post("https://play.golang.org/compile", "application/x-www-form-urlencoded; charset=UTF-8", relay)
-	c.String(response.StatusCode, readCloser2String(response.Body))
+	response, err := http.Post("https://play.golang.org/compile", "application/x-www-form-urlencoded; charset=UTF-8", relay)
+	if err == nil {
+		if response.StatusCode == 200 && response.Body != nil {
+			c.String(response.StatusCode, readCloser2String(response.Body))
+		}
+	} else {
+		c.String(404, "play.golang.org cannot access")
+	}
 }
