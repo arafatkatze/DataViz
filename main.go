@@ -1,6 +1,8 @@
 package main
 
 import (
+	"bytes"
+	"io"
 	"log"
 	"os"
 
@@ -31,6 +33,13 @@ func main() {
 		log.Fatal("$PORT must be set")
 	}
 	r.Run(":" + port)
+}
+
+func readCloser2String(rc io.ReadCloser) string {
+	buf := new(bytes.Buffer)
+	buf.ReadFrom(rc)
+	newStr := buf.String()
+	return newStr
 }
 
 func compileHandler(c *gin.Context) {
