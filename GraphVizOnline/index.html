@@ -338,6 +338,7 @@ digraph G {
           goEditor = ace.edit("goEditor"),
           lastHD = -1,
           worker = null,
+          workerTemplate = null,
           parser = new DOMParser(),
           showError = null,
           formatEl = document.querySelector("#format select"),
@@ -506,7 +507,11 @@ digraph G {
 
           worker = new Worker("full.render.js");
           worker = JSON.parse(JSON.stringify(workerTemplate));
-          worker = worker.addEventListener(
+          if (workerTemplate === null) {
+            workerTemplate = new Worker("full.render.js");
+          }
+          worker = JSON.parse(JSON.stringify(workerTemplate));
+          worker.addEventListener(
             "message",
             function (e) {
               if (typeof e.data.error !== "undefined") {
