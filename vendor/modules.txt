@@ -5,7 +5,6 @@ github.com/davecgh/go-spew/spew
 github.com/emirpasic/gods/containers
 github.com/emirpasic/gods/lists
 github.com/emirpasic/gods/lists/arraylist
-github.com/emirpasic/gods/lists/doublylinkedlist
 github.com/emirpasic/gods/maps
 github.com/emirpasic/gods/stacks
 github.com/emirpasic/gods/trees

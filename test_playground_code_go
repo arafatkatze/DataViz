@@ -1,0 +1,128 @@
+// Package binaryheap implements a binary heap backed by array list.
+//
+// Comparator defines this heap as either min or max heap.
+//
+// Structure is not thread safe.
+//
+// References: http://en.wikipedia.org/wiki/Binary_heap
+package main
+
+import (
+	"fmt"
+	"strconv"
+
+	utilsRaw "github.com/emirpasic/gods/utils"
+	"github.com/pennz/DataViz/trees"
+	"github.com/pennz/DataViz/trees/binaryheap"
+	"github.com/pennz/DataViz/viz"
+	"gonum.org/v1/gonum/graph/formats/dot"
+)
+
+func assertTreeImplementationV() {
+	var _ trees.Tree = (*HeapV)(nil)
+}
+
+// HeapV holds elements in an array-list, and for visualizer
+type HeapV struct {
+	*binaryheap.Heap
+	stepper  viz.Stepper
+	enabledV bool
+}
+
+// EnableV enable visualization related data
+func (heap *HeapV) EnableV() {
+	heap.enabledV = true
+}
+
+// SSteps why not direct use not possible?
+func (heap *HeapV) SSteps() (gs []string, err error) {
+	gs, err = heap.stepper.Steps()
+	return
+}
+
+// NewWithV instantiates a new empty heap tree with the custom comparator.
+func NewWithV(comparator utilsRaw.Comparator) *HeapV {
+	return &HeapV{binaryheap.NewWith(comparator), viz.NewVisualizerStepper(), false}
+}
+
+// NewWithIntComparatorV instantiates a new empty heap with the IntComparator, i.e. elements are of type int.
+func NewWithIntComparatorV() *HeapV {
+	return &HeapV{binaryheap.NewWithIntComparator(), viz.NewVisualizerStepper(), false}
+}
+
+// NewWithStringComparatorV instantiates a new empty heap with the StringComparator, i.e. elements are of type string.
+func NewWithStringComparatorV() *HeapV {
+	return &HeapV{binaryheap.NewWithStringComparator(), viz.NewVisualizerStepper(), false}
+}
+
+// Push adds a value onto the heap and bubbles it up accordingly.
+func (heap *HeapV) Push(values ...interface{}) {
+	heap.Heap.Push(values...)
+	if heap.enabledV {
+		heap.stepper.Record(heap.visualize())
+	}
+}
+
+// Pop removes top element on heap and returns it, or nil if heap is empty.
+// Second return parameter is true, unless the heap was empty and there was nothing to pop.
+func (heap *HeapV) Pop() (value interface{}, ok bool) {
+	value, ok = heap.Heap.Pop()
+	if heap.enabledV {
+		heap.stepper.Record(heap.visualize())
+	}
+	return
+}
+
+// Check that the index is within bounds of the list
+func (heap *HeapV) withinRange(index int) bool {
+	return index >= 0 && index < heap.Heap.Size()
+}
+
+func listGet(list []interface{}, index int, size int) (interface{}, bool) {
+
+	if !(index >= 0 && index < size) {
+		return nil, false
+	}
+	return list[index], true
+}
+
+func (heap *HeapV) visualize() string {
+	size := heap.Heap.Size()
+	indexValueMap := make(map[int]interface{})
+	dotString := "digraph graphname{bgcolor=white;"
+	stringValues := []string{}
+
+	list := heap.Heap.Values()
+
+	for i := 0; i < (2 * size); i++ {
+		value, exists := listGet(list, i, size)
+		if exists {
+			indexValueMap[i] = value // Anybody who exists is connected to parent
+			if i != 0 {
+				dotString += (strconv.Itoa((i-1)/2) + " -> " + strconv.Itoa((i)) + ";")
+				stringValues = append(stringValues, fmt.Sprintf("%v", value))
+				dotString += (strconv.Itoa(i) + "[color=steelblue1, style=filled, fillcolor = steelblue1, fontcolor=white,label=" + stringValues[len(stringValues)-1] + "];")
+
+			} else {
+				stringValues = append(stringValues, fmt.Sprintf("%v", value))
+				dotString += (strconv.Itoa(i) + "[color=steelblue1, style=filled, fillcolor = steelblue1, fontcolor=white,label=" + stringValues[len(stringValues)-1] + "];")
+
+			}
+		}
+	}
+	dotString += "}"
+
+	return dotString
+}
+
+func main() {
+	heap := NewWithIntComparatorV()
+	heap.Push(3) // [3]
+	heap.Push(2) // [2,3]
+	heap.Push(1)
+	heap.Push(-1)
+	ast, err := dot.ParseString(heap.Visualize())
+	if err == nil {
+		fmt.Println(ast)
+	}
+}
