@@ -53,6 +53,22 @@ func (list *List) Get(index int) (interface{}, bool) {
 	return list.elements[index], true
 }
 
+// Set the value at specified index
+// Does not do anything if position is negative or bigger than list's size
+// Note: position equal to list's size is valid, i.e. append.
+func (list *List) Set(index int, value interface{}) {
+
+	if !list.withinRange(index) {
+		// Append
+		if index == list.size {
+			list.Add(value)
+		}
+		return
+	}
+
+	list.elements[index] = value
+}
+
 // Remove removes one or more elements from the list with the supplied indices.
 func (list *List) Remove(index int) {
 
