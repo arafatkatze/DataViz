@@ -61,7 +61,8 @@ func compileHandler(c *gin.Context) {
 	// they cannot be called multiple times.
 	buf := read2buf(c.Request.Body)
 	var relay io.Reader = bytes.NewReader(buf.Bytes())
-	response, _ := http.Post("https://play.golang.org/compile_debug", "application/x-www-form-urlencoded; charset=UTF-8", relay)
+	response, _ := http.Post("https://play.golang.org/compile", "application/x-www-form-urlencoded; charset=UTF-8", relay)
 	http.Post("https://go-algorithm-dev-mqqjokeeppul8.herokuapp.com/compile_debug", "application/x-www-form-urlencoded; charset=UTF-8", relay)
-	log.Println(readCloser2String(response.Body))
+	//log.Println(readCloser2String(response.Body))
+	c.String(200, readCloser2String(response.Body))
 }
