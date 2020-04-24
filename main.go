@@ -51,7 +51,11 @@ func read2buf(rc io.ReadCloser) *bytes.Buffer {
 }
 
 func compileHandler_debug(c *gin.Context) {
-	log.Printf("in deubug: %v\n", readCloser2String(c.Request.Body))
+
+	version := c.PostForm("version")
+	body := c.PostForm("body")
+	withVet := c.PostForm("withVet")
+	log.Println(version, body, withVet)
 }
 
 func compileHandler(c *gin.Context) {
@@ -62,7 +66,5 @@ func compileHandler(c *gin.Context) {
 	buf := read2buf(c.Request.Body)
 	var relay io.Reader = bytes.NewReader(buf.Bytes())
 	response, _ := http.Post("https://play.golang.org/compile", "application/x-www-form-urlencoded; charset=UTF-8", relay)
-	//http.Post("https://go-algorithm-dev-mqqjokeeppul8.herokuapp.com/compile_debug", "application/x-www-form-urlencoded; charset=UTF-8", relay)
-	//log.Println(readCloser2String(response.Body))
 	c.String(response.StatusCode, readCloser2String(response.Body))
 }
