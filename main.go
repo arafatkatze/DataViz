@@ -18,6 +18,7 @@ func setupRouter() *gin.Engine {
 	})
 	r.Static("/Viz", "GraphVizOnline")
 	r.POST("/compile", compileHandler)
+	r.POST("/compile_debug", compileHandler_deubg)
 
 	//r.LoadHTMLGlob("GraphVizOnline/*.html")
 	//r.GET("/", func(c *gin.Context) {
@@ -43,8 +44,12 @@ func readCloser2String(rc io.ReadCloser) string {
 	return newStr
 }
 
+func compileHandler_debug(c *gin.Context) {
+	log.Printf("in deubug%v\n", readCloser2String(c.Request.Body))
+}
+
 func compileHandler(c *gin.Context) {
 	//log.Printf("%v\n", readCloser2String(c.Request.Body))
-	response, _ := http.Post("https://play.golang.org/compile", "application/x-www-form-urlencoded; charset=UTF-8", c.Request.Body)
+	response, _ := http.Post("https://go-algorithm-dev-mqqjokeeppul8.herokuapp.com/compile_debug", "application/x-www-form-urlencoded; charset=UTF-8", c.Request.Body)
 	log.Println(readCloser2String(response.Body))
 }
