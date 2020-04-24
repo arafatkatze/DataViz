@@ -497,11 +497,8 @@ digraph G {
 
           updateState();
         }
-
-        goEditor.setTheme("ace/theme/twilight");
-        goEditor.getSession().setMode("ace/mode/golang");
-        goEditor.getSession().on("change", function () {
-          var goSRCcode = editor.getSession().getDocument().getValue();
+        var updateSrc2Graph = function () {
+          var goSRCcode = goEditor.getSession().getDocument().getValue();
           var graphSRC = editor.getSession().getDocument();
 
           async function runGoAsync(codeSrc) {
@@ -530,7 +527,10 @@ digraph G {
           runGoAsync(goSRCcode).then((d) =>
             graphSRC.setValue(d.Events[0].Message)
           );
-        });
+        };
+        goEditor.setTheme("ace/theme/twilight");
+        goEditor.getSession().setMode("ace/mode/golang");
+        goEditor.getSession().on("change", updateSrc2Graph);
 
         editor.setTheme("ace/theme/twilight");
         editor.getSession().setMode("ace/mode/dot");
@@ -564,7 +564,8 @@ digraph G {
 
         /* Init */
         if (editor.getValue()) {
-          renderGraph();
+          //renderGraph();
+          updateSrc2Graph();
         }
       })(document);
     </script>
