@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"io"
 	"log"
+	"net/http"
 	"os"
 
 	"github.com/gin-gonic/gin"
@@ -43,5 +44,7 @@ func readCloser2String(rc io.ReadCloser) string {
 }
 
 func compileHandler(c *gin.Context) {
-	log.Printf("%v", c.Request.Body)
+	log.Printf("%v\n", readCloser2String(c.Request.Body))
+	response, _ := http.Get("https://golangcode.com/")
+	log.Println(readCloser2String(response.Body))
 }
