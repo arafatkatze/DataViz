@@ -13,10 +13,11 @@ package treemap
 
 import (
 	"fmt"
-	"github.com/emirpasic/gods/maps"
-	rbt "github.com/emirpasic/gods/trees/redblacktree"
-	"github.com/emirpasic/gods/utils"
 	"strings"
+
+	"github.com/emirpasic/gods/maps"
+	"github.com/emirpasic/gods/utils"
+	rbt "github.com/pennz/DataViz/trees/redblacktree"
 )
 
 func assertMapImplementation() {

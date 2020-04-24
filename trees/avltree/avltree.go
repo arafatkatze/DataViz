@@ -11,6 +11,8 @@ package avltree
 
 import (
 	"fmt"
+	"strconv"
+
 	"github.com/emirpasic/gods/trees"
 	"github.com/emirpasic/gods/utils"
 )

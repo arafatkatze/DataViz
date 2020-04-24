@@ -6,9 +6,25 @@ github.com/emirpasic/gods/containers
 github.com/emirpasic/gods/lists
 github.com/emirpasic/gods/lists/arraylist
 github.com/emirpasic/gods/lists/doublylinkedlist
+github.com/emirpasic/gods/lists/singlylinkedlist
 github.com/emirpasic/gods/maps
+github.com/emirpasic/gods/maps/hashbidimap
+github.com/emirpasic/gods/maps/hashmap
+github.com/emirpasic/gods/maps/linkedhashmap
+github.com/emirpasic/gods/maps/treebidimap
+github.com/emirpasic/gods/maps/treemap
+github.com/emirpasic/gods/sets
+github.com/emirpasic/gods/sets/hashset
+github.com/emirpasic/gods/sets/linkedhashset
+github.com/emirpasic/gods/sets/treeset
 github.com/emirpasic/gods/stacks
+github.com/emirpasic/gods/stacks/arraystack
+github.com/emirpasic/gods/stacks/linkedliststack
 github.com/emirpasic/gods/trees
+github.com/emirpasic/gods/trees/avltree
+github.com/emirpasic/gods/trees/binaryheap
+github.com/emirpasic/gods/trees/btree
+github.com/emirpasic/gods/trees/redblacktree
 github.com/emirpasic/gods/utils
 # github.com/gin-contrib/sse v0.1.0
 github.com/gin-contrib/sse
