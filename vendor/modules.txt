@@ -1,14 +1,14 @@
-# github.com/Arafatk/Dataviz v0.0.0-20190312232637-a92bdc2b62a5
-## explicit
-github.com/Arafatk/Dataviz/containers
-github.com/Arafatk/Dataviz/lists
-github.com/Arafatk/Dataviz/lists/arraylist
-github.com/Arafatk/Dataviz/maps
-github.com/Arafatk/Dataviz/stacks
-github.com/Arafatk/Dataviz/trees
-github.com/Arafatk/Dataviz/utils
 # github.com/davecgh/go-spew v1.1.1
 github.com/davecgh/go-spew/spew
+# github.com/emirpasic/gods v1.12.0
+## explicit
+github.com/emirpasic/gods/containers
+github.com/emirpasic/gods/lists
+github.com/emirpasic/gods/lists/arraylist
+github.com/emirpasic/gods/maps
+github.com/emirpasic/gods/stacks
+github.com/emirpasic/gods/trees
+github.com/emirpasic/gods/utils
 # github.com/gin-contrib/sse v0.1.0
 github.com/gin-contrib/sse
 # github.com/gin-gonic/gin v1.6.2

@@ -1,7 +1,7 @@
 package treemap
 
 import (
-	"github.com/Arafatk/Dataviz/containers"
+	"github.com/emirpasic/gods/containers"
 	rbt "github.com/pennz/DataViz/trees/redblacktree"
 )
 

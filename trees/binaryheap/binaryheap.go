@@ -12,9 +12,9 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/Arafatk/Dataviz/lists/arraylist"
-	"github.com/Arafatk/Dataviz/trees"
-	"github.com/Arafatk/Dataviz/utils"
+	"github.com/emirpasic/gods/lists/arraylist"
+	"github.com/emirpasic/gods/trees"
+	"github.com/emirpasic/gods/utils"
 )
 
 func assertTreeImplementation() {
@@ -187,11 +187,4 @@ func (heap *Heap) bubbleUp() {
 // Check that the index is within bounds of the list
 func (heap *Heap) withinRange(index int) bool {
 	return index >= 0 && index < heap.list.Size()
-}
-
-// Visualizer overwrite original one by use my util, just print the string for
-// debuggin
-func (heap *Heap) Visualizer(fileName string) bool {
-	dotString := heap.Visualize()
-	return utils.WriteDotStringToPng(fileName, dotString)
 }

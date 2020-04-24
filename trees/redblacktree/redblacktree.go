@@ -11,8 +11,8 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/Arafatk/Dataviz/trees"
-	"github.com/Arafatk/Dataviz/utils"
+	"github.com/emirpasic/gods/trees"
+	"github.com/emirpasic/gods/utils"
 )
 
 func assertTreeImplementation() {
@@ -572,11 +572,4 @@ func nodeColor(node *Node) color {
 		return black
 	}
 	return node.color
-}
-
-// Visualizer overwrite original one by use my util, just print the string for
-// debuggin
-func (heap *Tree) Visualizer(fileName string) bool {
-	dotString := heap.Visualize()
-	return utils.WriteDotStringToPng(fileName, dotString)
 }

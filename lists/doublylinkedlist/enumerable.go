@@ -1,6 +1,6 @@
 package doublylinkedlist
 
-import "github.com/Arafatk/Dataviz/containers"
+import "github.com/emirpasic/gods/containers"
 
 func assertEnumerableImplementation() {
 	var _ containers.EnumerableWithIndex = (*List)(nil)

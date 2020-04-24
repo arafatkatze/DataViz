@@ -9,8 +9,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/Arafatk/Dataviz/lists"
-	"github.com/Arafatk/Dataviz/utils"
+	"github.com/emirpasic/gods/lists"
+	"github.com/emirpasic/gods/utils"
 )
 
 func assertListImplementation() {
@@ -221,11 +221,4 @@ func (list *List) shrink() {
 	if list.size <= int(float32(currentCapacity)*shrinkFactor) {
 		list.resize(list.size)
 	}
-}
-
-// Visualizer overwrite original one by use my util, just print the string for
-// debuggin
-func (heap *List) Visualizer(fileName string) bool {
-	dotString := heap.Visualize()
-	return utils.WriteDotStringToPng(fileName, dotString)
 }

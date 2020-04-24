@@ -10,9 +10,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/Arafatk/Dataviz/lists/arraylist"
-	"github.com/Arafatk/Dataviz/stacks"
-	"github.com/Arafatk/Dataviz/utils"
+	"github.com/emirpasic/gods/lists/arraylist"
+	"github.com/emirpasic/gods/stacks"
 )
 
 func assertStackImplementation() {
@@ -112,11 +111,4 @@ func (stack *Stack) String() string {
 // Check that the index is within bounds of the list
 func (stack *Stack) withinRange(index int) bool {
 	return index >= 0 && index < stack.list.Size()
-}
-
-// Visualizer overwrite original one by use my util, just print the string for
-// debuggin
-func (heap *Stack) Visualizer(fileName string) bool {
-	dotString := heap.Visualize()
-	return utils.WriteDotStringToPng(fileName, dotString)
 }

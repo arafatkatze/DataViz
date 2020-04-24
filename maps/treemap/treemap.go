@@ -11,8 +11,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/Arafatk/Dataviz/maps"
-	"github.com/Arafatk/Dataviz/utils"
+	"github.com/emirpasic/gods/maps"
+	"github.com/emirpasic/gods/utils"
 	rbt "github.com/pennz/DataViz/trees/redblacktree"
 )
 
@@ -114,11 +114,4 @@ func (m *Map) String() string {
 
 func (m *Map) Visualize() string {
 	return m.tree.Visualize()
-}
-
-// Visualizer overwrite original one by use my util, just print the string for
-// debuggin
-func (m *Map) Visualizer(fileName string) bool {
-	dotString := m.Visualize()
-	return utils.WriteDotStringToPng(fileName, dotString)
 }

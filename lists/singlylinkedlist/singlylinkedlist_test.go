@@ -6,7 +6,7 @@ package singlylinkedlist
 
 import (
 	"fmt"
-	"github.com/Arafatk/Dataviz/utils"
+	"github.com/emirpasic/gods/utils"
 	"testing"
 )
 

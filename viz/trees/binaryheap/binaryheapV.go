@@ -11,10 +11,9 @@ import (
 	"fmt"
 	"strconv"
 
-	utilsRaw "github.com/Arafatk/Dataviz/utils"
+	utilsRaw "github.com/emirpasic/gods/utils"
 	"github.com/pennz/DataViz/trees"
 	"github.com/pennz/DataViz/trees/binaryheap"
-	"github.com/pennz/DataViz/utils"
 	"github.com/pennz/DataViz/viz"
 )
 
@@ -113,11 +112,4 @@ func (heap *HeapV) visualize() string {
 	dotString += "}"
 
 	return dotString
-}
-
-// Visualizer overwrite original one by use my util, just print the string for
-// debuggin
-func (heap *HeapV) Visualizer(fileName string) bool {
-	dotString := heap.visualize()
-	return utils.WriteDotStringToPng(fileName, dotString)
 }

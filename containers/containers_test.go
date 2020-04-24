@@ -5,7 +5,7 @@ package containers
 import (
 	"testing"
 
-	"github.com/Arafatk/Dataviz/utils"
+	"github.com/emirpasic/gods/utils"
 )
 
 // For testing purposes

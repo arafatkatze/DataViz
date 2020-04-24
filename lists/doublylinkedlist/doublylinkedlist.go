@@ -9,8 +9,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/Arafatk/Dataviz/lists"
-	"github.com/Arafatk/Dataviz/utils"
+	"github.com/emirpasic/gods/lists"
+	"github.com/emirpasic/gods/utils"
 )
 
 func assertListImplementation() {
@@ -323,11 +323,4 @@ func (list *List) Visualize() string {
 // Check that the index is within bounds of the list
 func (list *List) withinRange(index int) bool {
 	return index >= 0 && index < list.size
-}
-
-// Visualizer overwrite original one by use my util, just print the string for
-// debuggin
-func (heap *List) Visualizer(fileName string) bool {
-	dotString := heap.Visualize()
-	return utils.WriteDotStringToPng(fileName, dotString)
 }

@@ -18,8 +18,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/Arafatk/Dataviz/trees"
-	"github.com/Arafatk/Dataviz/utils"
+	"github.com/emirpasic/gods/trees"
+	"github.com/emirpasic/gods/utils"
 )
 
 func assertTreeImplementation() {
@@ -650,11 +650,4 @@ func (tree *Tree) deleteChild(node *Node, index int) {
 	copy(node.Children[index:], node.Children[index+1:])
 	node.Children[len(node.Children)-1] = nil
 	node.Children = node.Children[:len(node.Children)-1]
-}
-
-// Visualizer overwrite original one by use my util, just print the string for
-// debuggin
-func (heap *Tree) Visualizer(fileName string) bool {
-	dotString := heap.Visualize()
-	return utils.WriteDotStringToPng(fileName, dotString)
 }

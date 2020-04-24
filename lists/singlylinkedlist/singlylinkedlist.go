@@ -9,8 +9,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/Arafatk/Dataviz/lists"
-	"github.com/Arafatk/Dataviz/utils"
+	"github.com/emirpasic/gods/lists"
+	"github.com/emirpasic/gods/utils"
 )
 
 func assertListImplementation() {
@@ -290,11 +290,4 @@ func (list *List) Visualize() string {
 	}
 	dotString += "}}"
 	return dotString
-}
-
-// Visualizer overwrite original one by use my util, just print the string for
-// debuggin
-func (heap *List) Visualizer(fileName string) bool {
-	dotString := heap.Visualize()
-	return utils.WriteDotStringToPng(fileName, dotString)
 }

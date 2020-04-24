@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/Arafatk/Dataviz/utils"
+	"github.com/emirpasic/gods/utils"
 )
 
 func TestListAdd(t *testing.T) {

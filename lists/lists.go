@@ -10,8 +10,8 @@
 package lists
 
 import (
-	"github.com/Arafatk/Dataviz/containers"
-	"github.com/Arafatk/Dataviz/utils"
+	"github.com/emirpasic/gods/containers"
+	"github.com/emirpasic/gods/utils"
 )
 
 // List interface that all lists implement

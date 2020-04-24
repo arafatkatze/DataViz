@@ -6,7 +6,7 @@ package singlylinkedlist
 
 import (
 	"encoding/json"
-	"github.com/Arafatk/Dataviz/containers"
+	"github.com/emirpasic/gods/containers"
 )
 
 func assertSerializationImplementation() {
