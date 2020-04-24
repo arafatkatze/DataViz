@@ -34,5 +34,5 @@ func main() {
 }
 
 func compileHandler(c *gin.Context) {
-	log.Println(c)
+	log.Printf("%v", c.Request.Body)
 }
