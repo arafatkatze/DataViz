@@ -119,6 +119,6 @@ func main() {
 	heap.Push(3) // [3]
 	heap.Push(2) // [2,3]
 	heap.Push(1)
-	heap.Visualize()
+	fmt.Println(heap.Visualize())
 }
 
