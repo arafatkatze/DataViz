@@ -124,17 +124,13 @@ func astFormatOut(s string) {
 }
 
 func main() {
+			avw := NewAlgVisualWrapper()
 	heap := NewWithIntComparatorV()
-	heap.Push(3) // [3]
-	heap.Push(2) // [2,3]
-	heap.Push(1)
-	heap.Push(-1)
-	ast, err := dot.ParseString(heap.Visualize())
-	if err == nil {
-		fmt.Println(ast)
-	}
-	heap.Push(-2)
-    astFormatOut(heap.Visualize())
-	heap.Push(-3)
-    astFormatOut(heap.Visualize())
+			got := avw.Wrap(heap) // already a pointer now...
+			avw.Call("Push", 3)
+			avw.Call("Pop")
+			avw.Call("Pop")
+			avw.Call("Push", 4)
+			avw.Call("Push", 5)
+            fmt.Println(avw.Visualize())
 }

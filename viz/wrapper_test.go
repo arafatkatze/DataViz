@@ -1,6 +1,7 @@
 package viz
 
 import (
+	"log"
 	"reflect"
 	"testing"
 
@@ -98,6 +99,7 @@ func TestAlgVisualWrapper_Wrap_Viz(t *testing.T) {
 			avw.Call("Pop")
 			avw.Call("Push", 4)
 			avw.Call("Push", 5)
+			log.Println(avw.Visualize())
 			//log.Printf("%v visualize\n", avw.Call("Visualize"))
 			if got != nil {
 				t.Errorf("AlgVisualWrapper.Wrap() = %v, NOT want %v", got, tt.want)

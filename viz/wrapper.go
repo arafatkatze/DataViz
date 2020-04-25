@@ -2,6 +2,7 @@ package viz
 
 import (
 	"errors"
+	"fmt"
 	"log"
 	"reflect"
 
@@ -14,6 +15,7 @@ import (
 	"github.com/pennz/DataViz/trees/binaryheap"
 	"github.com/pennz/DataViz/trees/btree"
 	"github.com/pennz/DataViz/trees/redblacktree"
+	"gonum.org/v1/gonum/graph/formats/dot"
 )
 
 type Wrapper interface {
@@ -178,6 +180,13 @@ func (avw *AlgVisualWrapper) Visualize() interface{} {
 	if err != nil {
 		log.Printf("Visualize error: %s\n", err)
 		return nil
+	}
+	for i, g := range gs { // format for prettier print
+		ast, err := dot.ParseString(g)
+		if err == nil {
+			fmt.Println(ast)
+			gs[i] = ast.String()
+		}
 	}
 	return gs
 }
