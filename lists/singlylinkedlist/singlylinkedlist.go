@@ -1,3 +1,7 @@
+// Copyright (c) 2015, Emir Pasic. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
+
 // Package singlylinkedlist implements the singly-linked list.
 //
 // Structure is not thread safe.
@@ -29,9 +33,13 @@ type element struct {
 	next  *element
 }
 
-// New instantiates a new empty list
-func New() *List {
-	return &List{}
+// New instantiates a new list and adds the passed values, if any, to the list
+func New(values ...interface{}) *List {
+	list := &List{}
+	if len(values) > 0 {
+		list.Add(values...)
+	}
+	return list
 }
 
 // Add appends a value (one or more) at the end of the list (same as Append())
@@ -82,27 +90,7 @@ func (list *List) Get(index int) (interface{}, bool) {
 	return element.value, true
 }
 
-// Set value at specified index
-// Does not do anything if position is negative or bigger than list's size
-// Note: position equal to list's size is valid, i.e. append.
-func (list *List) Set(index int, value interface{}) {
-
-	if !list.withinRange(index) {
-		// Append
-		if index == list.size {
-			list.Add(value)
-		}
-		return
-	}
-
-	foundElement := list.first
-	for e := 0; e != index; {
-		e, foundElement = e+1, foundElement.next
-	}
-	foundElement.value = value
-}
-
-// Remove removes one or more elements from the list with the supplied indices.
+// Remove removes the element at the given index from the list.
 func (list *List) Remove(index int) {
 
 	if !list.withinRange(index) {
@@ -275,6 +263,26 @@ func (list *List) Insert(index int, values ...interface{}) {
 		}
 		beforeElement.next = oldNextElement
 	}
+}
+
+// Set value at specified index
+// Does not do anything if position is negative or bigger than list's size
+// Note: position equal to list's size is valid, i.e. append.
+func (list *List) Set(index int, value interface{}) {
+
+	if !list.withinRange(index) {
+		// Append
+		if index == list.size {
+			list.Add(value)
+		}
+		return
+	}
+
+	foundElement := list.first
+	for e := 0; e != index; {
+		e, foundElement = e+1, foundElement.next
+	}
+	foundElement.value = value
 }
 
 // String returns a string representation of container

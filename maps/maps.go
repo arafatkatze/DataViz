@@ -1,3 +1,7 @@
+// Copyright (c) 2015, Emir Pasic. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
+
 // Package maps provides an abstract Map interface.
 //
 // In computer science, an associative array, map, symbol table, or dictionary is an abstract data type composed of a collection of (key, value) pairs, such that each possible key appears just once in the collection.
@@ -25,4 +29,11 @@ type Map interface {
 	// Size() int
 	// Clear()
 	// Values() []interface{}
+}
+
+// BidiMap interface that all bidirectional maps implement (extends the Map interface)
+type BidiMap interface {
+	GetKey(value interface{}) (key interface{}, found bool)
+
+	Map
 }

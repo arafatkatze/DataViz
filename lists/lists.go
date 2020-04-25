@@ -1,6 +1,6 @@
-
-
-
+// Copyright (c) 2015, Emir Pasic. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
 
 // Package lists provides an abstract List interface.
 //
@@ -23,6 +23,7 @@ type List interface {
 	Sort(comparator utils.Comparator)
 	Swap(index1, index2 int)
 	Insert(index int, values ...interface{})
+	Set(index int, value interface{})
 
 	containers.Container
 	// Empty() bool

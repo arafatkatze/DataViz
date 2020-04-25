@@ -1,3 +1,7 @@
+// Copyright (c) 2015, Emir Pasic. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
+
 // Package btree implements a B tree.
 //
 // According to Knuth's definition, a B-tree of order m is a tree which satisfies the following properties:
@@ -32,16 +36,13 @@ type Tree struct {
 	Comparator utils.Comparator // Key comparator
 	size       int              // Total number of keys in the tree
 	m          int              // order (maximum number of children)
-
 }
 
 // Node is a single element within the tree
 type Node struct {
-	Parent    *Node
-	nodeIndex int      // the index of the starting subnode of the the tree node
-	paired    int      // No.of Nodes paired from parent ot child in the dot graph
-	Entries   []*Entry // Contained keys in node
-	Children  []*Node  // Children nodes
+	Parent   *Node
+	Entries  []*Entry // Contained keys in node
+	Children []*Node  // Children nodes
 }
 
 // Entry represents the key-value pair contained within nodes
@@ -116,7 +117,7 @@ func (tree *Tree) Size() int {
 	return tree.size
 }
 
-// Keys returns all keys in-order.
+// Keys returns all keys in-order
 func (tree *Tree) Keys() []interface{} {
 	keys := make([]interface{}, tree.size)
 	it := tree.Iterator()
@@ -142,7 +143,7 @@ func min(x, y int) int {
 	return y
 }
 
-// Visualizer returns all values in the b-tree.
+// Visualize returns all values in the b-tree.
 func (tree *Tree) Visualize() string {
 	it := tree.Iterator()
 	dotString := "digraph G{bgcolor=azure;"
