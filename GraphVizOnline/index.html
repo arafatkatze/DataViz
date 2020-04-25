@@ -712,7 +712,7 @@ digraph G {
 
                 var splitGraph = function(s) {
                     let ss = s.split("}\n");
-                    if (ss[ss.length-1].trim() == "") {
+                    if (ss[ss.length - 1].trim() == "") {
                         ss.pop();
                     }
                     for (let i = 0; i < ss.length; i++) {
@@ -731,7 +731,7 @@ digraph G {
                 }
                 runGoAsync(goSRCcode).then((d) => {
                     if (d.Events == null) {
-                        show_status("compiling failed: "+d.Errors, 500);
+                        show_status("compiling failed: " + d.Errors, 2500);
                     }
                     for (let i = d.Events.length - 1; i >= 1; i--) { // reverse
                         setGraphSteps(d.Events[i].Message, goSRCcode);
