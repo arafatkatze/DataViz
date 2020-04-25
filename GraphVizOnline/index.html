@@ -250,6 +250,10 @@ func main() {
 	heap.Push(2) // [2,3]
 	heap.Push(1)
 	fmt.Println(heap.Visualize())
+	heap.Push(0)
+	fmt.Println(heap.Visualize())
+	heap.Push(-1)
+	fmt.Println(heap.Visualize())
 }
     </pre>
     <pre id="editor">
@@ -691,9 +695,10 @@ digraph G {
                 }
 
                 runGoAsync(goSRCcode).then((d) => {
-                    d.Events.forEach(event =>
-                        updateStateHistory(encodeURIComponent(event.Message), encodeURIComponent(goSRCcode)));
-                    window.popstate();
+                    for (let i = d.Events.length - 1; i >= 0; i--) {
+                        updateStateHistory(encodeURIComponent(d.Events[i].Message),
+                            encodeURIComponent(goSRCcode));
+                    }
                 });
             };
             goEditor.setTheme("ace/theme/twilight");
