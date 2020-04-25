@@ -76,6 +76,8 @@ func compileHandler(c *gin.Context) {
 	if err == nil {
 		if response.StatusCode == 200 && response.Body != nil {
 			c.String(response.StatusCode, readCloser2String(response.Body))
+		} else {
+			c.String(response.StatusCode, "")
 		}
 	} else {
 		c.String(404, "play.golang.org cannot access")

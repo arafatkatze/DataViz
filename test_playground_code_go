@@ -115,6 +115,14 @@ func (heap *HeapV) visualize() string {
 	return dotString
 }
 
+func astFormatOut(s string) {
+	ast, err := dot.ParseString(s)
+	if err == nil {
+		fmt.Println(ast)
+	}
+		fmt.Print("")
+}
+
 func main() {
 	heap := NewWithIntComparatorV()
 	heap.Push(3) // [3]
@@ -125,4 +133,8 @@ func main() {
 	if err == nil {
 		fmt.Println(ast)
 	}
+	heap.Push(-2)
+    astFormatOut(heap.Visualize())
+	heap.Push(-3)
+    astFormatOut(heap.Visualize())
 }

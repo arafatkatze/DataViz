@@ -128,6 +128,7 @@
 
 <body>
     <pre id="goEditor">
+// !!! use Ctrl+Shift+C to compile code to graph
 // Package binaryheap implements a binary heap backed by array list.
 //
 // Comparator defines this heap as either min or max heap.
@@ -145,6 +146,7 @@ import (
 	"github.com/pennz/DataViz/trees"
 	"github.com/pennz/DataViz/trees/binaryheap"
 	"github.com/pennz/DataViz/viz"
+	"gonum.org/v1/gonum/graph/formats/dot"
 )
 
 func assertTreeImplementationV() {
@@ -244,16 +246,28 @@ func (heap *HeapV) visualize() string {
 	return dotString
 }
 
+func astFormatOut(s string) {
+	ast, err := dot.ParseString(s)
+	if err == nil {
+		fmt.Println(ast)
+	}
+		fmt.Print("")
+}
+
 func main() {
 	heap := NewWithIntComparatorV()
 	heap.Push(3) // [3]
 	heap.Push(2) // [2,3]
 	heap.Push(1)
-	fmt.Println(heap.Visualize())
-	heap.Push(0)
-	fmt.Println(heap.Visualize())
 	heap.Push(-1)
-	fmt.Println(heap.Visualize())
+	ast, err := dot.ParseString(heap.Visualize())
+	if err == nil {
+		fmt.Println(ast)
+	}
+	heap.Push(-2)
+    astFormatOut(heap.Visualize())
+	heap.Push(-3)
+    astFormatOut(heap.Visualize())
 }
     </pre>
     <pre id="editor">
@@ -398,7 +412,7 @@ digraph G {
                     });
                 },
             });
-            goEditor.execCommand("showKeyboardShortcuts");
+            //goEditor.execCommand("showKeyboardShortcuts");
 
             function show_status(text, hide) {
                 hide = hide || 0;
@@ -671,7 +685,7 @@ digraph G {
             }
             var updateSrc2Graph = function() {
                 var goSRCcode = goEditor.getSession().getDocument().getValue();
-                //var graphSRC = editor.getSession().getDocument();
+                var graphSRC = editor.getSession().getDocument();
 
                 async function runGoAsync(codeSrc) {
                     let response = await fetch("/compile", {
@@ -691,12 +705,43 @@ digraph G {
                         mode: "cors",
                     });
                     let data = await response.json();
+
+                    show_status("compiling", 1000);
                     return data;
                 }
 
+                var splitGraph = function(s) {
+                    let ss = s.split("}\n");
+                    if (ss[ss.length-1].trim() == "") {
+                        ss.pop();
+                    }
+                    for (let i = 0; i < ss.length; i++) {
+                        ss[i] = ss[i] + "}";
+                    }
+
+                    return ss;
+                }
+                var setGraphSteps = function(ss, goSRCcode) {
+
+                    splitGraph(ss).forEach(s => {
+                        updateStateHistory(
+                            encodeURIComponent(s),
+                            encodeURIComponent(goSRCcode));
+                    });
+                }
                 runGoAsync(goSRCcode).then((d) => {
-                    for (let i = d.Events.length - 1; i >= 0; i--) {
-                        updateStateHistory(encodeURIComponent(d.Events[i].Message),
+                    if (d.Events == null) {
+                        show_status("compiling failed: "+d.Errors, 500);
+                    }
+                    for (let i = d.Events.length - 1; i >= 1; i--) { // reverse
+                        setGraphSteps(d.Events[i].Message, goSRCcode);
+                    }
+                    let ss0 = splitGraph(d.Events[0].Message)
+                    graphSRC.setValue(ss0[0]);
+                    for (let i = ss0.length; i >= 0; i--) { // reverse
+                        let s = ss0[i];
+                        updateStateHistory(
+                            encodeURIComponent(s),
                             encodeURIComponent(goSRCcode));
                     }
                 });
