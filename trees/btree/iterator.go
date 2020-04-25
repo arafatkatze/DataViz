@@ -148,6 +148,11 @@ between:
 	return true
 }
 
+// CurrentNode returns the current node of the iterator
+func (iterator *Iterator) CurrentNode() *Node {
+	return iterator.node
+}
+
 // Value returns the current element's value.
 // Does not modify the state of the iterator.
 func (iterator *Iterator) Value() interface{} {

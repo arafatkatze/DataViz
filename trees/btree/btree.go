@@ -19,10 +19,11 @@ package btree
 import (
 	"bytes"
 	"fmt"
+	"strconv"
+	"strings"
+
 	"github.com/emirpasic/gods/trees"
 	"github.com/emirpasic/gods/utils"
-	"strings"
-  "strconv"
 )
 
 func assertTreeImplementation() {
@@ -142,7 +143,7 @@ func min(x, y int) int {
 	return y
 }
 
-// Visualizer returns all values in the b-tree.
+// Visualize returns all values in the b-tree.
 func (tree *Tree) Visualize() string {
 	it := tree.Iterator()
 	dotString := "digraph G{bgcolor=azure;"

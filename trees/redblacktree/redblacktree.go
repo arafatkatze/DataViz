@@ -13,7 +13,7 @@ package redblacktree
 
 import (
 	"fmt"
-  "strconv"
+	"strconv"
 
 	"github.com/emirpasic/gods/trees"
 	"github.com/emirpasic/gods/utils"
@@ -38,12 +38,13 @@ type Tree struct {
 
 // Node is a single element within the tree
 type Node struct {
-	Key    interface{}
-	Value  interface{}
-	color  color
-	Left   *Node
-	Right  *Node
-	Parent *Node
+	Key       interface{}
+	Value     interface{}
+	color     color
+	nodeIndex int
+	Left      *Node
+	Right     *Node
+	Parent    *Node
 }
 
 // NewWith instantiates a red-black tree with the custom comparator.
@@ -315,7 +316,7 @@ func (tree *Tree) Visualize() string {
 	for i := 0; it.Next(); i++ {
 		it.node.nodeIndex = NodeIndex
 		NodeIndex++
-		colorArray = append(colorArray, it.NodeColor())
+		colorArray = append(colorArray, it.node.color)
 	}
 	NilNodes := NodeIndex // The nil leaf nodes of the tree
 	it = tree.Iterator()

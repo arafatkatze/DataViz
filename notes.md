@@ -22,3 +22,9 @@ Only only swap for list
 For different type, data alter function is different
 
 We can just use go playground...
+
+## btree
+Balance v.s. unbalance
+O(log n) - O(n)
+### definition
+self-balancing , generalization of binary search tree,
