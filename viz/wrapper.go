@@ -251,7 +251,7 @@ func (avw *AlgVisualWrapper) visualize1StepAfter(fname string, args ...interface
 	var getIndex int
 	var swapIdA, swapIdB int
 	if fname == "Get" {
-		nodeProp = "[color=black style=filled fillcolor=black]"
+		nodeProp = "[color=black style=filled fillcolor=yellow]"
 		getIndex = args[0].(int)
 	}
 	if fname == "Swap" {
