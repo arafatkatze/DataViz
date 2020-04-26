@@ -142,19 +142,20 @@ package main
 
 import (
 	"fmt"
+
 	"github.com/pennz/DataViz/lists/arraylist"
 	"github.com/pennz/DataViz/viz"
 )
 
 func main() {
-			l := arraylist.New(),
-			avw := NewAlgVisualWrapper()
-			avw.Wrap(l) // already a pointer now...
-			avw.Call("Add", 3)
-			avw.Call("Add", 4)
-			avw.Call("Add", 5)
-			avw.Call("Swap", 0, 1)
-			//log.Println(avw.Visualize())
+	l := arraylist.New()
+	avw := viz.NewAlgVisualWrapper()
+	avw.Wrap(l) // already a pointer now...
+	avw.Call("Add", 3)
+	avw.Call("Add", 4)
+	avw.Call("Add", 5)
+	avw.Call("Swap", 0, 1)
+	//log.Println(avw.Visualize())
 	for _, g := range avw.Visualize().([]string) {
 		fmt.Println(g)
 	}
@@ -578,16 +579,18 @@ digraph G {
                 var graphSRC = editor.getSession().getDocument();
 
                 var splitGraph = function(s) {
-                    let ss = s.split("}\n");
-                    if (ss[ss.length - 1].trim() == "") {
-                        ss.pop();
+                    let ss = s.split("digraph");
+                    for (let i = 0; i < ss.length; i++) {
+                        if (ss[i].trim() == "") {
+                            ss.splice(i, 1);
+                        }
                     }
                     for (let i = 0; i < ss.length; i++) {
-                        ss[i] = ss[i] + "}";
+                        ss[i] = "digraph" + ss[i];
                     }
-
                     return ss;
                 }
+
                 var setGraphSteps = function(ss, goSRCcode) {
 
                     splitGraph(ss).forEach(s => {
@@ -621,7 +624,7 @@ digraph G {
                 }
                 runGoAsync(goSRCcode).then((d) => {
                     if (d.Events == null) {
-                        show_status("compiling failed: " + d.Errors, 2500);
+                        show_status("compiling failed: " + d.Errors, 5500);
                     }
                     for (let i = d.Events.length - 1; i >= 1; i--) { // reverse
                         setGraphSteps(d.Events[i].Message, goSRCcode);
