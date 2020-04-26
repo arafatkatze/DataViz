@@ -77,6 +77,55 @@ func hookTableTest() map[reflect.Type](dataH) {
 	return toHook
 }
 
+func TestAlgVisualWrapper_Wrap_Viz_listExtra(t *testing.T) {
+	extra := arraylist.New()
+	tests := []struct {
+		name string
+		args *arraylist.List
+		want interface{}
+	}{
+		{
+			name: "Test Wrap and visualize",
+			args: arraylist.New(),
+			want: nil,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			var avw VisualizerWrapper
+			avw = NewAlgVisualWrapperExtraMemory()
+
+			l := tt.args
+			l.Add(1, 2, 3, 4, 5)
+			extra.Add(l.Values()...)
+
+			got := avw.Wrap([]interface{}{tt.args, extra}) // already a pointer now...
+			if got != nil {
+				t.Errorf("VisualizerWrapper Wrap error")
+				return
+			}
+			log.Println(l, extra)
+			//b /Users/v/w/DataViz/viz/wrapper_test.go:60
+			avw.Call("Add", 3)
+			avw.Call("Add", 4)
+			avw.Call("Add", 5)
+			avw.Call("Swap", 0, 1)
+			//log.Println(avw.Visualize())
+			//log.Printf("%v visualize\n", avw.Call("Visualize"))
+			if got != nil {
+				t.Errorf("AlgVisualWrapper.Wrap() = %v, NOT want %v", got, tt.want)
+			}
+			//log.Println(avw.Visualize())
+			vs := avw.Visualize().([]string)
+			if len(vs) != 5 {
+				t.Errorf("AlgVisualWrapper.Visualize() = %v, len = %d, NOT want it", vs, len(vs))
+			}
+			if avw.Visualize() == nil {
+				t.Errorf("AlgVisualWrapper.Visualize() = <nil>, NOT want <nil>")
+			}
+		})
+	}
+}
 func TestAlgVisualWrapper_Wrap_Viz_list(t *testing.T) {
 	tests := []struct {
 		name string
@@ -92,7 +141,11 @@ func TestAlgVisualWrapper_Wrap_Viz_list(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			avw := NewAlgVisualWrapper()
+			tt.args.Add(1, 2, 3, 4, 5)
 			got := avw.Wrap(tt.args) // already a pointer now...
+			if got != nil {
+				t.Errorf("AlgVisualWrapper.Wrap() = %v, NOT want %v", got, tt.want)
+			}
 			//b /Users/v/w/DataViz/viz/wrapper_test.go:60
 			avw.Call("Add", 3)
 			avw.Call("Add", 4)
@@ -100,9 +153,6 @@ func TestAlgVisualWrapper_Wrap_Viz_list(t *testing.T) {
 			avw.Call("Swap", 0, 1)
 			log.Println(avw.Visualize())
 			//log.Printf("%v visualize\n", avw.Call("Visualize"))
-			if got != nil {
-				t.Errorf("AlgVisualWrapper.Wrap() = %v, NOT want %v", got, tt.want)
-			}
 			//log.Println(avw.Visualize())
 			vs := avw.Visualize().([]string)
 			if len(vs) != 5 {
@@ -130,6 +180,10 @@ func TestAlgVisualWrapper_Wrap_Viz(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			avw := NewAlgVisualWrapper()
 			got := avw.Wrap(tt.args) // already a pointer now...
+			if got != nil {
+				t.Errorf("VisualizerWrapper Wrap error")
+				return
+			}
 			//b /Users/v/w/DataViz/viz/wrapper_test.go:60
 			avw.Call("Push", 3)
 			avw.Call("Pop")
@@ -138,9 +192,6 @@ func TestAlgVisualWrapper_Wrap_Viz(t *testing.T) {
 			avw.Call("Push", 5)
 			//log.Println(avw.Visualize())
 			//log.Printf("%v visualize\n", avw.Call("Visualize"))
-			if got != nil {
-				t.Errorf("AlgVisualWrapper.Wrap() = %v, NOT want %v", got, tt.want)
-			}
 			//log.Println(avw.Visualize())
 			vs := avw.Visualize().([]string)
 			if len(vs) != 5 {

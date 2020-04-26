@@ -16,6 +16,7 @@ import (
 	"github.com/pennz/DataViz/trees/btree"
 	"github.com/pennz/DataViz/trees/redblacktree"
 	"gonum.org/v1/gonum/graph/formats/dot"
+	"gonum.org/v1/gonum/graph/formats/dot/ast"
 )
 
 type Wrapper interface {
@@ -30,7 +31,12 @@ type VisualizerWrapper interface {
 }
 
 type Visualizer interface {
-	Visualize() string
+	Visualize() interface{}
+}
+
+type AlgVisualWrapperExtraMemory struct {
+	*AlgVisualWrapper
+	m interface{} // need to handle it manually.., active one and another one, and we need merge two graph
 }
 
 type AlgVisualWrapper struct {
@@ -82,6 +88,10 @@ func NewAlgVisualWrapper() *AlgVisualWrapper {
 	toHook := hookTable()
 
 	return &AlgVisualWrapper{toHook, reflect.ValueOf(nil), NewVisualizerStepper(), true, make(map[string]interface{}, 0)}
+}
+
+func NewAlgVisualWrapperExtraMemory() *AlgVisualWrapperExtraMemory {
+	return &AlgVisualWrapperExtraMemory{NewAlgVisualWrapper(), nil}
 }
 
 // invoke is copied from https://stackoverflow.com/questions/8103617/call-a-struct-and-its-method-by-name-in-go
@@ -180,9 +190,26 @@ func (avw *AlgVisualWrapper) Call(fname string, args ...interface{}) (out []refl
 func (avw *AlgVisualWrapper) Wrap(i interface{}) error {
 	_, ok := i.(Visualizer) // i is an interface wrapped a pointer to struct
 	if !ok {
+		panic(0)
 		return errors.New("Visualization wrap error, cannot find proper interface")
 	}
 	avw.d = i // we know it is a pointer
+	return nil
+}
+
+func (avw *AlgVisualWrapperExtraMemory) Wrap(itfc interface{}) error {
+	interfaces := itfc.([]interface{})
+
+	i := interfaces[0]
+	ie := interfaces[1]
+
+	_, ok := i.(Visualizer) // i is an interface wrapped a pointer to struct
+	if !ok {
+		panic(0)
+		return errors.New("Visualization wrap error, cannot find proper interface")
+	}
+	avw.d = i // we know it is a pointer
+	avw.m = ie
 	return nil
 }
 
@@ -196,14 +223,91 @@ func (avw *AlgVisualWrapper) Visualize() interface{} {
 		log.Printf("Visualize error: %s\n", err)
 		return nil
 	}
-	for i, g := range gs { // format for prettier print
-		ast, err := dot.ParseString(g)
-		if err == nil {
-			fmt.Println(ast)
-			gs[i] = ast.String()
-		}
+	for _, g := range gs { // format for prettier print
+		fmt.Println(g)
 	}
 	return gs
+}
+
+func (v *AlgVisualWrapperExtraMemory) visualize1StepAfter(fname string, args ...interface{}) (dotString string) {
+	var nodeProp, nodeProp2 string
+	var getIndex int
+	var swapIdA, swapIdB int
+	if fname == "Get" {
+		nodeProp = "[color=black style=filled fillcolor=yellow]"
+		getIndex = args[0].(int)
+	}
+	if fname == "Swap" {
+		swapIdA, swapIdB = args[0].(int), args[1].(int)
+		nodeProp = "[color=red style=filled fillcolor=red]"
+		nodeProp2 = "[color=blue style=filled fillcolor=blue]"
+	}
+
+	switch t := v.d.(type) {
+	case *arraylist.List:
+		// Get indicate the function name
+		// Swap to get us two graph, before and after swap
+		values := []string{}
+		dotString = "digraph graphname{bgcolor=white;subgraph cluster_0 {style=filled;color=lightgrey;node [style=filled,color=white, shape=\"Msquare\"];"
+		for i, value := range v.d.(*arraylist.List).Values() {
+			switch i {
+			case getIndex:
+				values = append(values, fmt.Sprintf("%v %s", value, nodeProp))
+			case swapIdA:
+				values = append(values, fmt.Sprintf("%v %s", value, nodeProp))
+			case swapIdB:
+				values = append(values, fmt.Sprintf("%v %s", value, nodeProp2))
+			default:
+				values = append(values, fmt.Sprintf("%v", value))
+			}
+			dotString += values[len(values)-1] + ";"
+		}
+		dotString += "}}"
+		astFile, err := dot.ParseString(dotString)
+
+		if err == nil {
+			astFileExtra, err := dot.ParseString(visualizeList(v.m.(*arraylist.List)))
+			if err == nil {
+
+				g := astFile.Graphs[0]
+				ge := astFileExtra.Graphs[0]
+				clusterChangeNodeName(ge, "_")
+				g.Stmts = append(g.Stmts, ge.Stmts...)
+
+				dotString = g.String()
+				fmt.Println(dotString)
+			}
+		}
+	default:
+		log.Printf("Type %s not found\n", t)
+	}
+	return dotString
+}
+
+func subgraphChangeNodeName(g *ast.Subgraph, prefix string) {
+	for i, s := range g.Stmts {
+		switch s.(type) {
+		case *ast.NodeStmt:
+			n := s.(*ast.NodeStmt)
+			n.Node.ID = "_" + n.Node.ID
+		case *ast.Subgraph:
+			subgraphChangeNodeName(s.(*ast.Subgraph), "_S"+fmt.Sprintf("%d", i)+"_"+prefix)
+		default:
+		}
+	}
+}
+
+func clusterChangeNodeName(g *ast.Graph, prefix string) {
+	for i, s := range g.Stmts {
+		switch s.(type) {
+		case *ast.NodeStmt:
+			n := s.(*ast.NodeStmt)
+			n.Node.ID = "_" + n.Node.ID
+		case *ast.Subgraph:
+			subgraphChangeNodeName(s.(*ast.Subgraph), "_S"+fmt.Sprintf("%d", i)+"_"+prefix)
+		default:
+		}
+	}
 }
 
 func (avw *AlgVisualWrapper) visualize1StepBefore(fname string, args ...interface{}) (dotString string) {
@@ -235,11 +339,32 @@ func (avw *AlgVisualWrapper) visualize1StepBefore(fname string, args ...interfac
 			}
 			dotString += values[len(values)-1] + ";"
 		}
-		dotString += "}}"
+		dotString += "}}" // only one graph
+
+		astFile, err := dot.ParseString(dotString)
+
+		if err == nil {
+			dotString = astFile.String()
+			fmt.Println(dotString)
+		}
 	default:
 		log.Printf("Type %s not found\n", t)
 	}
 	return
+}
+
+func visualizeList(list *arraylist.List) string {
+
+	values := []string{}
+	dotString := "digraph graphname{bgcolor=white;subgraph cluster_0 {style=filled;color=lightgrey;node [style=filled,color=white, shape=\"Msquare\"];"
+	for _, value := range list.Values() {
+		values = append(values, fmt.Sprintf("%v", value))
+		dotString += values[len(values)-1] + ";"
+	}
+	dotString += "}}" // only one graph
+
+	return dotString
+
 }
 
 // Visualizer makes a visual image demonstrating the list data structure
@@ -280,6 +405,12 @@ func (avw *AlgVisualWrapper) visualize1StepAfter(fname string, args ...interface
 			dotString += values[len(values)-1] + ";"
 		}
 		dotString += "}}"
+		astFile, err := dot.ParseString(dotString)
+
+		if err == nil {
+			dotString = astFile.String()
+			fmt.Println(dotString)
+		}
 	default:
 		log.Printf("Type %s not found\n", t)
 	}
