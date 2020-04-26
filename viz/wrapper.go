@@ -369,6 +369,63 @@ func clusterChangeNodeName(g *ast.Graph, pre string, ap string) {
 	}
 }
 
+func (avw *AlgVisualWrapperExtraMemory) visualize1StepBefore(fname string, args ...interface{}) (dotString string) {
+	var nodeProp2, nodeProp string
+	var swapIdA, swapIdB int
+	switch fname {
+	case "Swap":
+		swapIdA, swapIdB = args[0].(int), args[1].(int)
+		nodeProp = "[color=red style=filled fillcolor=red]"
+		nodeProp2 = "[color=blue style=filled fillcolor=blue]"
+	default:
+		return
+	}
+
+	switch t := avw.d.(type) {
+	case *arraylist.List:
+		// Get indicate the function name
+		// Swap to get us two graph, before and after swap
+		values := []string{}
+		dotString = "digraph graphname{bgcolor=white;subgraph cluster_0 {style=filled;color=lightgrey;node [style=filled,color=white, shape=\"Msquare\"];"
+		for i, value := range avw.d.(*arraylist.List).Values() {
+			switch i {
+			case swapIdA:
+				values = append(values, fmt.Sprintf("%v %s", value, nodeProp))
+			case swapIdB:
+				values = append(values, fmt.Sprintf("%v %s", value, nodeProp2))
+			default:
+				values = append(values, fmt.Sprintf("%v", value))
+			}
+			dotString += values[len(values)-1] + ";"
+		}
+		dotString += "}}" // only one graph
+
+		astFile, err := dot.ParseString(dotString)
+
+		if err == nil {
+			dotString = astFile.String()
+			//fmt.Println(dotString)
+		}
+
+		if err == nil {
+			astFileExtra, err := dot.ParseString(visualizeList(avw.m.(*arraylist.List)))
+			if err == nil {
+
+				g := astFile.Graphs[0]
+				ge := astFileExtra.Graphs[0]
+				clusterChangeNodeName(ge, "_", "_")
+				g.Stmts = append(g.Stmts, ge.Stmts...)
+
+				dotString = g.String()
+				//fmt.Println(dotString)
+			}
+		}
+	default:
+		log.Printf("Type %s not found\n", t)
+	}
+	return
+}
+
 func (avw *AlgVisualWrapper) visualize1StepBefore(fname string, args ...interface{}) (dotString string) {
 	var nodeProp2, nodeProp string
 	var swapIdA, swapIdB int
