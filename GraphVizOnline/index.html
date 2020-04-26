@@ -142,24 +142,19 @@ package main
 
 import (
 	"fmt"
-	"github.com/pennz/DataViz/trees/binaryheap"
+	"github.com/pennz/DataViz/lists/arraylist"
 	"github.com/pennz/DataViz/viz"
 )
 
 func main() {
-	avw := viz.NewAlgVisualWrapper()
-	heap := binaryheap.NewWithIntComparator()
-	
-	heap.Push(2)
-	heap.Push(-1)
-	heap.Push(0)
-	heap.Push(-5)
-	avw.Wrap(heap) // already a pointer now...
-	avw.Call("Push", 3)
-	avw.Call("Pop")
-	avw.Call("Pop")
-	avw.Call("Push", 4)
-	avw.Call("Push", 5)
+			l := arraylist.New(),
+			avw := NewAlgVisualWrapper()
+			avw.Wrap(l) // already a pointer now...
+			avw.Call("Add", 3)
+			avw.Call("Add", 4)
+			avw.Call("Add", 5)
+			avw.Call("Swap", 0, 1)
+			//log.Println(avw.Visualize())
 	for _, g := range avw.Visualize().([]string) {
 		fmt.Println(g)
 	}
