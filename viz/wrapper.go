@@ -34,10 +34,11 @@ type Visualizer interface {
 }
 
 type AlgVisualWrapper struct {
-	funcs_to_wrap map[reflect.Type][]string // what needs to record
-	d             interface{}               // wrapped datastructure
-	stepper       *VisualizerStepper        // store graphs
-	enabledV      bool
+	funcs_to_wrap  map[reflect.Type][]string // what needs to record
+	d              interface{}               // wrapped datastructure
+	stepper        *VisualizerStepper        // store graphs, should store call info too
+	enabledV       bool
+	funcCallDetail map[string]interface{} // record Get Swap detail, for visualize
 }
 
 func hookTable() map[reflect.Type]([]string) {
@@ -63,7 +64,7 @@ func hookTable() map[reflect.Type]([]string) {
 	// redblacktree := redblacktree.NewWith(comparator utils.Comparator)
 	redblacktree := redblacktree.NewWithIntComparator()
 	// redblacktree := redblacktree.NewWithStringComparator()
-	toHook[reflect.TypeOf(arraylist)] = []string{"Add", "Remove", "Clear", "Swap", "Insert"}
+	toHook[reflect.TypeOf(arraylist)] = []string{"Add", "Remove", "Clear", "Swap", "Insert", "Get"} // Get to visualize sorting algs, Swap needed too
 	toHook[reflect.TypeOf(doublylinkedlist)] = []string{"Add", "Remove", "Clear", "Swap", "Insert"}
 	toHook[reflect.TypeOf(singlylinkedlist)] = []string{"Add", "Remove", "Clear", "Swap", "Insert"}
 	toHook[reflect.TypeOf(treemap)] = []string{"Put", "Remove", "Clear"}
@@ -80,7 +81,7 @@ func hookTable() map[reflect.Type]([]string) {
 func NewAlgVisualWrapper() *AlgVisualWrapper {
 	toHook := hookTable()
 
-	return &AlgVisualWrapper{toHook, reflect.ValueOf(nil), NewVisualizerStepper(), true}
+	return &AlgVisualWrapper{toHook, reflect.ValueOf(nil), NewVisualizerStepper(), true, make(map[string]interface{}, 0)}
 }
 
 // invoke is copied from https://stackoverflow.com/questions/8103617/call-a-struct-and-its-method-by-name-in-go
@@ -134,6 +135,7 @@ func (avw *AlgVisualWrapper) Call(fname string, args ...interface{}) (out []refl
 	}
 
 	var m reflect.Value
+	// Visualize function of different data structure
 	var vfunc reflect.Value
 
 	switch t := avw.d.(type) {
@@ -152,6 +154,8 @@ func (avw *AlgVisualWrapper) Call(fname string, args ...interface{}) (out []refl
 
 	for _, f := range avw.funcs_to_wrap[reflect.TypeOf(avw.d)] {
 		if f == fname {
+			avw.funcCallDetail[fname] = args
+			// Call Visualize
 			vrv := vfunc.Call(make([]reflect.Value, 0))[0].Interface().(string)
 			avw.stepper.Record(vrv)
 		}
@@ -189,4 +193,27 @@ func (avw *AlgVisualWrapper) Visualize() interface{} {
 		}
 	}
 	return gs
+}
+
+// Visualizer makes a visual image demonstrating the list data structure
+// using dot language and Graphviz. It first producs a dot string corresponding
+// to the list and then runs graphviz to output the resulting image to a file.
+func Visualize(i interface{}) string {
+	var dotString string
+
+	switch t := i.(type) {
+	case *arraylist.List:
+		// Get indicate the function name
+		// Swap to get us two graph, before and after swap
+		values := []string{}
+		dotString = "digraph graphname{bgcolor=white;subgraph cluster_0 {style=filled;color=lightgrey;node [style=filled,color=white, shape=\"Msquare\"];"
+		for _, value := range i.(*arraylist.List).Values() {
+			values = append(values, fmt.Sprintf("%v", value))
+			dotString += values[len(values)-1] + ";"
+		}
+		dotString += "}}"
+	default:
+		log.Printf("Type %s not found\n", t)
+	}
+	return dotString
 }
