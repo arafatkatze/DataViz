@@ -141,7 +141,7 @@
 package main
 
 import (
-	"fmt"
+	"log"
 
 	"github.com/pennz/DataViz/lists/arraylist"
 	"github.com/pennz/DataViz/viz"
@@ -149,16 +149,23 @@ import (
 
 func main() {
 	l := arraylist.New()
-	avw := viz.NewAlgVisualWrapper()
-	avw.Wrap(l) // already a pointer now...
+	l.Add(1, 2, 3, 4, 5)
+	extra := arraylist.New()
+	extra.Add(l.Values()...)
+
+	var avw viz.VisualizerWrapper
+	avw = viz.NewAlgVisualWrapperExtraMemory()
+
+	got := avw.Wrap([]interface{}{l, extra}) // already a pointer now...
+	if got != nil {
+		log.Fatal("VisualizerWrapper Wrap error")
+		return
+	}
 	avw.Call("Add", 3)
 	avw.Call("Add", 4)
 	avw.Call("Add", 5)
 	avw.Call("Swap", 0, 1)
-	//log.Println(avw.Visualize())
-	for _, g := range avw.Visualize().([]string) {
-		fmt.Println(g)
-	}
+	avw.Visualize()
 }
     </pre>
     <pre id="editor">
