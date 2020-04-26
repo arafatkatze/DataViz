@@ -136,29 +136,40 @@ func (avw *AlgVisualWrapper) Call(fname string, args ...interface{}) (out []refl
 
 	var m reflect.Value
 	// Visualize function of different data structure
-	var vfunc reflect.Value
 
 	switch t := avw.d.(type) {
 	case *binaryheap.Heap: // 1. type switch , 2 different functions to hook
 		v := avw.d.(*binaryheap.Heap)
 		m = reflect.ValueOf(v).MethodByName(fname)
-		vfunc = reflect.ValueOf(v).MethodByName("Visualize")
 	case *btree.Tree: // 1. type switch , 2 different functions to hook
 		v := avw.d.(*binaryheap.Heap)
 		m = reflect.ValueOf(v).MethodByName(fname)
-		vfunc = reflect.ValueOf(v).MethodByName("Visualize")
+	case *arraylist.List: // 1. type switch , 2 different functions to hook
+		v := avw.d.(*arraylist.List)
+		m = reflect.ValueOf(v).MethodByName(fname)
 	default:
 		log.Printf("Type %s not found\n", t)
 	}
-	out = m.Call(inputs)
 
+	var hooked bool = false
 	for _, f := range avw.funcs_to_wrap[reflect.TypeOf(avw.d)] {
 		if f == fname {
-			avw.funcCallDetail[fname] = args
-			// Call Visualize
-			vrv := vfunc.Call(make([]reflect.Value, 0))[0].Interface().(string)
+			hooked = true
+			break
+		}
+	}
+	if hooked {
+		avw.funcCallDetail[fname] = args
+		// Call Visualize
+		vrv := avw.visualize1StepBefore(fname, args...)
+		if vrv != "" {
 			avw.stepper.Record(vrv)
 		}
+		out = m.Call(inputs)
+		vrv = avw.visualize1StepAfter(fname, args...)
+		avw.stepper.Record(vrv)
+	} else {
+		out = m.Call(inputs)
 	}
 	return
 }
@@ -195,20 +206,77 @@ func (avw *AlgVisualWrapper) Visualize() interface{} {
 	return gs
 }
 
-// Visualizer makes a visual image demonstrating the list data structure
-// using dot language and Graphviz. It first producs a dot string corresponding
-// to the list and then runs graphviz to output the resulting image to a file.
-func Visualize(i interface{}) string {
-	var dotString string
+func (avw *AlgVisualWrapper) visualize1StepBefore(fname string, args ...interface{}) (dotString string) {
+	var nodeProp2, nodeProp string
+	var swapIdA, swapIdB int
+	switch fname {
+	case "Swap":
+		swapIdA, swapIdB = args[0].(int), args[1].(int)
+		nodeProp = "[color=red style=filled fillcolor=red]"
+		nodeProp2 = "[color=blue style=filled fillcolor=blue]"
+	default:
+		return
+	}
 
-	switch t := i.(type) {
+	switch t := avw.d.(type) {
 	case *arraylist.List:
 		// Get indicate the function name
 		// Swap to get us two graph, before and after swap
 		values := []string{}
 		dotString = "digraph graphname{bgcolor=white;subgraph cluster_0 {style=filled;color=lightgrey;node [style=filled,color=white, shape=\"Msquare\"];"
-		for _, value := range i.(*arraylist.List).Values() {
-			values = append(values, fmt.Sprintf("%v", value))
+		for i, value := range avw.d.(*arraylist.List).Values() {
+			switch i {
+			case swapIdA:
+				values = append(values, fmt.Sprintf("%v %s", value, nodeProp))
+			case swapIdB:
+				values = append(values, fmt.Sprintf("%v %s", value, nodeProp2))
+			default:
+				values = append(values, fmt.Sprintf("%v", value))
+			}
+			dotString += values[len(values)-1] + ";"
+		}
+		dotString += "}}"
+	default:
+		log.Printf("Type %s not found\n", t)
+	}
+	return
+}
+
+// Visualizer makes a visual image demonstrating the list data structure
+// using dot language and Graphviz. It first producs a dot string corresponding
+// to the list and then runs graphviz to output the resulting image to a file.
+func (avw *AlgVisualWrapper) visualize1StepAfter(fname string, args ...interface{}) string {
+	var dotString string
+	var nodeProp, nodeProp2 string
+	var getIndex int
+	var swapIdA, swapIdB int
+	if fname == "Get" {
+		nodeProp = "[color=black style=filled fillcolor=black]"
+		getIndex = args[0].(int)
+	}
+	if fname == "Swap" {
+		swapIdA, swapIdB = args[0].(int), args[1].(int)
+		nodeProp = "[color=red style=filled fillcolor=red]"
+		nodeProp2 = "[color=blue style=filled fillcolor=blue]"
+	}
+
+	switch t := avw.d.(type) {
+	case *arraylist.List:
+		// Get indicate the function name
+		// Swap to get us two graph, before and after swap
+		values := []string{}
+		dotString = "digraph graphname{bgcolor=white;subgraph cluster_0 {style=filled;color=lightgrey;node [style=filled,color=white, shape=\"Msquare\"];"
+		for i, value := range avw.d.(*arraylist.List).Values() {
+			switch i {
+			case getIndex:
+				values = append(values, fmt.Sprintf("%v %s", value, nodeProp))
+			case swapIdA:
+				values = append(values, fmt.Sprintf("%v %s", value, nodeProp))
+			case swapIdB:
+				values = append(values, fmt.Sprintf("%v %s", value, nodeProp2))
+			default:
+				values = append(values, fmt.Sprintf("%v", value))
+			}
 			dotString += values[len(values)-1] + ";"
 		}
 		dotString += "}}"
