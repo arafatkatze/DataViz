@@ -1,7 +1,6 @@
 package viz
 
 import (
-	"log"
 	"reflect"
 	"testing"
 
@@ -104,7 +103,6 @@ func TestAlgVisualWrapper_Wrap_Viz_listExtra(t *testing.T) {
 				t.Errorf("VisualizerWrapper Wrap error")
 				return
 			}
-			log.Println(l, extra)
 			//b /Users/v/w/DataViz/viz/wrapper_test.go:60
 			avw.Call("Add", 3)
 			avw.Call("Add", 4)
@@ -151,7 +149,7 @@ func TestAlgVisualWrapper_Wrap_Viz_list(t *testing.T) {
 			avw.Call("Add", 4)
 			avw.Call("Add", 5)
 			avw.Call("Swap", 0, 1)
-			log.Println(avw.Visualize())
+			//log.Println(avw.Visualize())
 			//log.Printf("%v visualize\n", avw.Call("Visualize"))
 			//log.Println(avw.Visualize())
 			vs := avw.Visualize().([]string)

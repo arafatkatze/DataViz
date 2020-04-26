@@ -1,7 +1,6 @@
 package viz
 
 import (
-	"errors"
 	"fmt"
 	"log"
 	"reflect"
@@ -129,7 +128,7 @@ func invokeWithValue(any interface{}, name string, args ...interface{}) []reflec
 	return m.Call(inputs)
 }
 
-func (avw *AlgVisualWrapper) Call(fname string, args ...interface{}) (out []reflect.Value) {
+func (avw *AlgVisualWrapperExtraMemory) Call(fname string, args ...interface{}) (out []reflect.Value) {
 	//t := avw.d.Type()
 	//switch t := di.(type) {
 	//case binaryheap.Heap: // 1. type switch , 2 different functions to hook
@@ -188,26 +187,82 @@ func (avw *AlgVisualWrapper) Call(fname string, args ...interface{}) (out []refl
 // So we need to creat type and its function in the runtime
 // Or we need to hack to hook functions to original function in runtime
 func (avw *AlgVisualWrapper) Wrap(i interface{}) error {
-	_, ok := i.(Visualizer) // i is an interface wrapped a pointer to struct
-	if !ok {
-		panic(0)
-		return errors.New("Visualization wrap error, cannot find proper interface")
-	}
+	//_, ok := i.(Visualizer) // i is an interface wrapped a pointer to struct
+	//if !ok {
+	//	panic(0)
+	//	//return errors.New("Visualization wrap error, cannot find proper interface")
+	//}
 	avw.d = i // we know it is a pointer
 	return nil
+}
+func (avw *AlgVisualWrapper) Call(fname string, args ...interface{}) (out []reflect.Value) {
+	//t := avw.d.Type()
+	//switch t := di.(type) {
+	//case binaryheap.Heap: // 1. type switch , 2 different functions to hook
+	//	dp, _ = &di.(binaryheap.Heap)
+	//case btree.Tree: // 1. type switch , 2 different functions to hook
+	//	dp, _ = di.(btree.Tree)
+	//default:
+	//	log.Printf("Type %s not found\n", t)
+	//}
+	inputs := make([]reflect.Value, len(args))
+	for i := range args {
+		inputs[i] = reflect.ValueOf(args[i])
+	}
+
+	var m reflect.Value
+	// Visualize function of different data structure
+
+	switch t := avw.d.(type) {
+	case *binaryheap.Heap: // 1. type switch , 2 different functions to hook
+		v := avw.d.(*binaryheap.Heap)
+		m = reflect.ValueOf(v).MethodByName(fname)
+	case *btree.Tree: // 1. type switch , 2 different functions to hook
+		v := avw.d.(*binaryheap.Heap)
+		m = reflect.ValueOf(v).MethodByName(fname)
+	case *arraylist.List: // 1. type switch , 2 different functions to hook
+		v := avw.d.(*arraylist.List)
+		m = reflect.ValueOf(v).MethodByName(fname)
+	default:
+		log.Printf("Type %s not found\n", t)
+	}
+
+	var hooked bool = false
+	for _, f := range avw.funcs_to_wrap[reflect.TypeOf(avw.d)] {
+		if f == fname {
+			hooked = true
+			break
+		}
+	}
+	if hooked {
+		avw.funcCallDetail[fname] = args
+		// Call Visualize
+		vrv := avw.visualize1StepBefore(fname, args...)
+		if vrv != "" {
+			avw.stepper.Record(vrv)
+		}
+		out = m.Call(inputs)
+		vrv = avw.visualize1StepAfter(fname, args...)
+		avw.stepper.Record(vrv)
+	} else {
+		out = m.Call(inputs)
+	}
+	return
 }
 
 func (avw *AlgVisualWrapperExtraMemory) Wrap(itfc interface{}) error {
 	interfaces := itfc.([]interface{})
 
+	log.Println(interfaces)
 	i := interfaces[0]
 	ie := interfaces[1]
+	log.Printf("%t,%v,\n %t,%v,\n %t,%v\n", interfaces, interfaces, i, i, ie, ie)
 
-	_, ok := i.(Visualizer) // i is an interface wrapped a pointer to struct
-	if !ok {
-		panic(0)
-		return errors.New("Visualization wrap error, cannot find proper interface")
-	}
+	//_, ok := i.(Visualizer) // i is an interface wrapped a pointer to struct
+	//if !ok {
+	//	panic(0)
+	//	//return errors.New("Visualization wrap error, cannot find proper interface")
+	//}
 	avw.d = i // we know it is a pointer
 	avw.m = ie
 	return nil
@@ -271,11 +326,11 @@ func (v *AlgVisualWrapperExtraMemory) visualize1StepAfter(fname string, args ...
 
 				g := astFile.Graphs[0]
 				ge := astFileExtra.Graphs[0]
-				clusterChangeNodeName(ge, "_")
+				clusterChangeNodeName(ge, "_", "_")
 				g.Stmts = append(g.Stmts, ge.Stmts...)
 
 				dotString = g.String()
-				fmt.Println(dotString)
+				//fmt.Println(dotString)
 			}
 		}
 	default:
@@ -284,27 +339,33 @@ func (v *AlgVisualWrapperExtraMemory) visualize1StepAfter(fname string, args ...
 	return dotString
 }
 
-func subgraphChangeNodeName(g *ast.Subgraph, prefix string) {
-	for i, s := range g.Stmts {
+func subgraphChangeNodeName(g *ast.Subgraph, pre string, ap string) {
+	for _, s := range g.Stmts {
 		switch s.(type) {
 		case *ast.NodeStmt:
 			n := s.(*ast.NodeStmt)
-			n.Node.ID = "_" + n.Node.ID
+			n.Node.ID = pre + n.Node.ID
+			log.Println(n.Node.ID)
 		case *ast.Subgraph:
-			subgraphChangeNodeName(s.(*ast.Subgraph), "_S"+fmt.Sprintf("%d", i)+"_"+prefix)
+			sg := s.(*ast.Subgraph)
+			sg.ID = sg.ID + ap
+			subgraphChangeNodeName(sg, pre, ap)
 		default:
 		}
 	}
 }
 
-func clusterChangeNodeName(g *ast.Graph, prefix string) {
-	for i, s := range g.Stmts {
+func clusterChangeNodeName(g *ast.Graph, pre string, ap string) {
+	for _, s := range g.Stmts {
 		switch s.(type) {
 		case *ast.NodeStmt:
 			n := s.(*ast.NodeStmt)
-			n.Node.ID = "_" + n.Node.ID
+			n.Node.ID = pre + n.Node.ID
+			log.Println(n.Node.ID)
 		case *ast.Subgraph:
-			subgraphChangeNodeName(s.(*ast.Subgraph), "_S"+fmt.Sprintf("%d", i)+"_"+prefix)
+			sg := s.(*ast.Subgraph)
+			sg.ID = sg.ID + ap
+			subgraphChangeNodeName(sg, pre, ap)
 		default:
 		}
 	}
@@ -345,7 +406,7 @@ func (avw *AlgVisualWrapper) visualize1StepBefore(fname string, args ...interfac
 
 		if err == nil {
 			dotString = astFile.String()
-			fmt.Println(dotString)
+			//fmt.Println(dotString)
 		}
 	default:
 		log.Printf("Type %s not found\n", t)
@@ -409,7 +470,7 @@ func (avw *AlgVisualWrapper) visualize1StepAfter(fname string, args ...interface
 
 		if err == nil {
 			dotString = astFile.String()
-			fmt.Println(dotString)
+			//fmt.Println(dotString)
 		}
 	default:
 		log.Printf("Type %s not found\n", t)
