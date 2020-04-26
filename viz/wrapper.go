@@ -253,10 +253,10 @@ func (avw *AlgVisualWrapper) Call(fname string, args ...interface{}) (out []refl
 func (avw *AlgVisualWrapperExtraMemory) Wrap(itfc interface{}) error {
 	interfaces := itfc.([]interface{})
 
-	log.Println(interfaces)
+	//log.Println(interfaces)
 	i := interfaces[0]
 	ie := interfaces[1]
-	log.Printf("%t,%v,\n %t,%v,\n %t,%v\n", interfaces, interfaces, i, i, ie, ie)
+	//log.Printf("%t,%v,\n %t,%v,\n %t,%v\n", interfaces, interfaces, i, i, ie, ie)
 
 	//_, ok := i.(Visualizer) // i is an interface wrapped a pointer to struct
 	//if !ok {
@@ -345,7 +345,6 @@ func subgraphChangeNodeName(g *ast.Subgraph, pre string, ap string) {
 		case *ast.NodeStmt:
 			n := s.(*ast.NodeStmt)
 			n.Node.ID = pre + n.Node.ID
-			log.Println(n.Node.ID)
 		case *ast.Subgraph:
 			sg := s.(*ast.Subgraph)
 			sg.ID = sg.ID + ap
@@ -361,7 +360,6 @@ func clusterChangeNodeName(g *ast.Graph, pre string, ap string) {
 		case *ast.NodeStmt:
 			n := s.(*ast.NodeStmt)
 			n.Node.ID = pre + n.Node.ID
-			log.Println(n.Node.ID)
 		case *ast.Subgraph:
 			sg := s.(*ast.Subgraph)
 			sg.ID = sg.ID + ap
