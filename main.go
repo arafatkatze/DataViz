@@ -61,7 +61,7 @@ func read2buf(rc io.ReadCloser) *bytes.Buffer {
 }
 
 func compileHandler_debug(c *gin.Context) {
-	version := c.PostForm("version")
+	// version := c.PostForm("version")
 	body := c.PostForm("body")
 	withVet := c.PostForm("withVet")
 	log.Println(version, body, withVet)
