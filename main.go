@@ -10,6 +10,7 @@ import (
 	"os"
 
 	"github.com/gin-gonic/gin"
+	"github.com/pennz/DataViz/viz"
 )
 
 func setupRouter() *gin.Engine {
@@ -46,6 +47,13 @@ func readCloser2String(rc io.ReadCloser) string {
 	return newStr
 }
 
+func readCloser2SVG(rc io.ReadCloser) string {
+	buf := new(bytes.Buffer)
+	buf.ReadFrom(rc)
+	newStr := viz.Dot2SVG(buf.String())
+	return newStr
+}
+
 func read2buf(rc io.ReadCloser) *bytes.Buffer {
 	buf := new(bytes.Buffer)
 	buf.ReadFrom(rc)
@@ -53,13 +61,13 @@ func read2buf(rc io.ReadCloser) *bytes.Buffer {
 }
 
 func compileHandler_debug(c *gin.Context) {
-
 	version := c.PostForm("version")
 	body := c.PostForm("body")
 	withVet := c.PostForm("withVet")
 	log.Println(version, body, withVet)
 }
 
+// compileHandler will relay the request to play.golang.org
 func compileHandler(c *gin.Context) {
 	//log.Printf("%v\n", readCloser2String(c.Request.Body))
 	// https://github.com/gin-gonic/gin#try-to-bind-body-into-different-structs
@@ -75,11 +83,11 @@ func compileHandler(c *gin.Context) {
 	response, err := http.Post("https://play.golang.org/compile", "application/x-www-form-urlencoded; charset=UTF-8", relay)
 	if err == nil {
 		if response.StatusCode == 200 && response.Body != nil {
-			c.String(response.StatusCode, readCloser2String(response.Body))
+			c.String(response.StatusCode, readCloser2SVG(response.Body))
 		} else {
-			c.String(response.StatusCode, "")
+			c.String(response.StatusCode, "Error or cannot get response from play.golang.org.")
 		}
 	} else {
-		c.String(404, "play.golang.org cannot access")
+		c.String(404, "Cannot access play.golang.org.")
 	}
 }
