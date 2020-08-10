@@ -50,6 +50,7 @@ func readCloser2String(rc io.ReadCloser) string {
 func readCloser2SVG(rc io.ReadCloser) string {
 	buf := new(bytes.Buffer)
 	buf.ReadFrom(rc)
+	log.Println("Converting dot to SVG...")
 	newStr := viz.Dot2SVG(buf.String())
 	return newStr
 }
@@ -61,7 +62,7 @@ func read2buf(rc io.ReadCloser) *bytes.Buffer {
 }
 
 func compileHandler_debug(c *gin.Context) {
-	// version := c.PostForm("version")
+	version := c.PostForm("version")
 	body := c.PostForm("body")
 	withVet := c.PostForm("withVet")
 	log.Println(version, body, withVet)
