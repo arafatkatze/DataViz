@@ -26,6 +26,8 @@ github.com/emirpasic/gods/trees/binaryheap
 github.com/emirpasic/gods/trees/btree
 github.com/emirpasic/gods/trees/redblacktree
 github.com/emirpasic/gods/utils
+# github.com/fogleman/gg v1.3.0
+github.com/fogleman/gg
 # github.com/gin-contrib/sse v0.1.0
 github.com/gin-contrib/sse
 # github.com/gin-gonic/gin v1.6.2
@@ -42,6 +44,16 @@ github.com/go-playground/locales/currency
 github.com/go-playground/universal-translator
 # github.com/go-playground/validator/v10 v10.2.0
 github.com/go-playground/validator/v10
+# github.com/goccy/go-graphviz v0.0.6
+## explicit
+github.com/goccy/go-graphviz
+github.com/goccy/go-graphviz/cdt
+github.com/goccy/go-graphviz/cgraph
+github.com/goccy/go-graphviz/gvc
+github.com/goccy/go-graphviz/internal/ccall
+# github.com/golang/freetype v0.0.0-20170609003504-e2365dfdc4a0
+github.com/golang/freetype/raster
+github.com/golang/freetype/truetype
 # github.com/golang/protobuf v1.3.3
 github.com/golang/protobuf/proto
 # github.com/heroku/x v0.0.22
@@ -58,6 +70,8 @@ github.com/mattn/go-isatty
 github.com/modern-go/concurrent
 # github.com/modern-go/reflect2 v0.0.0-20180701023420-4b7aa43c6742
 github.com/modern-go/reflect2
+# github.com/pkg/errors v0.9.1
+github.com/pkg/errors
 # github.com/pmezard/go-difflib v1.0.0
 github.com/pmezard/go-difflib/difflib
 # github.com/stretchr/testify v1.4.0
@@ -65,6 +79,13 @@ github.com/pmezard/go-difflib/difflib
 github.com/stretchr/testify/assert
 # github.com/ugorji/go/codec v1.1.7
 github.com/ugorji/go/codec
+# golang.org/x/image v0.0.0-20200119044424-58c23975cae1
+golang.org/x/image/draw
+golang.org/x/image/font
+golang.org/x/image/font/basicfont
+golang.org/x/image/font/gofont/goregular
+golang.org/x/image/math/f64
+golang.org/x/image/math/fixed
 # golang.org/x/sys v0.0.0-20200302150141-5c8b2ff67527
 golang.org/x/sys/unix
 # gonum.org/v1/gonum v0.0.0-20190502212712-4a2eb0188cbc
