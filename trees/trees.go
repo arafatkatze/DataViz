@@ -10,7 +10,7 @@ import "github.com/Arafatk/Dataviz/containers"
 // Tree interface that all trees implement
 type Tree interface {
 	containers.Container
-	// Empty() bool
+	 Empty() bool
 	// Size() int
 	// Clear()
 	// Values() []interface{}
